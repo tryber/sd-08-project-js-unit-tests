@@ -17,7 +17,7 @@ const circle = require('../src/circle');
     - circle(3) // Retorno: {radius: 3, area: 28,26, circumference: 18.84}
 
   DICA: Números de ponto flutuante em JavaScript são imprecisos!  Para testar, vá no seu navegador e faça `0.2 + 0.1`.
-        Uma solução pra isso pode ser fazer a soma no seguinte formato: `parseFloat((0.2 + 0.1).toPrecision(2))`.
+        Uma solução pra isso pode ser fazer a soma no seguinte formato: `parseFloat((0.2 + 0.1)).toPrecision(2)`.
         Use esse conhecimento para te ajudar a lidar com possíveis problemas que esses testes trarão!
 
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
