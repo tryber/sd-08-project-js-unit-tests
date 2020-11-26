@@ -84,9 +84,9 @@ const createMenu = (obj) => {
       const consumption = object.consumption;
 
       for (i = 0; i < consumption.length; i += 1) {
-        if (Object.keys(menu.food).includes(consumption[i])) {
+        if (menu.food[consumption[i]]) {
           price += menu.food[consumption[i]];
-        } else if (Object.keys(menu.drinks).includes(consumption[i])) {
+        } else if (menu.drinks[consumption[i]]) {
           price += menu.drinks[consumption[i]];
         }
       }
