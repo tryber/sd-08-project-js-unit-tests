@@ -18,11 +18,12 @@ const average = (arr) => {
   let soma = 0;
   for (let index = 0; index < quantidade; index += 1) {
     const element = arr[index];
-    if (typeof element !== 'number' || element === []) {
+    if (typeof element !== 'number') {
       media = undefined;
+      break;
     } else {
       soma += element;
-      media = soma / quantidade;
+      media = Math.round(soma / quantidade);
     }
   }
   return media;
