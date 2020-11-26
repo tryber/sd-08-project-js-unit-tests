@@ -39,7 +39,6 @@ describe('#productDetails', () => {
     // Teste que os dois itens dentro do array retornado pela função são objetos.
     // Teste que os dois objetos são diferentes entre si.
     // (Difícil) Teste que os dois productIds terminam com 123.
-    const product = productDetails('Álcool gel', 'Máscara');
     assert.strictEqual(Array.isArray(product), true);
     assert.strictEqual(product.length, 2);
     for (let item = 0; item < product.length; item += 1) {
