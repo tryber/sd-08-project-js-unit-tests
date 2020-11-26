@@ -16,18 +16,19 @@ const average = (ary) => {
   let array = ary;
   let total = ary.length;
   let same = 0;
-  let media;
+  let media = 0;
   for (let index = 0; index < total; index += 1) {
-    if (typeof total !== 'number') {
-      media = undefined;
+   
+    if (typeof array[index] !== 'number') {
+      media = undefined; break;
     } else {
-      let count = array[index];
-      same += count;
+      
+      same += array[index];
       media = (same)/total;
     }
   }
 return media;
 };
-console.log(average([]));
+console.log(average([1, 2, 3, '4', 5]));
 
 module.exports = average;
