@@ -14,8 +14,4 @@
 
 const average = () => {};
 
-const array = [2.3, 4.6, 7.1];
-const arr = Math.round(array);
-console.log(arr);
-
 module.exports = average;
