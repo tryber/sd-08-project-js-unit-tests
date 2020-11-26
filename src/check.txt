@@ -1,0 +1,13 @@
+
+
+
+------------------
+PASS tests/average.spec.js
+PASS tests/numbers.spec.js
+PASS tests/vqv.spec.js
+PASS tests/circle.spec.js
+PASS tests/createStudent.spec.js
+
+PASS tests/objCalculator.spec.js
+PASS tests/myCounter.spec.js
+
