@@ -14,25 +14,22 @@
 
 
 const calcMedia = (array) => {
-  let countElements = null;
-  let totalSoma = null;
-  for(let index = 0; index < array.length; index +=1){
-    if (typeof array[index] !== 'number'){
+  let totalSoma = 0;
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== 'number') {
       return undefined;
-    }
-    countElements += 1;
-    totalSoma += Math.round(array[index]);
+    };
+    totalSoma += (array[index]);
   }
-  media = totalSoma / countElements;
+  media = Math.round(totalSoma / array.length);
   return media;
 }
 
 const average = (array) => {
-  if (array.length > 0){
+  if (array.length > 0) {
     return calcMedia(array);
-  }else {
+  } 
     return undefined;
-  }
-}
+};
 
 module.exports = average;
