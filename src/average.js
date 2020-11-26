@@ -14,6 +14,9 @@
 const assert = require('assert');
 
 const average = (array) => {
+  if (array.length === 0) {
+    return undefined;
+  }
   let someOfAllNumbers = 0;
   for (let index = 0; index < array.length; index += 1) {
     if (typeof (array[index]) !== 'number') {
@@ -32,3 +35,6 @@ const arrayTest = [2, 4, 6, 8, 10];
 assert.strictEqual(average(arrayTest), 6);
 assert.strictEqual(average([2, '2']), undefined);
 assert.strictEqual(average([0.1, 0.2, 0.3, 1]), 0);
+assert.strictEqual(average([]), undefined);
+assert.strictEqual(average([' ']), undefined);
+assert.strictEqual(average([47, 63, 122]), 77);
