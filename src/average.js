@@ -29,7 +29,7 @@ const calcMedia = (array) => {
 
 const average = (array) => {
   if (array.length > 0){
-    return calcMedia;
+    return calcMedia(array);
   }else {
     return undefined;
   }
