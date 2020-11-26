@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 
 const assert = require('assert');
-const type = require('devtools-type');
 const productDetails = require('../src/productDetails');
 
 /*
@@ -34,10 +33,10 @@ const productDetails = require('../src/productDetails');
 
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
-    assert.strictEqual(type.is.array(productDetails('Alcool gel', 'Máscara')), true);
+    assert.strictEqual(typeof productDetails('Alcool gel', 'Máscara'),'object');
     assert.strictEqual(productDetails('Alcool gel', 'Máscara').length, 2);
-    assert.strictEqual(type.is.object(productDetails('Alcool gel', 'Máscara')[0]), true);
-    assert.strictEqual(type.is.object(productDetails('Alcool gel', 'Máscara')[1]), true);
+    assert.strictEqual(typeof (productDetails('Alcool gel', 'Máscara')[0]), 'object');
+    assert.strictEqual(typeof (productDetails('Alcool gel', 'Máscara')[1]), 'object');
     assert.strictEqual(
       productDetails('Alcool gel', 'Máscara')[0] === productDetails('Alcool gel', 'Máscara')[1],
       false,
