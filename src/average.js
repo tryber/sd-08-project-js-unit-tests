@@ -13,17 +13,19 @@
 */
 
 const average = (vetor) => {
-  let resultado = 0;
-  if (vetor == [] || Array.isArray(vetor) == false) {
+  let calculo = 0;
+
+  if (isNaN(vetor) === false || Array.isArray(vetor) === false) {
     return undefined;
   }
   for (let index = 0; index < vetor.length; index += 1) {
     if (typeof (vetor[index]) !== 'number') {
       return undefined;
     }
-    resultado += Math.round(vetor[index]);
+    calculo += vetor[index];
   }
-  return resultado = resultado / vetor.length;
+  const resultado = (calculo / vetor.length);
+  return Math.round(resultado);
 };
 
 module.exports = average;
