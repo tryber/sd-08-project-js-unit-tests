@@ -28,7 +28,7 @@ function media(array) {
   for (let i = 0; i < array.length; i += 1) {
     count += array[i];
   }
-  return Math.round(count/array.length);
+  return Math.round(count / array.length);
 }
 const average = (array) => {
   const check = checkArray(array);
