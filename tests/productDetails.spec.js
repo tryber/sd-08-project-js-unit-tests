@@ -38,7 +38,7 @@ describe('#productDetails', () => {
     assert.strictEqual(typeof productDetails('alcool', 'gel')[0], 'object');
     assert.strictEqual(typeof productDetails('alcool', 'gel')[1], 'object');
     assert.notStrictEqual(productDetails('alcool', 'gel')[0], productDetails('alcool', 'gel')[1]);
-    assert.strictEqual(productDetails('alcool', 'gel')[0].details.productId.endsWith('123'));
-    assert.strictEqual(productDetails('alcool', 'gel')[1].details.productId.endsWith('123'));
+    assert.strictEqual(productDetails('alcool', 'gel')[0].details.productId.endsWith('123'), true);
+    assert.strictEqual(productDetails('alcool', 'gel')[1].details.productId.endsWith('123'), true);
   });
 });
