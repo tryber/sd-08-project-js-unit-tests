@@ -15,15 +15,15 @@
 const average = (array) => {
   let soma = 0;
   let count = 0;
-  array.forEach(e => {
-    console.log(e);
+  array.forEach((e) => {
     if (typeof e !== 'number') {
       return undefined;
     } 
     soma += e;
-    count++;
+    count += 1;
   });
-  return soma/count;
+  return soma / count;
 };
+
 
 module.exports = average;
