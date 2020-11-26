@@ -17,7 +17,7 @@ const average = (array) => {
   let someOfAllNumbers = 0;
   for (let index = 0; index < array.length; index += 1) {
     if (typeof (array[index]) !== 'number') {
-      return 'undefined';
+      return undefined;
     }
     const newIndex = Math.round(array[index]);
     someOfAllNumbers += newIndex;
@@ -31,3 +31,4 @@ module.exports = average;
 const arrayTest = [2, 4, 6, 8, 10];
 
 assert.strictEqual(average(arrayTest), 6);
+assert.strictEqual(average([2,'2']), undefined);
