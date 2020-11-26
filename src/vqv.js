@@ -16,7 +16,7 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {
+fucntion vqv (nome, idade) {
   return `Oi, meu nome é ${nome}!
   Tenho ${idade} anos,
   Trabalho na Trybe e mando muito em programação!
