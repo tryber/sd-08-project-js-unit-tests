@@ -75,6 +75,7 @@ const testObj = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja
 
 const createMenu = object => ({
   fetchMenu: object,
+  consumption: [],
 });
 
 module.exports = createMenu;
