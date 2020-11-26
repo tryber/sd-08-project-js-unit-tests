@@ -82,8 +82,8 @@ createMenu.pay = () => {
   const orders = createMenu.consumption;
   let totalToPay = 0;
   for (let index = 0; index < orders.length; index += 1) {
-    let foodPrice = createMenu.fetchMenu.food[index];
-    let drinkPrice = createMenu.fetchMenu.drink[index];
+    const foodPrice = createMenu.fetchMenu.food[index];
+    const drinkPrice = createMenu.fetchMenu.drink[index];
     if (foodPrice !== undefined) {
       totalToPay += foodPrice;
     } else if (drinkPrice !== undefined) {
