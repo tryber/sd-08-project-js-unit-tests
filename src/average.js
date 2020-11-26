@@ -16,16 +16,11 @@ const average = (array) => {
   const main = {
     valores: 0,
   };
-  if (array.length === 0) {
-    return undefined;
-  } else {
-    for (let index = 0; index < array.length; index += 1) {
-      if (typeof array[index] !== "number") {
-        return undefined;
-      } else {
-        main.valores += array[index] / array.length;
-      }
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== "number" || array.length === 0) {
+      return undefined;
     }
+    main.valores += array[index] / array.length;
   }
   return Math.round(main.valores);
 };
