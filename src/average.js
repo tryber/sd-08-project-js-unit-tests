@@ -16,7 +16,7 @@ const average = (arrayNumbers) => {
   let soma = 0;
   let media = 0;
   for (let index = 0; index < arrayNumbers.length; index += 1) {
-    if (typeof arrayNumbers[index] !== 'number') {
+    if (typeof(arrayNumbers[index]) !== 'number') {
       return undefined;
     }
     soma += arrayNumbers[index];
