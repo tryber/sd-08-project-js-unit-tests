@@ -14,7 +14,7 @@
 
 const average = (array) => {
   if (array.length === 0) {
-    return;
+    return undefined;
   }
 
   let sum = 0;
