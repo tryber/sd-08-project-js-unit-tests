@@ -18,7 +18,6 @@ const numbers = require('../src/numbers');
 
 describe('#numbers', () => {
   it('should return an array and return if it has only numbers or not', () => {
-    assert.fail();
     assert(numbers([1, 2, 3, 4, 5]));
     assert(!numbers([1, 2, '3', 4, 5]));
     assert(!numbers([1, 'a', 3]));
