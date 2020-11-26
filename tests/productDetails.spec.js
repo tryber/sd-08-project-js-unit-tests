@@ -41,7 +41,6 @@ describe('#productDetails', () => {
       productDetails('Alcool gel', 'Máscara')[0] === productDetails('Alcool gel', 'Máscara')[1],
       false,
     );
-
     assert.strictEqual(
       productDetails('Alcool gel', 'Máscara')[0].details.productId.endsWith('123'),
       true,
