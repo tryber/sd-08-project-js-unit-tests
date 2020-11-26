@@ -12,12 +12,9 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-
-
 const average = (array) => {
   let sum = 0;
-  let result;
-  const arrayVazio = [];
+  const result;
   if (array.length <= 0) {
     return undefined;
   }
@@ -26,12 +23,9 @@ const average = (array) => {
       return undefined;
     }
     sum += array[index];
-    };
+  }
   result = Math.round(sum / array.length);
   return result;
 };
 
-
 module.exports = average;
-
-
