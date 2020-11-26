@@ -13,17 +13,14 @@
 */
 
 const average = (ary) => {
-  let array = ary;
   let total = ary.length;
   let same = 0;
   let media = 0;
   for (let index = 0; index < total; index += 1) {
-   
-    if (typeof array[index] !== 'number') {
+    if (typeof ary[index] !== 'number') {
       media = undefined; break;
     } else {
-      
-      same += array[index];
+      same += ary[index];
       media = (same)/total;
     }
   }
