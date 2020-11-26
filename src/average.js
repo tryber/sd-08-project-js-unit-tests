@@ -20,30 +20,28 @@ function quantityOfZero(array) {
     }
   }
   if (quantityOfZero === (array.length - 1)) {
-    return 0
+    return 0;
+  } else {
+    return;
   }
 }
 
 const average = (array) => {
   let sum = 0;
 
-  if (array.length === 0 || array.length === 1) {
-    return undefined
+  if (array.length === 0 || array.length === 1) return undefined;
+
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof (array[index]) !== 'number') return undefined;
   }
 
   for (let index = 0; index < array.length; index += 1) {
-    if (typeof (array[index]) !== 'number') {
-      return undefined
-    }
-  }
-
-  for (let index = 0; index < array.length; index += 1) {
-    sum += array[index]
+    sum += array[index];
   }
 
   quantityOfZero(array)
 
-  return Math.round(sum / array.length)
+  return Math.round(sum / array.length);
 };
 
 module.exports = average;
