@@ -32,7 +32,7 @@ checks:
 exclude_patterns:
   - "**/*.spec.js"
   - "/node_modules"
-  -"./.history/"
+  - "/.history"
 plugins:
   csslint:
     enabled: true
