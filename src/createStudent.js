@@ -16,10 +16,12 @@
 */
 
 const createStudent = (object) => {
-  const feedbackfunction = () => {return (`Eita pessoa boa!`)};
+  function feedbackfunction() {
+    return ('Eita pessoa boa!');
+  };
   const student = {
     name: object,
-    feedback: feedbackfunction
+    feedback: feedbackfunction,
   };
   return student;
 };
