@@ -150,15 +150,14 @@ describe('#createMenu', () => {
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     const verificaPreco = () => {
-      const pedido = createMenu()
+      const pedido = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} })
       pedido.order("coxinha");
       pedido.order("agua");
       pedido.order("coxinha");
       
       return pedido.pay();
     }
-    assert.strictEqual(verificaPreco(), x)
-    }
-    // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
-  });
+    assert.strictEqual(verificaPreco(), 1.1 * (3.9 + 3.9 + 3.9));
+  })
+  // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
 });

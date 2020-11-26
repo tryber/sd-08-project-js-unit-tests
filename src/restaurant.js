@@ -77,16 +77,18 @@ const createMenu = (objectParameter) => {
   
   result.fetchMenu = objectParameter;
   result.consumption = [];
-  result.order = (pedido) => result.consumption.push(pedido);
+  result.order = (pedido) => result.consumption.push(pedido); 
   result.pay = () => {
-    let payment = 0
+    let payment = 0;
+    
     for (let index = 0; index < result.consumption.length; index += 1) {
-      for (let i = 0; i < result.fetchMenu.food; i += 1){
-        if (Object.keys(result.fetchMenu.food)[i] == result.consumption[index]) {
-          payment += Object.values(result.fetchMenu.food)[i];
+      for (let i = 0; i < Object.keys(result.fetchMenu.food).length; i += 1){
+        if (Object.keys(result.fetchMenu['food'])[i] == result.consumption[index]) {
+          payment += Object.values(result.fetchMenu['food'])[i];
         }
       }
-      for (let j = 0; j < result.fetchMenu.drink; j += 1){
+      
+      for (let j = 0; j < Object.keys(result.fetchMenu.food).length; j += 1){
         if (Object.keys(result.fetchMenu.drink)[j] == result.consumption[index]) {
           payment += Object.values(result.fetchMenu.drink)[j];
         }
@@ -104,7 +106,9 @@ const meuPedido = createMenu(menu);
 meuPedido.order('coxinha')
 meuPedido.order('agua')
 meuPedido.pay();
-console.log(meuPedido.pay() + Object.values(menu.food)[0])
 
+console.log(meuPedido.fetchMenu.food);
+console.log(meuPedido.pay())
+console.log(meuPedido.consumption)
 
-require('assert').equal(Object.keys(menu.food)[0], 'coxinha')
+console.log(Object.keys(menu['food'])[0])
