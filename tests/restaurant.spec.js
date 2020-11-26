@@ -111,7 +111,17 @@ describe('#createMenu', () => {
     // objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
+    const verificaPedidos = () => {
+      const pedido = createMenu()
+      pedido.order("coxinha");
+      pedido.order("agua");
+      pedido.order("sopa");
+      pedido.order("sashimi");
 
+      return pedido.consumption;
+    }
+
+    assert.deepStrictEqual(verificaPedidos(), ["coxinha", "agua", "sopa", "sashimi"]);
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
