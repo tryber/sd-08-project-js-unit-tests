@@ -21,6 +21,6 @@ function vqv(nome, idade) {
   Tenho ${idade} anos,
   Trabalho na Trybe e mando muito em programação!
   #VQV!`;
-};
+}
 
 module.exports = vqv;
