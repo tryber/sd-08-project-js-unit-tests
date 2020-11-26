@@ -132,6 +132,7 @@ describe('#createMenu', () => {
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
+    assert(restaurant.pay === 11.7);
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
