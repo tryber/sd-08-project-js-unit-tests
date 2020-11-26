@@ -17,7 +17,7 @@ const average = (array) => {
     if (typeof array[a] !== 'number') return undefined;
     soma += array[a];
   }
-  const media = soma / array.length;
+  const media = Math.round(soma / array.length);
   return media;
 };
 module.exports = average;
