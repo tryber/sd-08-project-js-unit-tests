@@ -3,7 +3,7 @@
 
 const assert = require('assert');
 const circle = require('../src/circle');
-const saida = circle(radius)
+const saida = circle()
 
 /*
   Essa função recebe o raio de um círculo e retorna um objeto contendo suas informações (Raio, Área e Circunferência).
