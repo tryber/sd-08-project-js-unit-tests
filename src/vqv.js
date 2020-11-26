@@ -18,9 +18,10 @@
 
 function vqv(nome, idade) {
   return `Oi, meu nome é ${nome}!
-  Tenho ${idade} anos,
-  trabalho na Trybe e mando muito em programação!
-  #VQV!`;
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`;
 }
+
 
 module.exports = vqv;
