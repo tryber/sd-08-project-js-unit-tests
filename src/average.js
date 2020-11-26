@@ -18,18 +18,17 @@ const calcMedia = (array) => {
   for (let index = 0; index < array.length; index += 1) {
     if (typeof array[index] !== 'number') {
       return undefined;
-    };
+    }
     totalSoma += (array[index]);
   }
-  media = Math.round(totalSoma / array.length);
-  return media;
+  return Math.round(totalSoma / array.length);
 }
 
 const average = (array) => {
   if (array.length > 0) {
     return calcMedia(array);
-  } 
-    return undefined;
+  }
+  return undefined;
 };
 
 module.exports = average;
