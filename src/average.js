@@ -17,13 +17,13 @@ const average = (array) => {
   let string = false;
 
   for (let index = 0; index < array.length; index += 1) {
-    if (typeof(array[index]) !== 'number' || array[index] === '') {
+    if (typeof (array[index]) !== 'number' || array[index] === '') {
       string = true;
     }
     soma += array[index];
   }
   if (string === false) {
-    return Math.round(soma/array.length);
+    return Math.round(soma / array.length);
   }
   return undefined;
 };
