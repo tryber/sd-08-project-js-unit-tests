@@ -18,10 +18,10 @@ const average = (arr) => {
     return undefined;
   }
   for (let i = 0; i < arr.length; i += 1) {
+    somatorioArray += arr[i];
     if (isNaN(i)) {
       return undefined;
-    }
-    somatorioArray += i;
+    }  
   }
   return Math.round(somatorioArray / arr.length);
 };
