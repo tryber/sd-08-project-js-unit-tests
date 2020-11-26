@@ -19,19 +19,18 @@ function quantityOfZero(array) {
       quantityOfZeros += 1;
     }
   }
-  if (quantityOfZeros === (array.length - 1))
-    return 0
+  if (quantityOfZeros === (array.length - 1)) return 0;
 }
 
 const average = (array) => {
-
-  quantityOfZero(array);
 
   if (array.length === 0 || array.length === 1) return undefined;
 
   for (let index = 0; index < array.length; index += 1) {
     if (typeof (array[index]) !== 'number') return undefined;
   }
+
+  quantityOfZero(array);
 
   let sum = 0;
   for (let index = 0; index < array.length; index += 1) {
