@@ -20,6 +20,15 @@ function quantityOfZero(array) {
     }
   }
   if (quantityOfZeros === (array.length - 1)) return 0;
+  return;
+}
+
+function sum(array) {
+  let sum = 0;
+  for (let index = 0; index < array.length; index += 1) {
+    sum += array[index];
+  }
+  return sum;
 }
 
 const average = (array) => {
@@ -31,12 +40,9 @@ const average = (array) => {
   }
 
   quantityOfZero(array);
+  let total = sum(array);
 
-  let sum = 0;
-  for (let index = 0; index < array.length; index += 1) {
-    sum += array[index];
-  }
-  return Math.round(sum / array.length);
+  return Math.round(total / array.length);
 };
 
 module.exports = average;
