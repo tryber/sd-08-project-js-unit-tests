@@ -74,23 +74,23 @@ const createMenu = (objectParameter) => {
   const result = {};
   result.fetchMenu = objectParameter;
   result.consumption = [];
-  result.order = (pedido) => result.consumption.push(pedido); 
+  result.order = pedido => result.consumption.push(pedido);
   result.pay = () => {
     let payment = 0;
     for (let index = 0; index < result.consumption.length; index += 1) {
-      for (let i = 0; i < Object.keys(result.fetchMenu.food).length; i += 1){
-        if (Object.keys(result.fetchMenu['food'])[i] == result.consumption[index]) {
-          payment += Object.values(result.fetchMenu['food'])[i];
+      for (let i = 0; i < Object.keys(result.fetchMenu.food).length; i += 1) {
+        if (Object.keys(result.fetchMenu.food)[i] === result.consumption[index]) {
+          payment += Object.values(result.fetchMenu.food)[i];
         }
       }
-      for (let j = 0; j < Object.keys(result.fetchMenu.food).length; j += 1){
-        if (Object.keys(result.fetchMenu.drink)[j] == result.consumption[index]) {
+      for (let j = 0; j < Object.keys(result.fetchMenu.food).length; j += 1) {
+        if (Object.keys(result.fetchMenu.drink)[j] === result.consumption[index]) {
           payment += Object.values(result.fetchMenu.drink)[j];
         }
       }
     }
-    return 110 / 100 * payment;
-  }
+    return 1.1 * payment;
+  };
   return result;
 };
 
