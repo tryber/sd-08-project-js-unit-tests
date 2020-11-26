@@ -22,7 +22,8 @@ const average = (arr) => {
       return;
     }
   }
-  return Math.round(avg);
+  avg = Math.round(avg);
+  return avg;
 };
 
 module.exports = average;
