@@ -73,9 +73,9 @@
 
 const testObj = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } };
 
-let menu;
+const restaurant = {};
 
-const orderFunction = string => menu.consumption.push(string);
+const orderFunction = string => restaurant.consumption.push(string);
 
 const createMenu = object => ({
   fetchMenu: object,
@@ -83,9 +83,9 @@ const createMenu = object => ({
   order: orderFunction,
 });
 
-menu = createMenu(testObj);
+Object.assign(restaurant, createMenu(testObj));
 
-menu.order('coxinha');
-console.log(menu.consumption);
+restaurant.order('coxinha');
+restaurant.order('coxinha');
 
 module.exports = createMenu;
