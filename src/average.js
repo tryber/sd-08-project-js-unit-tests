@@ -32,16 +32,12 @@ function Sum(array) {
 }
 
 const average = (array) => {
-
   if (array.length === 0 || array.length === 1) return undefined;
-
   for (let index = 0; index < array.length; index += 1) {
     if (typeof (array[index]) !== 'number') return undefined;
   }
-
   quantityOfZero(array);
   const total = Sum(array);
-
   return Math.round(total / array.length);
 };
 
