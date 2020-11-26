@@ -33,7 +33,7 @@ const productDetails = require('../src/productDetails');
 
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
-    assert.strictEqual(Array.isArray(productDetails('Alcool gel', 'Máscara')),true);
+    assert.strictEqual(Array.isArray(productDetails('Alcool gel', 'Máscara')), true);
     assert.strictEqual(productDetails('Alcool gel', 'Máscara').length, 2);
     assert.strictEqual(typeof (productDetails('Alcool gel', 'Máscara')[0]), 'object');
     assert.strictEqual(typeof (productDetails('Alcool gel', 'Máscara')[1]), 'object');
