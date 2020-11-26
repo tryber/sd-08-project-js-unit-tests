@@ -7,3 +7,5 @@ corrigir
 .eslintignore
 old
 debug.js
+.prettierignore
+.prettierrc.json
