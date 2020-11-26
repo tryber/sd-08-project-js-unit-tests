@@ -73,7 +73,7 @@
 function createMenu(obj) {
   return {
     fetchMenu: obj,
-    consumption: new Array(),
+    consumption: [],
   };
 }
 
