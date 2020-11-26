@@ -13,16 +13,18 @@
 */
 
 const average = (array) => {
-  let contador = 0;
+  if (array.length === 0 ){
+    return undefined;
+  }
   for (let index = 0; index < array.length; index += 1) {
+    let contador = 0;
     contador += array[index];
     if (typeof array !== 'number') {
       return undefined;
-    }
   }
   const divisor = array.length + 1;
-  const total = contador / divisor;
+  const total = Math.round(contador / divisor);//ideia pega no repositorio do Silvio.
   return total;
 };
-
+}
 module.exports = average;
