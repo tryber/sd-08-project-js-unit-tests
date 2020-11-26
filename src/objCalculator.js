@@ -26,7 +26,7 @@ function multp(num1, num2) {
   return num1 * num2;
 }
 function divs(num1, num2) {
-  return Math.round(num1 / num2)-1;
+  return Math.round(num1 / num2) - 1;
 }
 function subs(num1, num2) {
   return num1 - num2;
