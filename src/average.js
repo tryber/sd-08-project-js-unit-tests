@@ -18,8 +18,8 @@ const average = (arr) => {
     if (typeof arr[index] !== 'number') return undefined;
     avgTotal += arr[index];
   }
-  let avg = avgTotal / arr.length;
+  const avg = avgTotal / arr.length;
   return parseInt(avg, 10);
-}
+};
 
 module.exports = average;
