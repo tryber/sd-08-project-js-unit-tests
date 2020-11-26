@@ -13,19 +13,20 @@
 */
 
 const average = (ary) => {
-  let total = ary.length;
+  const total = ary.length;
   let same = 0;
   let media = 0;
+  if (total <= '') {
+    media = undefined;
+  }
   for (let index = 0; index < total; index += 1) {
     if (typeof ary[index] !== 'number') {
       media = undefined; break;
     } else {
       same += ary[index];
-      media = (same)/total;
+      media = Math.round(same / total);
     }
   }
-return media;
+  return media;
 };
-console.log(average([1, 2, 3, '4', 5]));
-
 module.exports = average;
