@@ -11,20 +11,13 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
-const assert = require('assert');
-const { type } = require('os');
-
 const average = (array) => {
-  if(typeof array !== 'number') return undefined;
-  let soma =0;
-  let media;
-  for( let a in array){
-    soma += array[a]
+  let soma = 0;
+  for( let a = 0; a < array.length; a+=1){
+    if (typeof array[a] !== 'number') return undefined;
+    soma += array[a];
   }
-  media = soma/array.length;
+  const media = soma / array.length;
   return media;
-}
-
-//console.log(average([1,'12',3,4]));
-
+};
 module.exports = average;
