@@ -70,27 +70,36 @@
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = obj => {
+const createMenu = (obj) => {
   const tempObj = {
     fetchMenu: obj,
     consumption: [],
-    order: string => tempObj.consumption.push(string),
+    order: (string) => tempObj.consumption.push(string),
     pay: () => {
-      let totalPrice = tempObj.consumption.map(e => {
-        const menuFood = Object.keys(tempObj.fetchMenu.food);
-        const menuDrink = Object.keys(tempObj.fetchMenu.drink);
-        if (menuFood.includes(e)) return tempObj.fetchMenu.food[e];
-        if (menuDrink.includes(e)) return tempObj.fetchMenu.drink[e];
-        return;
+      let totalPrice = tempObj.consumption.map((e) => {
+        if (conferirFood(e, tempObj)) return tempObj.fetchMenu.food[e];
+        if (conferirDrink(e, tempObj)) return tempObj.fetchMenu.drink[e];
       });
-      totalPrice = totalPrice.reduce((a, c) => (a += c));
-      totalPrice = totalPrice * 1.1;
+      totalPrice = somarArray(totalPrice);
+      totalPrice *= 1.1;
       totalPrice = totalPrice.toFixed(2);
       return +totalPrice;
     },
   };
   return tempObj;
 };
+
+const conferirFood = (string, obj) => {
+  const menuFood = Object.keys(obj.fetchMenu.food);
+  return menuFood.includes(string);
+};
+
+const conferirDrink = (string, obj) => {
+  const menuDrink = Object.keys(obj.fetchMenu.drink);
+  return menuDrink.includes(string);
+};
+
+const somarArray = (array) => array.reduce((a, c) => (a += c));
 
 const temp = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
 temp.order('coxinha');
