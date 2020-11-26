@@ -17,16 +17,15 @@ const average = (array) => {
   for (let i = 0; i < array.length; i += 1) {
     if (typeof array[i] !== 'number') {
       return undefined;
-    };
+    }
     sum += array[i];
   }
-  let result = Math.round(sum / array.length);
+  const result = Math.round(sum / array.length);
   if (Number.isNaN(result)) {
     return undefined;
-  } else { return result
+  } else { 
+    return result;
   }
 };
-
-console.log(average([0, 0, 0, 0, 0, 0, 1]))
 
 module.exports = average;
