@@ -18,6 +18,6 @@ const numbers = (myArray) => {
   }
   return true;
 };
-assert.deepStrictEqual(numbers([2, 3, 4]), true)
-assert.notDeepStrictEqual(numbers([2, 'errado', 5]), true)
+assert.deepStrictEqual(numbers([2, 3, 4]), true);
+assert.notDeepStrictEqual(numbers([2, 'errado', 5]), true);
 module.exports = numbers;
