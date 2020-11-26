@@ -18,7 +18,7 @@ const average = (arrayNumbers) => {
   for (let index = 0; index < arrayNumbers.length; index += 1) {
     if (typeof arrayNumbers[index] !== 'number') {
       return undefined;
-    } 
+    }
     soma += arrayNumbers[index];
   }
   media = Math.round(soma / arrayNumbers.length);
