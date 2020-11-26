@@ -12,8 +12,40 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // add your implementation here
+//Compara Arrays
+let a;
+let b;
+function arrayEquals(a, b) {
+  return Array.isArray(a) &&
+    Array.isArray(b) &&
+    a.length === b.length &&
+    a.every((val, index) => val === b[index]);
+}
+
+
+const average = (array) => {
+  let mean = 0;
+  let sum = 0;
+  if (arrayEquals(array, []) === true) {
+    return undefined;
+  } else {
+    for (let i = 0; i < array.length; i++) {
+      if (typeof (array[i]) !== 'number') {
+        return undefined;
+      } else {
+        sum = Math.round(sum) + Math.round(array[i]);
+      };
+    };
+    mean = Math.round(sum) / array.length;
+    return Math.round(mean);
+  };
 };
+
+/* console.log(average([]));
+console.log(average([1, 2]));
+console.log(average([1, 1]));
+console.log(average([1, '2']));
+console.log(average([1, 2, 3, 4, 5]));
+console.log(average([1, 2, '3'])); */
 
 module.exports = average;
