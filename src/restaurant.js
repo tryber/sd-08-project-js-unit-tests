@@ -44,6 +44,20 @@
 */
 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: objetoPassadoPorParametro }.
+
+const calcPrice = (orders, obj) => {
+  let totalToPay = 0;
+  for (let index = 0; index < orders.length; index += 1) {
+    const foodPrice = obj.food[orders[index]];
+    const drinkPrice = obj.drink[orders[index]];
+    if (foodPrice !== undefined) {
+      totalToPay += foodPrice;
+    } else if (drinkPrice !== undefined) {
+      totalToPay += drinkPrice;
+    }
+  }
+};
+
 const createMenu = (obj) => {
   const objeto = {
     fetchMenu: obj,
@@ -53,16 +67,7 @@ const createMenu = (obj) => {
     },
     pay: () => {
       const orders = objeto.consumption;
-      let totalToPay = 0;
-      for (let index = 0; index < orders.length; index += 1) {
-        const foodPrice = obj.food[orders[index]];
-        const drinkPrice = obj.drink[orders[index]];
-        if (foodPrice !== undefined) {
-          totalToPay += foodPrice;
-        } else if (drinkPrice !== undefined) {
-          totalToPay += drinkPrice;
-        }
-      }
+      let totalToPay = calcPrice(orders, obj);
       return totalToPay * 1.1;
     },
   };
