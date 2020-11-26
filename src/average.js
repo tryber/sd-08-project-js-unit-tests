@@ -11,7 +11,6 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
-
 const average = (array) => {
   // console.log(array);
   // console.log(typeof array);
@@ -29,6 +28,5 @@ const average = (array) => {
   if (result === undefined || array.length < 2) return undefined;
   return Math.round(soma / count);
 };
-
 
 module.exports = average;
