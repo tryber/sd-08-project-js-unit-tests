@@ -16,13 +16,13 @@ const average = (arr) => {
   const quantidade = arr.length;
   let media = 0;
   let soma = 0;
-  for (let index = 0; index < quantidade; index+=1) {
+  for (let index = 0; index < quantidade; index += 1) {
     const element = arr[index];
     if (typeof element !== 'number' || element === []) {
-      return undefined;
+      media = undefined;
     } else {
       soma += element;
-      media = soma/quantidade;
+      media = soma / quantidade;
     }
   }
   return media;
