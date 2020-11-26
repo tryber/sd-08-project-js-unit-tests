@@ -14,15 +14,17 @@
 
 const average = (arr) => {
   let somatorioArray = 0;
-  for (let i of arr) {
-    if (i === 0 || isNaN(i)) {
-      console.log(undefined);
+  if (arr.length === 0) {
+    return undefined;
+  }
+  for (let i = 0; i < arr.length; i += 1) {
+    if (isNaN(i)) {
+      return undefined;
     } else {
       somatorioArray += i;
     }
   }
-  const media = Math.round(somatorioArray / arr.length);
-  console.log(media);
+  return Math.round(somatorioArray / arr.length);
 };
 
 average();
