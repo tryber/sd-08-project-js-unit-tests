@@ -23,10 +23,9 @@ const average = (arr) => {
     } 
       somatorioArray += i;
     }
-  }
-  return Math.round(somatorioArray / arr.length);
-};
-
+    return Math.round(somatorioArray / arr.length);
+  };
+  
 average();
 
 module.exports = average;
