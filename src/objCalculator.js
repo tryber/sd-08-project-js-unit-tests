@@ -29,5 +29,4 @@ const calculator = {
   divisao: div,
   subtracao: sub
 };
-
 module.exports = calculator;
