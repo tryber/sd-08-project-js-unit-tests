@@ -14,11 +14,11 @@
 
 const average = (arr) => {
   let varArray = 0;
-  let medArray = undefined;
+  let medArray;
   let noValue;
   for (let index = 0; index < arr.length; index += 1) {
-    if ((typeof arr[index] == 'number') && arr[index] !== [] && arr[index] !== [' ']) {
-      varArray += arr[index]
+    if ((typeof arr[index] === 'number') && arr[index] !== [] && arr[index] !== [' ']) {
+      varArray += arr[index];
       medArray = Math.round(varArray / arr.length);
     } else {
       return noValue;
