@@ -56,6 +56,7 @@ const calcPrice = (orders, obj) => {
       totalToPay += drinkPrice;
     }
   }
+  return totalToPay;
 };
 
 const createMenu = (obj) => {
@@ -67,7 +68,7 @@ const createMenu = (obj) => {
     },
     pay: () => {
       const orders = objeto.consumption;
-      let totalToPay = calcPrice(orders, obj);
+      const totalToPay = calcPrice(orders, obj);
       return totalToPay * 1.1;
     },
   };
