@@ -16,17 +16,13 @@ const average = (array) => {
   let contador = 0;
   for (let index = 0; index < array.length; index += 1) {
     contador += array[index];
+    if (typeof array !== 'number') {
+      return undefined;
+    }
   }
-  const divisor = array.length +1;
+  const divisor = array.length += 1;
   const total = contador / divisor;
   return total;
 };
-
-function average(array) {
-  if (typeof array.value !== 'number') {
-    throw new Error('parameter must be a number');
-  } 
-  return undefined;
-}
 
 module.exports = average;
