@@ -4,7 +4,8 @@
   "description": "Project for block 8",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "preinstall": "npx npm-force-resolutions"
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,12 @@
   },
   "homepage": "https://github.com/betrybe/sd-0x-block8-project-js-unit-test#readme",
   "devDependencies": {
-    "jest": "^24.9.0",
     "acorn": ">=5.7.4",
+    "jest": "^24.9.0",
     "minimist": ">=1.2.2"
+  },
+  "resolutions": {
+    "mkdirp": "0.4.1 - 0.5.1",
+    "minimist": "<0.2.1 || >=1.0.0 <1.2.3"
   }
 }
