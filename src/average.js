@@ -22,7 +22,7 @@ const calcMedia = (array) => {
     totalSoma += (array[index]);
   }
   return Math.round(totalSoma / array.length);
-}
+};
 
 const average = (array) => {
   if (array.length > 0) {
