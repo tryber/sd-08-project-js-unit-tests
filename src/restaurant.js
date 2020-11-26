@@ -79,16 +79,15 @@ const createMenu = (myMenu) => {
       food: {
       },
     },
-    consumption: [],
-    pay: 0,
+    consumption: []
   };
   Object.assign(data.menu, myMenu);
   const calcPay = () => {
-    data.pay = 0;
+    let sum = 0;
     data.consumption.forEach((item) => {
-      data.pay += data.menu.drinks[item] || data.menu.food[item] || 0;
+      sum += data.menu.drinks[item] || data.menu.food[item] || 0;
     });
-    return data.pay;
+    return sum;
   };
   return {
     fetchMenu: () => data.menu,
