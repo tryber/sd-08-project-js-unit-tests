@@ -28,4 +28,6 @@ const circle = (radius) => {
   };
 };
 
+const assert = require('assert');
+
 module.exports = circle;
