@@ -44,6 +44,10 @@
 */
 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: objetoPassadoPorParametro }.
+const createMenu = (obj) => {
+  const objeto = { fetchMenu: obj };
+  return objeto;
+};
 //
 // Agora faça o TESTE 2 no arquivo `tests/restaurant.spec.js`.
 
@@ -51,6 +55,7 @@
 
 // PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
 //
+createMenu.consumption = [];
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -58,6 +63,9 @@
 // PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
 // DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` define separadamente dela e, depois, a função que será definida em `order`.
 // ```
+createMenu.order = (str) => {
+  createMenu.consumption.push(str);
+};
 // const restaurant = {}
 
 //
@@ -70,7 +78,19 @@
 //------------------------------------------------------------------------------------------
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-
-const createMenu = () => {};
+createMenu.pay = () => {
+  const orders = createMenu.consumption;
+  let totalToPay = 0;
+  for (let index = 0; index < orders.length; index += 1) {
+    let foodPrice = createMenu.fetchMenu.food[index];
+    let drinkPrice = createMenu.fetchMenu.drink[index];
+    if (foodPrice !== undefined) {
+      totalToPay += foodPrice;
+    } else if (drinkPrice !== undefined) {
+      totalToPay += drinkPrice;
+    }
+  }
+  return totalToPay * 1.1;
+};
 
 module.exports = createMenu;
