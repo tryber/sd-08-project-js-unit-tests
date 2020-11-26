@@ -17,15 +17,13 @@ const average = (array) => {
   for (let index = 0; index < array.length; index += 1) {
     contador += array[index];
   }
-  let divisor = array.length +1;
-  let total = contador / divisor;
+  const divisor = array.length +1;
+  const total = contador / divisor;
   return total;
 };
 
-const asseert = require('asseert');
-
 function average(array) {
-  if (typeof array.value !== 'number' || array === [] || array === [' ']) {
+  if (typeof array.value !== 'number') {
     throw new Error('parameter must be a number');
   } 
   return undefined;
