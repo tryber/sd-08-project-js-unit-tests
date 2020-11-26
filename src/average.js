@@ -23,7 +23,9 @@ const checkArray = (array) => {
   }
   return countOfError;
 };
-const media = (array) => Math.round(array.reduce((sum, item) => sum += item, 0) / array.length);
+function media(array) {
+  return Math.round(array.reduce((sum, item) => sum += item, 0) / array.length);
+} 
 const average = (array) => {
   const check = checkArray(array);
   let result = 0;
