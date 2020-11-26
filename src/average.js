@@ -20,15 +20,15 @@ const checkArrayLength = (array) => {
 };
 
 const checkArrayString = (array) => {
-  for (let index=0; index < array.length; index+=1) {
-    if (typeof(array[index]) !== 'number') {
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof (array[index]) !== 'number') {
       return true;
     }
   }
   return false;
 };
 
-const checkEverythingOkay = (isEmpty,isString) => {
+const checkEverythingOkay = (isEmpty, isString) => {
   if (isEmpty === true || isString === true) {
     return false;
   }
@@ -39,10 +39,10 @@ const average = (array) => {
   let sum = 0;
   const isOkay = checkEverythingOkay(checkArrayLength(array), checkArrayString(array));
   if (isOkay === true) {
-    for (let index=0; index < array.length; index+=1) {
+    for (let index = 0; index < array.length; index += 1) {
       sum += array[index];
     }
-    return Math.round(sum/array.length);
+    return Math.round (sum/array.length);
   }
   return undefined;
 };
