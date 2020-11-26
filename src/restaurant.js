@@ -87,7 +87,7 @@ const createMenu = (myMenu) => {
   return {
     fetchMenu: () => data.menu,
     consumption: () => data.consumption,
-    order: (value) => data.consumption.push(value),
+    order: value => data.consumption.push(value),
     pay: () => calcPay(),
   };
 };
