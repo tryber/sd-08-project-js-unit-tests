@@ -13,7 +13,7 @@
 */
 
 const average = (array) => {
-  const notValidNumber = array.some((element) => typeof (element) !== 'number');
+  const notValidNumber = array.some(element => typeof (element) !== 'number');
   const notValidLength = array.length === 0;
 
   if (notValidNumber || notValidLength) { return undefined; }
