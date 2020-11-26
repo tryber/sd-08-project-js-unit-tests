@@ -16,8 +16,8 @@ const testingArray = (arr) => {
   if (arr.length === 0) {
     return false;
   }
-  for (let i in arr) {
-    if (typeof arr[i] !== 'number') {
+  for (let index = 0; index < arr.length; index += 1) {
+    if (typeof arr[index] !== 'number') {
       return false;
     }
   }
@@ -29,7 +29,7 @@ const average = (arr) => {
     return undefined;
   }
   let sum = 0;
-  for (let index = 0; index < arr.length; index++) {
+  for (let index = 0; index < arr.length; index += 1) {
     sum += arr[index];
   }
   return Math.round(sum / arr.length);
