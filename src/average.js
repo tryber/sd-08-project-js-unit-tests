@@ -18,7 +18,7 @@ const average = (arr = []) => {
   const { length } = arrNum;
   let sunNumber = 0;
   for (let index = 0; index < length; index += 1) {
-    if (typeof arrNum[index] === "string") {
+    if (typeof arrNum[index] === 'string') {
       return undefined;
     }
     sunNumber += arrNum[index];
