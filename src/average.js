@@ -20,7 +20,7 @@ const average = (array) => {
       return undefined;
     }
   }
-  const divisor = array.length += 1;
+  let divisor = array.length += 1;
   const total = contador / divisor;
   return total;
 };
