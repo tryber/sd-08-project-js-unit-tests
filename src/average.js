@@ -13,17 +13,21 @@
 */
 
 const average = (array) => {
+  // console.log(array);
+  // console.log(typeof array);
   let soma = 0;
   let count = 0;
+  let result = true;
   array.forEach((e) => {
     if (typeof e !== 'number') {
-      return undefined;
+      result = undefined;
     }
     soma += e;
     count += 1;
     return soma;
   });
-  return soma / count;
+  if (result === undefined || array.length < 2) return undefined;
+  return Math.round(soma / count);
 };
 
 
