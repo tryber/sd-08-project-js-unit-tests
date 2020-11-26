@@ -16,6 +16,9 @@ const average = (arr) => {
   const quantidade = arr.length;
   let media = 0;
   let soma = 0;
+  if (quantidade === 0) {
+    media = undefined;
+  }
   for (let index = 0; index < quantidade; index += 1) {
     const element = arr[index];
     if (typeof element !== 'number') {
@@ -28,5 +31,7 @@ const average = (arr) => {
   }
   return media;
 };
+
+console.log(average([]));
 
 module.exports = average;
