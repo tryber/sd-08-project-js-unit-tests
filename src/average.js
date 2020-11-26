@@ -29,12 +29,3 @@ const average = (array) => {
 };
 
 module.exports = average;
-
-const arrayTest = [2, 4, 6, 8, 10];
-
-assert.strictEqual(average(arrayTest), 6);
-assert.strictEqual(average([2, '2']), undefined);
-assert.strictEqual(average([0.1, 0.2, 0.3, 1]), 0);
-assert.strictEqual(average([]), undefined);
-assert.strictEqual(average([' ']), undefined);
-assert.strictEqual(average([47, 63, 122]), 77);
