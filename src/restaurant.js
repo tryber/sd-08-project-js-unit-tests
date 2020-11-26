@@ -78,7 +78,7 @@ const createMenu = (obj) => {
     order: () => {},
     pay: () => {},
   };
-  
+
   return object;
 };
 
