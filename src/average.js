@@ -12,8 +12,23 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // add comment for first commit
+const average = (array) => {
+  let sum = 0;
+
+  if (array.length === 0) {
+    return undefined;
+  }
+
+  for (let pos = 0; pos < array.length; pos += 1) {
+    if (typeof array[pos] !== 'number') {
+      return undefined;
+    }
+    
+    sum += array[pos];
+    result = (sum / array.length);
+  }
+
+  return Math.round(result);
 };
 
 module.exports = average;
