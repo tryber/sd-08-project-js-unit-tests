@@ -6,3 +6,4 @@ package-lock.json
 corrigir
 .eslintignore
 old
+debug.js
