@@ -40,3 +40,8 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
+
+const abc = productDetails()
+
+console.log(typeof abc)
+console.log(abc)
