@@ -13,23 +13,24 @@
 */
 
 function quantityOfZero(array) {
-  let quantityOfZero = 0;
+  let quantityOfZeros = 0;
   for (let index = 0; index < array.length; index += 1) {
     if (array[index] === 0) {
-      quantityOfZero += 1;
+      quantityOfZeros += 1;
     }
   }
-  if (quantityOfZero === (array.length - 1)) {
+  if (quantityOfZeros === (array.length - 1)) {
     return 0;
-  } else {
-    return;
   }
+  return;
+
 }
 
 const average = (array) => {
   let sum = 0;
 
-  if (array.length === 0 || array.length === 1) return undefined;
+  if (array.length === 0) return undefined;
+  if (array.length === 1) return undefined;
 
   for (let index = 0; index < array.length; index += 1) {
     if (typeof (array[index]) !== 'number') return undefined;
@@ -39,7 +40,7 @@ const average = (array) => {
     sum += array[index];
   }
 
-  quantityOfZero(array)
+  quantityOfZero(array);
 
   return Math.round(sum / array.length);
 };
