@@ -18,8 +18,8 @@ const average = (arr) => {
     return undefined;
   }
 
-  for (let index = 1; index < arr.lenght; index += 1) {
-    if (typeof arr[index] !== 'number') {
+  for (let index = 0; index < arr.lenght; index += 1) {
+    if (typeof (arr[index]) !== 'number') {
       return undefined;
     }
     sumOfTheNumbers += arr[index];
