@@ -13,12 +13,12 @@
 */
 
 const average = (arr) => {
-  let newArr = [];
+  const newArr = [];
   for (let i = 0; i < arr.length; i += 1) {
     if (typeof arr[i] === 'number' || arr === [' ']) {
       return undefined;
     }
-    let round = Math.round(arr[i]);
+    const round = Math.round(arr[i]);
     newArr.push(round);
   }
   return newArr;
