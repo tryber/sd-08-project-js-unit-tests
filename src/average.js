@@ -18,7 +18,7 @@ const average = (arr) => {
     return undefined;
   }
   for (let i = 0; i < arr.length; i += 1) {
-    if (isNaN(arr[i])) {
+    if (typeof arrNum[index] === 'string'){
       return undefined;
     }
     somatorioArray += arr[i];
