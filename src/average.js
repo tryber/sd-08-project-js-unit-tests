@@ -16,8 +16,8 @@ const assert = require('assert');
 const average = (array) => {
   let someOfAllNumbers = 0;
   for (let index = 0; index < array.length; index += 1) {
-    if (typeof(array[index]) != 'number'){
-      return 'undefined'
+    if (typeof (array[index]) !== 'number') {
+      return 'undefined';
     }
     const newIndex = Math.round(array[index]);
     someOfAllNumbers += newIndex;
