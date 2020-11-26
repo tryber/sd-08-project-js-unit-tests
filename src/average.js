@@ -21,7 +21,7 @@ const average = (arr) => {
     somatorioArray += arr[i];
     if (isNaN(i)) {
       return undefined;
-    }  
+    }
   }
   return Math.round(somatorioArray / arr.length);
 };
