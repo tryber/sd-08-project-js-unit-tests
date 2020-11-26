@@ -21,7 +21,7 @@ const average = (array) => {
     }
     soma += e;
     count += 1;
-    return ;
+    return soma;
   });
   return soma / count;
 };
