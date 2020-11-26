@@ -82,9 +82,7 @@ const createMenu = (myMenu) => {
     consumption: [],
     pay: 0,
   };
-
   Object.assign(data.menu, myMenu);
-
   const calcPay = () => {
     data.pay = 0;
     data.consumption.forEach((item) => {
@@ -92,13 +90,10 @@ const createMenu = (myMenu) => {
     });
     return data.pay;
   };
-
   return {
     fetchMenu: () => data.menu,
     consumption: () => data.consumption,
-    order: value => {
-      data.consumption.push(value);
-    },
+    order: (value) => data.consumption.push(value),
     pay: () => calcPay(),
   };
 };
