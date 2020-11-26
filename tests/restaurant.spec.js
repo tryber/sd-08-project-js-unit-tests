@@ -59,7 +59,7 @@ describe('#createMenu', () => {
     const functionOutput = createMenu({ food: {}, drink: {} });
     const object = { food: {}, drink: {} }
 
-    // assert.deepStrictEqual(createMenu({objeto: 'qualquer'}), { fetchMenu: { objeto: 'qualquer' }, consumption: [] });
+    assert.deepStrictEqual(Object.entries(createMenu({objeto: 'qualquer'}))[0], [ 'fetchMenu', { objeto: 'qualquer' } ]);
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, verifique que 'objetoRetornado.fetchMenu' retorna um objeto cujas chaves são somente `food` e `drink`.
@@ -111,6 +111,7 @@ describe('#createMenu', () => {
     // objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
+
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.

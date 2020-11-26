@@ -83,9 +83,4 @@ const createMenu = (objectParameter) => {
 
 module.exports = createMenu;
 
-const verificaFuncao = (pedidoQualquer) => {
-  const pedido = createMenu()
-  pedido.order(pedidoQualquer);
-  return pedido.consumption;
-}
-console.log(verificaFuncao('coxinha'));
+console.log(Object.entries(createMenu({objeto: 'qualquer'}))[0])
