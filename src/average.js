@@ -13,23 +13,24 @@
 */
 const checkArray = (array) => {
   let countOfError = 0;
-  for(let i = 0; i < array.length; i += 1) {
-    if (typeof array[i] == 'string') {
+  for (let i = 0; i < array.length; i += 1) {
+    if (typeof array[i] === 'string') {
       countOfError += 1;
     }
   }
-  if (array.length == 0 ) {
+  if (array.length === 0) {
     countOfError += 1;
   }
   return countOfError;
-}
+};
+const media = (array) => Math.round(array.reduce((sum, item) => sum += item, 0) / array.length);
 const average = (array) => {
-  let check = checkArray(array);
+  const check = checkArray(array);
   let result = 0;
   if (check >= 1) {
     result = undefined;
   } else {
-    result = Math.round(array.reduce((sum, item) => sum += item, 0) / array.length);
+    result = media(array);
   }
   return result;
 };
