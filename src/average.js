@@ -18,7 +18,7 @@ function average(arr) {
     if (typeof arr[i] === 'number') {
       avg += arr[i] / arr.length;
     } else {
-      return;
+      return undefined;
     }
   }
   if (arr.length !== 0) {
