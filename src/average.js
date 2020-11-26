@@ -25,6 +25,6 @@ const average = (array) => {
   return media;
 }
 
-console.log(average([1,'12',3,4]));
+//console.log(average([1,'12',3,4]));
 
 module.exports = average;
