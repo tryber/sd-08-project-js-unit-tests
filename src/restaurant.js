@@ -84,7 +84,8 @@ const createMenu = obj => Object.assign(menu, {
       acc[key] = val;
       return acc;
     }, Object.create(null));
-    return menu.consumption.map(item => prices[item]).reduce((acc, cur) => acc + cur);
+    const total = menu.consumption.map(item => prices[item]).reduce((acc, cur) => acc + cur);
+    return Number((total * 1.1).toFixed(2));
   },
 });
 

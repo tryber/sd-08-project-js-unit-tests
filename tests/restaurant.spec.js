@@ -153,6 +153,6 @@ describe('#createMenu', () => {
     menu.order('coxinha');
     menu.order('agua');
     menu.order('coxinha');
-    assert.strictEqual(menu.pay(), 11.70);
+    assert.strictEqual(menu.pay(), 12.87);
   });
 });
