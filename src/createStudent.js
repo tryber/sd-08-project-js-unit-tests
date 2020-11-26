@@ -16,12 +16,13 @@
 */
 
 const createStudent = (name) => {
-  return {
+  const newObject = {
     feedback() {
       return 'Eita pessoa boa!';
     },
     name
   };
+  return newObject;
 };
 
 console.log(createStudent('eduardo'));
