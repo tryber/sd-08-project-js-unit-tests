@@ -20,10 +20,12 @@
 
 const circle = (radius) => {
   const PI = 3.14;
-  if (!radius) { return undefined; }
+  if (!radius) {
+    return undefined;
+  }
   return {
     radius,
-    area: PI * radius * radius,
+    area: Number((PI * radius * radius).toFixed(2)),
     circumference: 2 * PI * radius,
   };
 };
