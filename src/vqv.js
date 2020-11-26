@@ -18,7 +18,7 @@
 
 const vqv = (nome, idade) => {
   const phrase = `Oi, meu nome é ${nome}!
-  Tenho ${idade},
+  Tenho ${idade} anos,
   trabalho na Trybe e mando muito em programação!
   #VQV!`;
   return phrase;
