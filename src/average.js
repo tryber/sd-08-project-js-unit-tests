@@ -19,7 +19,7 @@ const average = (arr) => {
   }
   for (let i = 0; i < arr.length; i += 1) {
     somatorioArray += arr[i];
-    if (isNaN(i)) {
+    if (isNaN(arr[i])) {
       return undefined;
     }
   }
