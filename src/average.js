@@ -12,6 +12,32 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+const average = (arr) => {
+  let contador = 0;
+  //if (arr === null) {
+  // return undefined;
+  // }
+  for (let index = 0; index < arr.length; index += 1) {
+    if (typeof arr[index] !== 'number') {
+      return undefined;
+    } else {
+      contador += Math.round(arr[index]);
+    }
+  }
+  return contador / arr.length;
+  // const arrayInt = Math.round(arr);
+};
 
 module.exports = average;
+
+/*const array = [2.4, 2.7, 2.9];
+const zez = [];
+let zdzssd = 0;
+for (let i = 0; i < array.length; i++) {
+  zdzssd += Math.round(array[i]);
+
+  /* zez.push(Math.round(array[i]));
+  console.log(zez); 
+}
+let divisao = zdzssd / array.length;
+console.log(divisao); */
