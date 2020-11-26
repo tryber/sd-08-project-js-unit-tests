@@ -77,7 +77,8 @@ describe('#createMenu', () => {
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.fetchMenu // Retorno: objetoQualquer
     // ```
-    assert.deepStrictEqual(objetoRetornado.fetchMenu, objetoQualquer);
+    const testObjetoRetornado = objetoRetornado.fetchMenu;
+    assert.deepStrictEqual(testObjetoRetornado, objetoQualquer);
 
     // Agora faça o TESTE 4 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -86,7 +87,8 @@ describe('#createMenu', () => {
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.consumption // Retorno: []
     // ```
-    assert.deepStrictEqual(objetoRetornado.consumption, []);
+    const consumptionObjeto = objetoRetornado.consumption;
+    assert.deepStrictEqual(consumptionObjeto, []);
 
 
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
@@ -97,7 +99,7 @@ describe('#createMenu', () => {
     objetoRetornado.order('coxinha');
     // objetoRetornado.comsuption // Retorno: ["coxinha"]
     // ```
-    assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha']);
+    assert.deepStrictEqual(consumptionObjeto, ['coxinha']);
 
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
@@ -109,7 +111,7 @@ describe('#createMenu', () => {
     objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
     // ```
-    assert.deepStrictEqual(objetoRetornado.consumption, ["coxinha", "agua", "sopa", "sashimi"]);
+    assert.deepStrictEqual(consumptionObjeto, ["coxinha", "agua", "sopa", "sashimi"]);
 
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -117,11 +119,11 @@ describe('#createMenu', () => {
     // ```
     // objetoRetornado.order('coxinha');
     // objetoRetornado.order('agua');
-    objetoRetornado.consumption.splice(2, 2);
+    consumptionObjeto.splice(2, 2);
     objetoRetornado.order('coxinha');
     // objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
-    assert.deepStrictEqual(objetoRetornado.consumption, ["coxinha", "agua", 'coxinha']);
+    assert.deepStrictEqual(consumptionObjeto, ["coxinha", "agua", 'coxinha']);
 
 
     // Agora faça o TESTE 8 deste arquivo.
@@ -133,7 +135,8 @@ describe('#createMenu', () => {
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
-    assert.deepStrictEqual(objetoRetornado.pay(), 11.7);
+    const payObjeto = objetoRetornado.pay();
+    assert.deepStrictEqual(payObjeto, 11.7);
 
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
