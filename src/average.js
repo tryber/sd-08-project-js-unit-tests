@@ -16,7 +16,7 @@ const average = (arr) => {
   let avg = null;
   if (arr.length === 0) return;
   for (let i = 0; i < arr.length; i += 1) {
-    if (typeof arr[i] === "number") {
+    if (typeof arr[i] === 'number') {
       avg += arr[i] / arr.length;
     } else {
       return;
