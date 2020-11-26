@@ -149,6 +149,16 @@ describe('#createMenu', () => {
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
+    const verificaPreco = () => {
+      const pedido = createMenu()
+      pedido.order("coxinha");
+      pedido.order("agua");
+      pedido.order("coxinha");
+      
+      return pedido.pay();
+    }
+    assert.strictEqual(verificaPreco(), x)
+    }
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
