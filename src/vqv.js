@@ -13,7 +13,7 @@
       'Oi, meu nome é Tunico!
       Tenho 30 anos,
       trabalho na Trybe e mando muito em programação!
-      #VQV!' 
+      #VQV!'
 */
 
 const vqv = (nome, idade) => {};
