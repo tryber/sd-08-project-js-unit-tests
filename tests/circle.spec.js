@@ -23,16 +23,20 @@ const circle = require('../src/circle');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
-// ESCREVA SEUS TESTES ABAIXO:
-// Teste se circle retorna um objeto.
-assert.deepStrictEqual(typeof circle(1), 'object');
-// Teste se o objeto retornado tem 3 entradas.
-assert.strictEqual((Object.entries(circle(3)).length), 3);
-// Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
-assert.strictEqual(typeof circle(0), 'undefined');
-// Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
-assert.strictEqual(circle(2).circumference, 12.56);
-// Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
-assert.strictEqual(circle(3).area, 28.259999999999998);
-// Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-assert.deepStrictEqual(circle(3), { radius: 3, area: 28.259999999999998, circumference: 18.84 });
+describe('#productDetails', () => {
+  it('tests the function has the correct behaviour', () => {
+    // ESCREVA SEUS TESTES ABAIXO:
+    // Teste se circle retorna um objeto.
+    assert.deepStrictEqual(typeof circle(1), 'object');
+    // Teste se o objeto retornado tem 3 entradas.
+    assert.strictEqual((Object.entries(circle(3)).length), 3);
+    // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+    assert.strictEqual(typeof circle(0), 'undefined');
+    // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
+    assert.strictEqual(circle(2).circumference, 12.56);
+    // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
+    assert.strictEqual(circle(3).area, 28.259999999999998);
+    // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
+    assert.deepStrictEqual(circle(3), { radius: 3, area: 28.259999999999998, circumference: 18.84 });
+  });
+});
