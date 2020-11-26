@@ -75,8 +75,24 @@ const createMenu = (obj) => {
   const object = {
     fetchMenu: () => obj,
     consumption: [],
-    order: () => {},
-    pay: () => {},
+    order: (item) => {
+      object.consumption.push(item);
+    },
+    pay: () => {
+      let price = 0;
+      const menu = object.fetchMenu();
+      const consumption = object.consumption;
+
+      for (i = 0; i < consumption.length; i += 1) {
+        if (Object.keys(menu.food).includes(consumption[i])) {
+          price += menu.food[consumption[i]];
+        } else if (Object.keys(menu.drinks).includes(consumption[i])) {
+          price += menu.drinks[consumption[i]];
+        }
+      }
+
+      return price;
+    },
   };
 
   return object;
