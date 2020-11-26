@@ -17,7 +17,7 @@ const average = (array) => {
     valores: 0,
   };
   for (let index = 0; index < array.length; index += 1) {
-    if (typeof array[index] !== 'number' || array.length === 0) {
+    if (typeof(array[index]) !== 'number' || array.length === 0) {
       return undefined;
     }
     main.valores += array[index] / array.length;
