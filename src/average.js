@@ -12,7 +12,7 @@
     - average([1, '2']) // Retorno: undefined;
 */
 const average = (array) => {
-  if (array.length === 0 || typeof(array) !== 'number') return undefined;
+  if (array.length === 0 || typeof (array) !== 'number') return undefined;
   let soma = 0;
   for (let a = 0; a < array.length; a += 1) {
     soma += array[a];
