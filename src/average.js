@@ -13,8 +13,26 @@
 */
 
 
-const average = () => {
-  // add your implementation here
+const calcMedia = (array) => {
+  let countElements = null;
+  let totalSoma = null;
+  for(let index = 0; index < array.length; index +=1){
+    if (typeof array[index] !== 'number'){
+      return undefined;
+    }
+    countElements += 1;
+    totalSoma += Math.round(array[index]);
+  }
+  media = totalSoma / countElements;
+  return media;
+}
+
+const average = (array) => {
+  if (array.length > 0){
+    return calcMedia;
+  }else {
+    return undefined;
+  }
 }
 
 module.exports = average;
