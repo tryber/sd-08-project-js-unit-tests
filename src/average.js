@@ -12,10 +12,8 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = (arr) => {
-   if (Array.isArray(arr) == 'false') {
-    return false;
-  } else if (arr.length == 0) {
+const average = (arr) => { 
+  if (arr.length === 0) {
     return undefined;
   }
   for (let index = 0; index < arr.length; index += 1) {
