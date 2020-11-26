@@ -73,8 +73,8 @@
 
 const createMenu = (myMenu) => {
   const data = {
-    menu: {drinks: {},food: {},},
-    consumption: []
+    menu: { drinks: {}, food: {} },
+    consumption: [],
   };
   Object.assign(data.menu, myMenu);
   const calcPay = () => {
