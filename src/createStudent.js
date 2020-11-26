@@ -21,7 +21,6 @@ const estudante = {
   name: nome,
   feedback: feed
 }
+return estudante;
 };
-createStudent('ruben');
-
 module.exports = createStudent;
