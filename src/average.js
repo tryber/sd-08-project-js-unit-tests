@@ -12,33 +12,18 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-//Compara Arrays
-let a;
-let b;
-function arrayEquals(a, b) {
-  return Array.isArray(a) &&
-    Array.isArray(b) &&
-    a.length === b.length &&
-    a.every((val, index) => val === b[index]);
-}
-
-
+// Efetua a media
 const average = (array) => {
-  let mean = 0;
+  if (array.length === 0) return undefined;
   let sum = 0;
-  if (arrayEquals(array, []) === true) {
-    return undefined;
-  } else {
-    for (let i = 0; i < array.length; i++) {
-      if (typeof (array[i]) !== 'number') {
-        return undefined;
-      } else {
-        sum = Math.round(sum) + Math.round(array[i]);
-      };
-    };
-    mean = Math.round(sum) / array.length;
-    return Math.round(mean);
-  };
+  for (let i = 0; i < array.length; i += 1) {
+    if (typeof (array[i]) !== 'number') {
+      return undefined;
+    }
+    sum += array[i];
+  }
+  const mean = sum / array.length;
+  return Math.round(mean);
 };
 
 /* console.log(average([]));
