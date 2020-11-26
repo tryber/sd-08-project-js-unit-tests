@@ -12,8 +12,19 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  // codigo aqui
+
+const average = (array) => {
+  if (array.length === 0) {
+    return undefined;
+  }
+  let finalSum = 0;
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== 'number') {
+      return undefined;
+    }
+    finalSum += array[index];
+  }
+  return Math.round(finalSum / array.length);
 };
 
 module.exports = average;
