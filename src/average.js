@@ -14,6 +14,9 @@
 
 function average(arr) {
   let avg = null;
+  if (arr.length === 0) {
+    return undefined;
+  }
   for (let i = 0; i < arr.length; i += 1) {
     if (typeof arr[i] === 'number') {
       avg += arr[i] / arr.length;
@@ -21,9 +24,7 @@ function average(arr) {
       return undefined;
     }
   }
-  if (arr.length !== 0) {
-    return Math.round(avg);
-  }
+  return Math.round(avg);
 }
 
 module.exports = average;
