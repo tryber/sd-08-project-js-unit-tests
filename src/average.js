@@ -24,8 +24,12 @@ const checkArray = (array) => {
   return countOfError;
 };
 function media(array) {
-  return Math.round(array.reduce((sum, item) => sum += item, 0) / array.length);
-} 
+  let count = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    count += array[i];
+  }
+  return count/array.length;
+}
 const average = (array) => {
   const check = checkArray(array);
   let result = 0;
