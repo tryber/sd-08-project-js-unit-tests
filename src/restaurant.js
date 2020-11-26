@@ -95,7 +95,7 @@ const createMenu = (obj) => {
     pay: () => {
       const menu = object.fetchMenu();
       const consumption = object.consumption;
-      let price = generatePrice(menu, consumption);
+      const price = generatePrice(menu, consumption);
 
       return price;
     },
