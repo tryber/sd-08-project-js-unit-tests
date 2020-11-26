@@ -20,14 +20,13 @@ const average = (array) => {
   }
 
   for (let i = 0; i < array.length; i += 1) {
-    if (typeof (array[i]) == 'string') {
+    if (typeof (array[i]) === 'string') {
       return undefined;
     }
-    media = media + array[i];
+    media += + array[i];
   }
 
   return Math.round((media / array.length));
 
 };
-
 module.exports = average;
