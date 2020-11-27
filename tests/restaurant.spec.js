@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 
-const assert = require('assert');
-const createMenu = require('../src/restaurant');
+const assert = require("assert");
+const createMenu = require("../src/restaurant");
 
 /*
   Você é responsável por escrever o código do sistema de pedidos de um restaurante. Deve ser possível, através desse sistema, cadastrar um menu. Dado que um menu foi cadastrado, o sistema deve disponibilizar um objeto através do qual se consegue:
@@ -49,14 +49,26 @@ const createMenu = require('../src/restaurant');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
-describe('#createMenu', () => {
-  it('tests the function has the correct behaviour', () => {
-    assert.fail();
-    // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto que contêm a chave `fetchMenu` e esta por sua vez tem como valor uma função que ao ser executada retorna um objeto qualquer. Exemplo de retorno: { fetchMenu: function }.
+describe("#createMenu", () => {
+  it("tests the function has the correct behaviour", () => {
+    // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto no seguinte formato: { fetchMenu: objetoQualquer }.
     // ```
     // const objetoRetornadoTeste1 = createMenu(objetoQualquer) // Retorno: { fetchMenu: function }
     // const objetoRetornadoTeste1.fetchMenu() // retorno: objetoQualquer
     // ```
+
+    assert.deepStrictEqual(
+      createMenu({
+        food: { coxinha: 3.9, sopa: 9.9 },
+        drink: { agua: 3.9, cerveja: 6.9 },
+      }),
+      {
+        fetchMenu: {
+          food: { coxinha: 3.9, sopa: 9.9 },
+          drink: { agua: 3.9, cerveja: 6.9 },
+        },
+      }
+    );
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 2: Verifique que, quando a função createMenu for chamada passando como parâmetro o objeto: `{ food: {}, drink: {} }`, retorne um objeto que ao executar a função associada a propriedade `fetchMenu` deste objeto, o retorno da função de ser um objeto que tenha somente as chaves `food` e `drink`.
@@ -64,6 +76,12 @@ describe('#createMenu', () => {
     // const objetoRetornadoTeste2 = createMenu(objetoQualquer);
     // objetoRetornadoTeste2.fetchMenu() // retorno: { food: {}, drink: {}}
     // ```
+
+    assert.deepStrictEqual(
+      Object.keys(createMenu({ food: {}, drink: {} }).fetchMenu),
+      ["food", "drink"]
+    );
+
     // Agora faça o TESTE 3 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 3: Verifique que o menu passado como parâmetro para a função createMenu é idêntico ao menu retornado pela função `fetchMenu`, dentro do objeto retornado pela função `createMenu`. Ou seja, o valor ao executar 'objetoRetornadoTeste3.fetchMenu()' deve ser exatamente o mesmo objeto menu passado por parâmetro.
