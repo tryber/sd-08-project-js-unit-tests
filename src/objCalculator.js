@@ -19,6 +19,16 @@
   calculator.div(3, 2) // Retorno: 1;
 */
 
-const calculator = {};
+const add = (num1, num2) => Math.round(num1) + Math.round(num2);
+
+const mult = (num1, num2) => Math.round(num1) * Math.round(num2);
+
+const div = (num1, num2) => Math.floor(Math.round(num1) / Math.round(num2));
+
+const sub = (num1, num2) => Math.round(num1) - Math.round(num2);
+
+const calculator = { add, mult, div, sub };
+
+console.log(calculator.div(2, 4));
 
 module.exports = calculator;

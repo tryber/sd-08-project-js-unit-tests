@@ -29,3 +29,7 @@ const circle = (radius) => {
 };
 
 module.exports = circle;
+
+// let objectSize = Object.keys(circle(2)).length;
+
+// console.log(objectSize);
