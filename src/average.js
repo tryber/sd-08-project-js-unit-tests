@@ -16,13 +16,11 @@ const average = (param1) => {
   let somartudo = 0;
   let tp;
   for (let i = 0; i < param1.lenght; i += 1) {
-    tp = param1[i]
+    tp = param1[i];
     if (typeof (tp) !== 'number') {
-      return undefined
-
-    } else {
-      somartudo += param1[i]
-    };
+      return undefined;
+    }
+    somartudo += param1[i]
   }
   return (somartudo / param1.lenght)
 };
