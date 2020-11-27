@@ -15,14 +15,15 @@
 const average = (param1) => {
   let somartudo = 0;
   let tp;
-  for (let i = 0; i < param1.lenght; i += 1) {
+
+  for (let i = 0; i < param1.length; i += 1) {
+    if (typeof (param1[i]) !== 'number'){return undefined;} 
     tp = param1[i];
-    if (typeof (tp) !== 'number') {
-      return undefined;
+    somartudo += tp; 
     }
-    somartudo += param1[i];
-  }
-  return (somartudo / param1.lenght);
+    return Math.round(somartudo / param1.length);
 };
 
 module.exports = average;
+
+
