@@ -25,7 +25,7 @@
   meuRestaurante.pay() // Retorno: 3.9
 
   Uma função createMenu retorna um objeto com as seguintes características:
-  - Uma chave `fetchMenu` retorna o objeto que a função `createMenu` recebe por parâmetro. O menu tem sempre duas chaves, `food` e `drink`, no seguinte formato:
+  - Uma chave `fetchMenu` associada a uma função, que retorna o objeto recebido por parâmetro na função `createMenu`. O menu tem sempre duas chaves, `food` e `drink`, no seguinte formato:
 
   const meuRestaurante = createMenu({
     food: {'coxinha': 3.90, 'sanduiche', 9.90},
@@ -49,43 +49,42 @@
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
+// PASSO 2: Adicione ao objeto retornado pela função `createMenu` uma chave `consumption` que, inicialmente, tem um array vazio.
 //
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
-// DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` define separadamente dela e, depois, a função que será definida em `order`.
+// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função como valor da chave `order`.
+// DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` deve retornar e, depois, a função que será atribuida a chave `order` deste objeto.
 // ```
 // const restaurant = {}
-
 //
-// const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
+// const createMenu = (myMenu) => // Lógica que edita e retorna o objeto `restaurant`
 //
-// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. Essa função deve ser associada à chave `order` de `restaurant`
+// const orderFromMenu = (request) => // Lógica que adiciona a string recebida como parâmetro `request` ao array contido na chave `consumption` do objeto `restaurant`. Essa função deve ser associada à chave `order` de `restaurant`
 // ```
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
+// PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
-const sumBill = () => {
+function sumBill () {
   let sum = 0;
-  for (let item of restaurant.consumption) {
-    if (restaurant.fetchMenu.food[item]){
-      sum += restaurant.fetchMenu.food[item];
+  for (let index = 0; index < this.consumption.length; index += 1) {
+    const item = this.consumption[index];
+    if (this.fetchMenu.food[item]) {
+      sum += this.fetchMenu.food[item];
     } else {
-    sum += restaurant.fetchMenu.drink[item];
+      sum += this.fetchMenu.drink[item];
     }
   }
     return parseFloat((sum * 1.1).toFixed(2));
 }
-  
 
-const addOrder = (item) => {
-  restaurant.consumption.push(item);
+function addOrder (item) {
+  this.consumption.push(item);
 }
 
 const restaurant = {
