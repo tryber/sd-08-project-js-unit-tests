@@ -71,32 +71,38 @@
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
 const createMenu = (myMenu) => {
-  const restaurant = { 
-    fetchMenu: myMenu,
+  const restaurant = {
+    fetchMenu: () => myMenu,
     consumption: [],
-    order: (request) => restaurant.consumption.push(request),
+    order: (request) => {
+      restaurant.consumption.push(request); 
+    },
     pay: () => {
-      let somaDosPrecosDosPedidos = 0;
-      const itensFood = Object.keys(restaurant.fetchMenu.food);
-      const foodValue = Object.values(restaurant.fetchMenu.food);
-      const itensDrink = Object.keys(restaurant.fetchMenu.drink);
-      const drinkValue = Object.values(restaurant.fetchMenu.drink);
-      for (let index = 0; index < restaurant.consumption.length; index += 1) {
-        for (let indFood = 0; indFood < itensFood.length; indFood += 1) {
-          if (restaurant.consumption[index] === itensFood[indFood]) {
-            somaDosPrecosDosPedidos += foodValue[indFood];
-          }
-        }
-        for (let indDrink = 0; indDrink < itensFood.length; indDrink += 1) {
-          if (restaurant.consumption[index] === itensDrink[indDrink]) {
-            somaDosPrecosDosPedidos += drinkValue[indDrink];
-          }
-        }
-      }
-      return somaDosPrecosDosPedidos;
-    }
+      payFunction();
+    },
   };
   return restaurant;
 };
+
+const payFunction = () => {
+  let somaDosPrecosDosPedidos = 0;
+  const itensFood = Object.keys(restaurant.fetchMenu.food);
+  const foodValue = Object.values(restaurant.fetchMenu.food);
+  const itensDrink = Object.keys(restaurant.fetchMenu.drink);
+  const drinkValue = Object.values(restaurant.fetchMenu.drink);
+  for (let index = 0; index < restaurant.consumption.length; index += 1) {
+    for (let indFood = 0; indFood < itensFood.length; indFood += 1) {
+      if (restaurant.consumption[index] === itensFood[indFood]) {
+        somaDosPrecosDosPedidos += foodValue[indFood];
+      }
+    }
+    for (let indDrink = 0; indDrink < itensFood.length; indDrink += 1) {
+      if (restaurant.consumption[index] === itensDrink[indDrink]) {
+        somaDosPrecosDosPedidos += drinkValue[indDrink];
+      }
+    }
+  }
+  return somaDosPrecosDosPedidos;
+}
 
 module.exports = createMenu;
