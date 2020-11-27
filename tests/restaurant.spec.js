@@ -157,7 +157,7 @@ describe('#createMenu', () => {
       
       return pedido.pay();
     }
-    assert.strictEqual(verificaPreco(), 1.1 * (3.9 + 3.9 + 3.9));
+    assert.strictEqual(verificaPreco(), 1.1 * (3.9 + 3.9 + 3.9))
   })
   // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
 });
