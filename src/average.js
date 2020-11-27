@@ -23,12 +23,9 @@ const average = (array) => {
   for (let i = 0; i < array.length; i += 1) {
     if (typeof array[i] !== 'number') {
       return (result = undefined);
-    } else {
-      result += array[i];
-      console.log(result);
     }
+    result += array[i];
   }
-
   result = Math.round(result / array.length);
   return result;
 };
