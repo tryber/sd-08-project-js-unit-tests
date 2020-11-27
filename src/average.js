@@ -12,6 +12,31 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+const zinzin = (arrii) => {
+  if (arrii.length == 0 || arrii == ' ') {   
+    return undefined;
+  }
+  
+};
+const average = (arr) => {
+  zinzin(arr);
+  let soma = 0;
+  for (index = 0; index < arr.length; index += 1) {
+    soma += arr[index]
+    if (typeof arr[index] === 'string') {
+      return undefined;
+    } else if (arr[index] == 0) {
+      return 0;
+    }
+  }
+  let media = (soma / arr.length);
+
+  if (media >= 0 || media < -2) {
+    return Math.floor(media);
+  } else {
+    return Math.ceil(media);
+  }
+};
+
 
 module.exports = average;
