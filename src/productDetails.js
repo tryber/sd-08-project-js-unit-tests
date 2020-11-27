@@ -23,6 +23,7 @@
     }
   ]
 */
+const assert = require('assert');
 
 const productDetails = (firstProduct, secondProduct) => [
   {
@@ -38,5 +39,7 @@ const productDetails = (firstProduct, secondProduct) => [
     },
   },
 ];
+
+console.log(typeof Object.keys(productDetails));
 
 module.exports = productDetails;
