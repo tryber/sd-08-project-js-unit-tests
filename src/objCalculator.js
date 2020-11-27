@@ -26,7 +26,7 @@ const calculator = {
     if (n2 === 0) {
       return undefined;
     }
-    return Math.trunc(n1/n2);
+    return Math.trunc(n1 / n2);
   },
   sub: (n1, n2) => n1 - n2,
 };
