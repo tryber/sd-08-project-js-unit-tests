@@ -1,91 +1,34 @@
-/* eslint-disable max-len */
-
-/*
-  Você é responsável por escrever o código do sistema de pedidos de um restaurante. Deve ser possível, através desse sistema, cadastrar um menu. Dado que um menu foi cadastrado, o sistema deve disponibilizar um objeto através do qual se consegue:
-  - ler o menu cadastrado;
-  - fazer pedidos;
-  - verificar o que foi pedido;
-  - somar o valor da conta.
-
-  A estrutura deste código e deste objeto já foi definida e você irá implementá-la.
-  Abaixo você verá uma série de testes e passos que devem ser, NECESSARIAMENTE, feitos em ordem para o bom desenvolvimento do sistema. Eles guiarão você pelo desenvolvimento.
-
-  Parâmetros:
-  - Um objeto. Exemplos: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }.
-  Comportamento:
-
-  const meuRestaurante = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }).
-
-  meuRestaurante.fetchMenu() // Retorno: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }
-
-  meuRestaurante.order('coxinha') // Retorno: undefined
-
-  meuRestaurante.consumption // Retorno: ['coxinha']
-
-  meuRestaurante.pay() // Retorno: 3.9
-
-  Uma função createMenu retorna um objeto com as seguintes características:
-  - Uma chave `fetchMenu` retorna o objeto que a função `createMenu` recebe por parâmetro. O menu tem sempre duas chaves, `food` e `drink`, no seguinte formato:
-
-  const meuRestaurante = createMenu({
-    food: {'coxinha': 3.90, 'sanduiche', 9.90},
-    drinks: {'agua': 3.90, 'cerveja': 6.90}
-  });
-
-  meuRestaurante.fetchMenu() // Retorno: Menu acima
-
-  - Uma chave `consumption` que contém um array de strings, com cada string sendo a chave de um pedido. Por exemplo: ['coxinha', 'cerveja']
-
-  - Uma chave `order` que tem uma função que, recebida uma string como parâmetro, adiciona essa string à lista salva em `consumption`.
-
-  - Uma chave `pay` que, quando chamada, invoca uma função que soma o valor de todos os pedidos e dá o preço com acréscimo de 10%.
-
-  IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
-*/
-
-// PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: objetoPassadoPorParametro }.
-//
-// Agora faça o TESTE 2 no arquivo `tests/restaurant.spec.js`.
-
-//------------------------------------------------------------------------------------------
-
-// PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio.
-//
-// Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
-
-//------------------------------------------------------------------------------------------
-
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
-// DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` define separadamente dela e, depois, a função que será definida em `order`.
-// ```
-// const restaurant = {}
-
-//
-// const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
-//
-// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. Essa função deve ser associada à chave `order` de `restaurant`
-// ```
-// Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
-
-//------------------------------------------------------------------------------------------
-
-// PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-const declarafor = (obj) => {
-  let payment = 0;
-    for (let index = 0; index < obj.consumption.length; index += 1) {
-      for (let i = 0; i < Object.keys(obj.fetchMenu.food).length; i += 1) {
-        if (Object.keys(obj.fetchMenu.food)[i] === obj.consumption[index]) {
-          payment += Object.values(obj.fetchMenu.food)[i];
-        }
-      }
-      for (let j = 0; j < Object.keys(obj.fetchMenu.food).length; j += 1) {
-        if (Object.keys(obj.fetchMenu.drink)[j] === obj.consumption[index]) {
-          payment += Object.values(obj.fetchMenu.drink)[j];
-        }
-      }
+const for1 = (consumption, food, index) => {
+  let pay = 0;
+  for (let i = 0; i < food.length; i += 1) {
+    if (consumption[index] === food[i][0]) {
+      pay += food[i][1];
     }
-    return 1.1 * payment;
-  };
+  }
+  return pay;
+};
+
+const for2 = (consumption, drinks, index) => {
+  let pay = 0;
+  for (let j = 0; j < drinks.length; j += 1) {
+    if (consumption[index] === drinks[j][0]) {
+      pay += drinks[j][1];
+    }
+  }
+  return pay;
+};
+
+const declarafor = (consumption, food, drink) => {
+  let pay = 0;
+  const cons = consumption;
+  const foods = food;
+  const drinks = drink;
+  for (let index = 0; index < consumption.length; index += 1) {
+    pay += for1(cons, foods, index);
+    pay += for2(cons, drinks, index);
+  }
+  return 1.1 * pay;
+};
 
 
 const createMenu = (objectParameter) => {
@@ -94,14 +37,13 @@ const createMenu = (objectParameter) => {
   result.consumption = [];
   result.order = pedido => result.consumption.push(pedido);
   result.pay = () => {
-    const payment = declarafor(result);
+    const food = Object.entries(result.fetchMenu.food);
+    const drinks = Object.entries(result.fetchMenu.drink);
+    const consumption = result.consumption;
+    const payment = declarafor(consumption, food, drinks);
     return payment;
   }
   return result;
 };
 
 module.exports = createMenu;
-
-const meuPedido = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
-meuPedido.order('coxinha');
-console.log(meuPedido.pay())
