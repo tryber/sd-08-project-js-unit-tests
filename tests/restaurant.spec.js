@@ -51,7 +51,48 @@ const createMenu = require('../src/restaurant');
 
 describe('#createMenu', () => {
   it('tests the function has the correct behaviour', () => {
-    assert.fail();
+    let menu = {
+      food: { coxinha: 3.9, sopa: 9.9 },
+      drink: { agua: 3.9, cerveja: 6.9 },
+    };
+    assert.deepStrictEqual(createMenu(menu).fetchMenu, menu);
+    assert.deepStrictEqual(
+      Object.keys(createMenu({ food: {}, drink: {} }).fetchMenu),
+      ['food', 'drink'],
+    );
+    assert.deepStrictEqual(createMenu(menu).fetchMenu, menu); 
+    const menu2 = {};
+    assert.deepStrictEqual(createMenu(menu2).fetchMenu, menu2); 
+    assert.deepStrictEqual(createMenu(menu).consumption, []);
+    const menuTeste = createMenu(menu);
+    menuTeste.order('coxinha');
+    assert.deepStrictEqual(menuTeste.consumption, ['coxinha']);
+    menu = {
+      food: { coxinha: 3.9, sopa: 9.9 },
+      drink: { agua: 3.9, cerveja: 6.9 },
+    };
+    const myMenu = createMenu(menu);
+    myMenu.order('coxinha');
+    myMenu.order('agua');
+    myMenu.order('sopa');
+    myMenu.order('sashimi');
+    assert.deepStrictEqual(myMenu.consumption, [
+      'coxinha',
+      'agua',
+      'sopa',
+      'sashimi',
+    ]);
+    const myMenu2 = createMenu(menu);
+    myMenu2.order('coxinha');
+    myMenu2.order('agua');
+    myMenu2.order('coxinha');
+    assert.deepStrictEqual(myMenu2.consumption, ['coxinha', 'agua', 'coxinha']);
+    const myMenu3 = createMenu(menu);
+    myMenu3.order('coxinha');
+    myMenu3.order('coxinha');
+    myMenu3.order('coxinha');
+    myMenu3.order('agua');
+    assert.strictEqual(myMenu3.pay(), 17.16);
     // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto que contêm a chave `fetchMenu` e esta por sua vez tem como valor uma função que ao ser executada retorna um objeto qualquer. Exemplo de retorno: { fetchMenu: function }.
     // ```
     // const objetoRetornadoTeste1 = createMenu(objetoQualquer) // Retorno: { fetchMenu: function }
