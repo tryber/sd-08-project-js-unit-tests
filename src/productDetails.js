@@ -38,6 +38,4 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
-console.log(typeof productDetails().map((item) => typeof item));
-
 module.exports = productDetails;
