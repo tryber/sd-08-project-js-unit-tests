@@ -27,23 +27,23 @@ describe('#vqv', () => {
     assert.strictEqual(
       vqv('Tunico', 29),
       'Oi, meu nome é Tunico!\n' +
-        'Tenho 29 anos,\n' +
-        'trabalho na Trybe e mando muito em programação!\n' +
-        '#VQV!',
+      'Tenho 29 anos,\n' +
+      'trabalho na Trybe e mando muito em programação!\n' +
+      '#VQV!',
     );
     assert.strictEqual(
       vqv('Alberto', 30),
       'Oi, meu nome é Alberto!\n' +
-        'Tenho 30 anos,\n' +
-        'trabalho na Trybe e mando muito em programação!\n' +
-        '#VQV!',
+      'Tenho 30 anos,\n' +
+      'trabalho na Trybe e mando muito em programação!\n' +
+      '#VQV!',
     );
     assert.strictEqual(
       vqv('Hamaji', 29),
       'Oi, meu nome é Hamaji!\n' +
-        'Tenho 29 anos,\n' +
-        'trabalho na Trybe e mando muito em programação!\n' +
-        '#VQV!',
+      'Tenho 29 anos,\n' +
+      'trabalho na Trybe e mando muito em programação!\n' +
+      '#VQV!',
     );
     assert.strictEqual(vqv(), undefined);
   });
