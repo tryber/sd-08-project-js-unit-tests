@@ -101,7 +101,7 @@ const mainFor = (consumption, food, drink) => {
     sum += payDrink(cons, drinks, index);
   }
   return sum;
-}
+};
 
 const createMenu = (obj) => {
   const menu = {
