@@ -16,19 +16,19 @@ const average = (array) => {
   if (array.length === 0) {
     return undefined;
   }
-  
-  for (let number of array) {
-    if (typeof number !== 'number') {
-      return undefined;
+
+  array.forEach((item) => {
+    if (typeof item === 'number') {
+      item = Math.round(item);
     }
-    number = Math.round(number);
-  }
+    return undefined;
+  });
 
-  const total = array.reduce((total, number) => total + number);
+  const total = array.reduce((accumulator, current) => accumulator + current);
 
-  const average = Math.round(total/array.length);
+  const result = Math.round(total / array.length);
 
-  return average;
+  return result;
 };
 
 module.exports = average;
