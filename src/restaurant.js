@@ -44,7 +44,6 @@
 */
 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: objetoPassadoPorParametro }.
-//
 // Agora faça o TESTE 2 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -69,7 +68,39 @@
 //------------------------------------------------------------------------------------------
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
+const addConsumedItemPrice = (categoryItems, itemsValues, consum, consumIndex) => {
+  for (let itemIndex = 0; itemIndex < categoryItems.length; itemIndex += 1) {
+    if (categoryItems[itemIndex] === consum[consumIndex]) {
+      return itemsValues[itemIndex];
+    }
+  }
+  return 0;
+};
 
-const createMenu = () => { };
+const generateBill = (categories, consum) => {
+  let sum = 0;
+  for (let consumIndex = 0; consumIndex <= consum.length; consumIndex += 1) {
+    for (let categoryIndex = 0; categoryIndex < categories.length; categoryIndex += 1) {
+      const categoryItems = Object.keys(categories[categoryIndex]);
+      const itemsValues = Object.values(categories[categoryIndex]);
+      sum += addConsumedItemPrice(categoryItems, itemsValues, consum, consumIndex);
+    }
+  }
+  return sum;
+};
+
+const createMenu = (menu) => {
+  const newMenu = { fetchMenu: Object.assign({}, menu) };
+  Object.assign(newMenu, { consumption: [] });
+  Object.assign(newMenu, { order: (item) => {
+    newMenu.consumption.push(item);
+  } });
+  Object.assign(newMenu, { pay: () => {
+    const categories = Object.values(newMenu.fetchMenu);
+    const consum = newMenu.consumption;
+    return generateBill(categories, consum);
+  } });
+  return newMenu;
+};
 
 module.exports = createMenu;
