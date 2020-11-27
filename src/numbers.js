@@ -25,4 +25,5 @@ describe('#numbers', () => {
     assert.strictEqual(numbers([1, 'a', 3]), false);
     assert.strictEqual(numbers([' '] ), false);
   });
+}
 module.exports = numbers;
