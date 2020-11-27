@@ -29,7 +29,7 @@ const createMenu = require('../src/restaurant');
   meuRestaurante.pay() // Retorno: 3.9
 
   Uma função createMenu retorna um objeto com as seguintes características:
-  - Uma chave `fetchMenu` retorna o objeto que a função `createMenu` recebe por parâmetro. O menu tem sempre duas chaves, `food` e `drink`, no seguinte formato:
+  - Uma chave `fetchMenu` que tem uma função associada, esta por sua vez retorna o objeto recebido por parâmetro na função `createMenu`. O menu tem sempre duas chaves, `food` e `drink`, no seguinte formato:
 
   const meuRestaurante = createMenu({
     food: {'coxinha': 3.90, 'sanduiche', 9.90},
@@ -86,14 +86,17 @@ describe('#createMenu', () => {
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
     objetoRetornado.order('coxinha');
     assert.deepStrictEqual(objetoRetornado.consumption, ["coxinha","agua","sopa","sashimi","coxinha"]);
+
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
-    // TESTE 8: Verifique que, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
+    // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
     // ```
-    // objetoRetornado.order('coxinha');
-    // objetoRetornado.order('agua');
-    // objetoRetornado.order('coxinha');
-    // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
+    // const objetoRetornadoTeste8 = createMenu(objetoQualquer);
+    // objetoRetornadoTeste8.order("agua");
+    // objetoRetornadoTeste8.order("agua");
+    // objetoRetornadoTeste8.order("sopa");
+    // objetoRetornadoTeste8.order("sashimi");
+    // objetoRetornadoTeste8.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     assert.strictEqual(objetoRetornado.pay(), 20.3);
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
