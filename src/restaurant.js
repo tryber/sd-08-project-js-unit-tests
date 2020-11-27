@@ -82,7 +82,7 @@ const createMenu = (myMenu) => {
     data.consumption.forEach((item) => {
       sum += data.menu.drinks[item] || data.menu.food[item] || 0;
     });
-    return sum;
+    return sum + (sum / 10);
   };
   return {
     fetchMenu: () => data.menu,

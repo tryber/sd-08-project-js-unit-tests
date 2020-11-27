@@ -89,7 +89,7 @@ describe('#createMenu', () => {
     test8.order("agua");
     test8.order("coxinha");
     console.log(test8.pay())
-    assert.strictEqual(test8.pay(), 11.7);
+    assert.strictEqual(test8.pay(), 12.87);
 
   });
 });
