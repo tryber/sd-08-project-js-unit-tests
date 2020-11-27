@@ -18,10 +18,10 @@
 
 const vqv = (nome, idade) => {
   if (!nome || !idade) return undefined;
-  const literal = `Oi, meu nome é ${nome}!\n`+
-  `Tenho ${idade} anos,\n`+
-  `trabalho na Trybe e mando muito em programação!\n`+
-  `#VQV!`
+  const literal = `Oi, meu nome é ${nome}!\n` +
+  `Tenho ${idade} anos,\n` +
+  'trabalho na Trybe e mando muito em programação!\n' +
+  '#VQV!';
   return literal;
 };
 
