@@ -14,21 +14,16 @@
 
 const average = (vetor) => {
   let soma = 0;
-  const quantElem = vetor.lenght -1;
   if (vetor.lenght === 0) {
     return undefined;
-  } else {
-    for (let index of vetor) {
-      if (index !== Number) {
-        return undefined;
-      } else {
-        soma += index;
-      }
-    }
   }
-  const media = Math.round(soma / quantElem);
-  return ;
+  for (let index of vetor) {
+    if (index !== Number) {
+      return undefined;
+    }
+    soma += index;
+  }
+  return Math.round(soma / vetor.lenght-1);;
 };
-teste = [2, 2];
-console.log(average(teste));
+
 module.exports = average;
