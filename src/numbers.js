@@ -13,7 +13,16 @@ const numbers = require('../src/numbers');
     - numbers([2, 'errado', 5]); // Retorna: false
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
+const assert = require('assert');
 
+const numbers = (myArray) =>{
+  for (let i = 0; i < myArray.length; i+=1){
+    if(typeof myArray[i] !== 'number'){
+      return false;
+    }
+  }
+  return true;
+}
 describe('#numbers', () => {
   it('should return an array and return if it has only numbers or not', () => {
     assert.fail();
