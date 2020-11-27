@@ -95,11 +95,11 @@ const createMenu = (obj) => {
       let totalPrice = tempObj.consumption.map((e) => {
         if (conferirFood(e, tempObj)) {
           return tempObj.fetchMenu.food[e];
-        } else if (conferirDrink(e, tempObj)) {
-          return tempObj.fetchMenu.drink[e];
-        } else {
-          return;
         }
+        if (conferirDrink(e, tempObj)) {
+          return tempObj.fetchMenu.drink[e];
+        }
+        return 0;
       });
       totalPrice = somarArray(totalPrice);
       totalPrice *= 1.1;
