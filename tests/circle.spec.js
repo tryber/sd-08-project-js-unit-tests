@@ -37,6 +37,6 @@ describe('#circle', () => {
     assert.strictEqual(circle(), undefined);
     assert.deepStrictEqual(Object.values(circle(2))[2], (2 * 3.14 * 2));
     assert.deepStrictEqual(Object.values(circle(3))[1], (3.14 * 3 * 3));
-    assert.deepStrictEqual(Object.values(3), [3, (3.14 * 3 * 3), (2 * 3.14 * 3)]);
+    assert.deepStrictEqual(Object.values(circle(3)), [3, (3.14 * 3 * 3), (2 * 3.14 * 3)]);
   });
 });
