@@ -80,25 +80,24 @@ const conferirDrink = (string, obj) => {
   return menuDrink.includes(string);
 };
 
-const somarArray = (array) => {
+function somarArray(array) {
   return array.reduce((a, c) => (a += c));
-};
+}
 
 const createMenu = (obj) => {
+  function adicionarArray(string) {
+    return tempObj.consumption.push(string);
+  }
+
   const tempObj = {
     fetchMenu: obj,
     consumption: [],
-    order: (string) => {
-      return tempObj.consumption.push(string);
-    },
+    order: adicionarArray,
     pay: () => {
-      let totalPrice = [];
-      for (let i = 0; i < tempObj.consumption.length; i += 1) {
-        if (conferirFood(e, tempObj)) totalPrice.push(tempObj.fetchMenu.food[tempObj.consumption[i]]);
-        if (conferirDrink(e, tempObj)) totalPrice.push(tempObj.fetchMenu.drink[tempObj.consumption[i]]);
-      }
-
-      tempObj.consumption.map((e) => {});
+      let totalPrice = tempObj.consumption.map((e) => {
+        if (conferirFood(e, tempObj)) return tempObj.fetchMenu.food[e];
+        if (conferirDrink(e, tempObj)) return tempObj.fetchMenu.drink[e];
+      });
       totalPrice = somarArray(totalPrice);
       totalPrice *= 1.1;
       totalPrice = totalPrice.toFixed(2);
