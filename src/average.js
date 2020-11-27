@@ -11,22 +11,33 @@ Comportamento:
 - average([1, 1]) // Retorno: 1;
 - average([1, '2']) // Retorno: undefined;
 */
+
+const sumOfArray = (numbers) => {
+  const output = {
+    sum: 0,
+    flagCheck: true
+  };
+  numbers.forEach((number) => {
+    if (typeof (number) === 'number') {
+      output.sum += number;
+    } else {
+      output.flagCheck = false;
+    }
+  });
+  return output;
+};
+const checkOutput = ({ sum, flagCheck }, numbers) => {
+  let output;
+  if (flagCheck) {
+    output = Math.round(sum / numbers.length);
+  }
+  return output;
+};
 const average = (numbers) => {
   let output;
   if (numbers.length > 0) {
-    let flag = true;
-    let sum = 0;
-    numbers.forEach((number) => {
-      console.log(typeof (number) === 'number');
-      if (typeof (number) === 'number') {
-        sum += number;
-      } else {
-        flag = false;
-      }
-    });
-    if (flag) {
-      output = Math.round(sum / numbers.length);
-    }
+    output = sumOfArray(numbers);
+    output = checkOutput(output, numbers);
   }
   return output;
 };
