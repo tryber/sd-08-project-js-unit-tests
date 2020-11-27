@@ -39,6 +39,4 @@ const productDetails = (firstProduct, secondProduct) => [
   },
 ];
 
-console.log(Object.values(productDetails('Alcool', 'Algodão'))[0].details.productId.substring(Object.values(productDetails('Alcool', 'Algodão'))[0].details.productId.length - 3, Object.values(productDetails('Alcool', 'Algodão'))[0].details.productId.length));
-
 module.exports = productDetails;
