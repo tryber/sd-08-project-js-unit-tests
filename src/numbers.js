@@ -18,7 +18,7 @@ const numbers = (myArray) => {
   }
   return true;
 };
-assert.strictEqual(numbers([2, 3, 4,]), true);
+assert.strictEqual(numbers([2, 3, 4]), true);
 assert.notDeepStrictEqual(numbers([2, 3, 4]), false);
-assert.deepStrictEqual(numbers([2,3,4,2,'5']), false);
+assert.deepStrictEqual(numbers([2, 3, 4, 2, '5']), false);
 module.exports = numbers;
