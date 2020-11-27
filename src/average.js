@@ -15,10 +15,10 @@
 
 const average = (array) => {
   let sumArrayItem = 0;
-  for (let index = 0; index < array.length; index+= 1){
-    if (typeof (array[index]) === 'string') { return indefined };
+  for (let index = 0; index < array.length; index += 1){
+    if (typeof (array[index]) === 'string') { return indefined }
     sumArrayItem += array[index];
-  }if (array.length === 0) {return 'indefined'};
+  } if (array.length === 0) { return 'indefined' }
   return Math.round(sumArrayItem / array.length);
 };
 
