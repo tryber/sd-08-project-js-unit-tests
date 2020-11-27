@@ -12,15 +12,30 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = (valor) => {
-  let soma = 0;
-  for (index= 0; index < valor.length; index += 1){
-    soma += valor[index]
+const average = (arr) => {
+  if( arr.length == 0 || arr == ' '){
+    return undefined;
   }
-  let media = soma / valor.length;
-  return media
+
+  let soma = 0;
+  for (index= 0; index < arr.length; index += 1){
+    soma += arr[index]
+    if(typeof arr[index] === 'string'){
+      return undefined;
+    }else if (arr[index] == 0){
+      return 0;
+    }
+
+  };
+  
+  let media = (soma / arr.length);
+
+  if(media >= 0 || media < -2){
+    return  Math.floor(media);
+  }else{
+    return Math.ceil(media);
+  }
 };
 
-console.log(average([1,2,3,4,5]);
 
 module.exports = average;
