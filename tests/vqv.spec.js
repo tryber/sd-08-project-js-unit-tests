@@ -19,12 +19,7 @@ const vqv = require('../src/vqv.js');
 
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
-const vqv = (name, age) => {
-  if (name === undefined || age === undefined) {
-    return undefined;
-  }
-  return `Oi, meu nome é ${name}! Tenho ${age} anos, trabalho na Trybe e mando muito em programação! #VQV!'`;
-};
+
 describe('#vqv', () => {
   it('should return full trybe phrase with users name and age', () => {
     assert.strictEqual(typeof vqv, 'function');
