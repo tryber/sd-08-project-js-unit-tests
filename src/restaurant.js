@@ -71,16 +71,12 @@
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const totalPrice = () => {
+const totalPrice = (orders, foodPrice, drinkPrice) => {
   let totalToPay = 0;
-  const orders = meuRestaurante.consumption;
-  const foodPrice = meuRestaurante.fetchMenu.food;
-  const drinkPrice = meuRestaurante.fetchMenu.drink;
   for (let index = 0; index < orders.length; index += 1) {    
     if (foodPrice[orders[index]] !== undefined) {
       totalToPay += foodPrice[orders[index]];
     }
-
     if (drinkPrice[orders[index]] !== undefined) {
       totalToPay += drinkPrice[orders[index]];
     }
@@ -89,26 +85,27 @@ const totalPrice = () => {
 }
 
 const createMenu = (param) => {
-  const menu = {fetchMenu: param,
-  consumption: [],
-  order: (str) => {
-    menu.consumption.push(str);
-  },
-  pay: () => {
-    const totalToPay = totalPrice();
-    return totalToPay;
-  }
+  const menu = { fetchMenu: param,
+    consumption: [],
+    order: (str) => {
+      menu.consumption.push(str);
+    },
+    pay: () => {
+      const orders = meuRestaurante.consumption;
+      const foodPrice = meuRestaurante.fetchMenu.food;
+      const drinkPrice = meuRestaurante.fetchMenu.drink;
+      const totalToPay = totalPrice(orders, foodPrice, drinkPrice);
+      return totalToPay;
+    }
   };
-
   return menu;
 };
 
-const meuRestaurante = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
-const foodPrice = meuRestaurante.fetchMenu.food
+const meuRestaurante = createMenu( { food: {coxinha: 3.9, sopa: 9.9}, drink: {agua: 3.9, cerveja: 6.9} });
 
 meuRestaurante.order('coxinha');
-meuRestaurante.order('agua');
 meuRestaurante.order('coxinha');
+meuRestaurante.order('agua');
 console.log(meuRestaurante.pay());
 
 module.exports = createMenu;

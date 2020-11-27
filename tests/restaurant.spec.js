@@ -55,7 +55,7 @@ describe('#createMenu', () => {
     // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto no seguinte formato: { fetchMenu: objetoQualquer }.
     // ```
     // createMenu(objetoQualquer) // Retorno: { fetchMenu: objetoQualquer }
-    const param = {food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9}};
+    const param = {food: {coxinha: 3.9, sopa: 9.9}, drink: {agua: 3.9, cerveja: 6.9}};
     const objetoRetornado = createMenu(param);
     assert.deepStrictEqual(createMenu(param).fetchMenu, param);
     // ```
