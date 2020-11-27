@@ -47,7 +47,10 @@ describe('#productDetails', () => {
     );
 
     // Teste que os dois objetos são diferentes entre si.
-    assert.notDeepStrictEqual(productDetails()[0], productDetails()[1]);
+    assert.notDeepStrictEqual(
+      productDetails('first', 'second')[0],
+      productDetails('first', 'second')[1]
+    );
 
     // (Difícil) Teste que os dois productIds terminam com 123.
     assert.deepStrictEqual(
