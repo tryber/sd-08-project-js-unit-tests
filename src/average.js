@@ -14,7 +14,7 @@
 
 const average = (vetor) => {
   let soma = 0;
-  if (vetor.length === 0) {
+  if (vetor.length <= 0) {
     return undefined;
   }
   for (let index; index < vetor.length; index += 1) {
