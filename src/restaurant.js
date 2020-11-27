@@ -55,7 +55,7 @@
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
+// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, cadiiona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
 // DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` define separadamente dela e, depois, a função que será definida em `order`.
 // ```
 // const restaurant = {}
@@ -71,6 +71,54 @@
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = () => {};
+const menu = { food: {'coxinha': 3.9, 'sopa': 9.9, 'sanduiche': 9.90}, drink: {'agua': 3.9, 'cerveja': 6.9} };
+
+const createMenu = (objeto) => {
+  const meuRestaurante = {
+    fetchMenu: objeto,
+    consumption: [],
+    order: (string) => {
+      meuRestaurante.consumption.push(string);
+    },
+    pay: () => {
+      let amount = payCalc(meuRestaurante);
+      amount = parseFloat((amount * 1.1).toFixed(2));      
+      return amount;
+    },
+  };  
+  return meuRestaurante;
+};
+
+const payCalc = (meuRestaurante) => { 
+  let valueFood = 0;
+  let valueDrink = 0;
+  let valueTotal = 0;
+  for (let index = 0; index < Object.values(meuRestaurante.fetchMenu.food).length; index += 1) {
+    for (let index2 = 0; index2 < meuRestaurante.consumption.length; index2 += 1) {
+      if (meuRestaurante.consumption[index2] === Object.keys(meuRestaurante.fetchMenu.food)[index]) {
+        valueFood += Object.values(meuRestaurante.fetchMenu.food)[index];        
+      }    
+    }
+  }
+  for (let index = 0; index < Object.values(meuRestaurante.fetchMenu.drink).length; index += 1) {
+    for (let index2 = 0; index2 < meuRestaurante.consumption.length; index2 += 1){
+      if (meuRestaurante.consumption[index2] === Object.keys(meuRestaurante.fetchMenu.drink)[index]) {
+        valueDrink += Object.values(meuRestaurante.fetchMenu.drink)[index];               
+      }    
+    }
+  }
+  valueTotal = valueDrink + valueFood;
+  return valueTotal; 
+}
+
+// const objetoRetornado = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9, 'sanduiche': 9.90}, drink: {'agua': 3.9, 'cerveja': 6.9} });
+// objetoRetornado.order("coxinha");
+// objetoRetornado.order("sopa");
+// objetoRetornado.order("agua");
+// objetoRetornado.order("cerveja");
+// objetoRetornado.order("cerveja");
+// objetoRetornado.order("sanduiche");
+
+// console.log(objetoRetornado.pay());
 
 module.exports = createMenu;
