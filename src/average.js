@@ -12,6 +12,20 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+const average = (vetor) => {
+  let calculo = 0;
+
+  if (isNaN(vetor) === false || Array.isArray(vetor) === false) {
+    return undefined;
+  }
+  for (let index = 0; index < vetor.length; index += 1) {
+    if (typeof (vetor[index]) !== 'number') {
+      return undefined;
+    }
+    calculo += vetor[index];
+  }
+  const resultado = (calculo / vetor.length);
+  return Math.round(resultado);
+};
 
 module.exports = average;
