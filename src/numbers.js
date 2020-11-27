@@ -18,7 +18,11 @@ const numbers = (myArray) => {
   }
   return true;
 };
-assert.strictEqual(numbers(['']), false);
-assert.deepStrictEqual(numbers([2, 3, 4]), true);
-assert.notDeepStrictEqual(numbers([2, 'errado', 5]), true);
+describe('#numbers', () => {
+  it('should return an array and return if it has only numbers or not', () => {
+    assert.strictEqual(numbers([1, 2, 3, 4, 5]), true);
+    assert.strictEqual(numbers([1, 2, '3', 4, 5]), false);
+    assert.strictEqual(numbers([1, 'a', 3]), false);
+    assert.strictEqual(numbers([' '] ), false);
+  });
 module.exports = numbers;
