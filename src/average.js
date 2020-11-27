@@ -20,9 +20,9 @@ const average = (param1) => {
     if (typeof (tp) !== 'number') {
       return undefined;
     }
-    somartudo += param1[i]
+    somartudo += param1[i];
   }
-  return (somartudo / param1.lenght)
+  return (somartudo / param1.lenght);
 };
 
 module.exports = average;
