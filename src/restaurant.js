@@ -108,7 +108,8 @@ const createMenu = (obj) => {
       tempObj.consumption.push(string);
     },
     pay: () => {
-      pagamentoCalculo(tempObj);
+      const pagamento = pagamentoCalculo(tempObj);
+      return pagamento;
     },
   };
   return tempObj;
