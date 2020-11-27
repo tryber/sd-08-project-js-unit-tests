@@ -78,12 +78,12 @@ const payFunction = () => {
   const drinks = restaurant.fetchMenu.drinks;
   const consumo = restaurant.consumption;
   for (let index = 0; index < consumo.length; index += 1) {
-    for (let indFood in food) {
+    for (let indFood of Object.keys(food)) {
       if (indFood === consumo[index]) {
         somaDosPrecosDosPedidos += food[indFood];
       }
     }
-    for (let indDrink in drinks) {
+    for (let indDrink of Object.keys(drinks)) {
       if (indDrink === consumo[index]) {
         somaDosPrecosDosPedidos += drinks[indDrink];
       }
