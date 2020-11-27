@@ -37,7 +37,7 @@ describe('#circle', () => {
     assert.strictEqual(Object.entries(circle(1)).length, 3);
     assert.strictEqual(circle(), undefined);
     assert.strictEqual(Object.values(circle(2))[2], 12.56);
-    assert.strictEqual(Object.values(circle(2))[1], 28.259999999999998);
+    assert.strictEqual(Object.values(circle(3))[1], 28.259999999999998);
     const expectedOutput = [ 3, 28.259999999999998, 18.84 ];
     assert.strictEqual(Object.values(circle(3)), expectedOutput);
   });
