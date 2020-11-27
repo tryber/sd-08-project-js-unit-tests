@@ -73,11 +73,11 @@
 const menu = {};
 
 const createMenu = obj => Object.assign(menu, {
-  fetchMenu: obj,
+  fetchMenu: () => obj,
   consumption: [],
   order: str => menu.consumption.push(str),
   pay: () => {
-    const { food, drinks } = menu.fetchMenu;
+    const { food, drinks } = menu.fetchMenu();
     let prices = Object.entries(food).concat(Object.entries(drinks));
     prices = prices.reduce((acc, [key, val]) => {
       acc[key] = val;
