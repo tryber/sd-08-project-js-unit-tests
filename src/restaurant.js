@@ -42,7 +42,7 @@ const createMenu = (objectParameter) => {
     const consumption = result.consumption;
     const payment = declarafor(consumption, food, drinks);
     return payment;
-  }
+  };
   return result;
 };
 
