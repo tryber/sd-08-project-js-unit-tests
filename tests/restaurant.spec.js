@@ -56,7 +56,7 @@ describe('#createMenu', () => {
     // createMenu(objetoQualquer) // Retorno: { fetchMenu: objetoQualquer }
     // ```
     // const testObjeto = createMenu({comida: 'carne'}).fetchMenu;
-    assert.deepStrictEqual(createMenu({}), {});
+    assert.deepStrictEqual(createMenu(), undefined);
 
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
