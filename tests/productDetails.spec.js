@@ -48,7 +48,7 @@ describe('#productDetails', () => {
     if (typeof item1 === 'object' && typeof item2 === 'object') {
       itensObjetos = 'object';
     }
-    assert.strictEqual(itens, 'object');
+    assert.strictEqual(itensObjetos, 'object');
     assert.notDeepStrictEqual(item1, item2);
     const firstProductId = productDetails('a', 'b')[0].details.productId;
     const secondProductId = productDetails('a', 'b')[1].details.productId;
