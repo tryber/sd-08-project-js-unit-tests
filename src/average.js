@@ -15,7 +15,7 @@ Comportamento:
 const sumOfArray = (numbers) => {
   const output = {
     sum: 0,
-    flagCheck: true
+    flagCheck: true,
   };
   numbers.forEach((number) => {
     if (typeof (number) === 'number') {
