@@ -20,10 +20,10 @@ const vqv = (nome, idade) => {
   if (nome === undefined || idade === undefined) {
     return undefined;
   }
-  let stringVQV = `Oi, meu nome é ${nome}!
+  const stringVQV = `Oi, meu nome é ${nome}!
 Tenho ${idade} anos,
 trabalho na Trybe e mando muito em programação!
-#VQV!`
+#VQV!`;
 
   return stringVQV;
 };
