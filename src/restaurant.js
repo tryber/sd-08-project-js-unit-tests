@@ -74,19 +74,17 @@ let restaurant = {};
 
 const payFunction = () => {
   let somaDosPrecosDosPedidos = 0;
-  const food = restaurant.fetchMenu.food;
-  const drinks = restaurant.fetchMenu.drinks;
+  const food = Object.keys(restaurant.fetchMenu.food);
+  const foodValue = Object.values(restaurant.fetchMenu.food);
+  const drinks = Object.keys(restaurant.fetchMenu.drinks);
+  const drinksValue = Object.values(restaurant.fetchMenu.drinks);
   const consumo = restaurant.consumption;
   for (let index = 0; index < consumo.length; index += 1) {
-    for (let indFood of Object.keys(food)) {
-      if (indFood === consumo[index]) {
-        somaDosPrecosDosPedidos += food[indFood];
-      }
+    if (food[index] === consumo[index]) {
+      somaDosPrecosDosPedidos += foodValue[index];
     }
-    for (let indDrink of Object.keys(drinks)) {
-      if (indDrink === consumo[index]) {
-        somaDosPrecosDosPedidos += drinks[indDrink];
-      }
+    if (drinks[index] === consumo[index]) {
+      somaDosPrecosDosPedidos += drinksValue[index];
     }
   }
   return somaDosPrecosDosPedidos;
