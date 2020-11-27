@@ -21,3 +21,4 @@ describe('#myCounter', () => {
     assert.deepEqual(myCounter(), expectedOutput);
   });
 });
+
