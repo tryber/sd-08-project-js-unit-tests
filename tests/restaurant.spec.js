@@ -140,7 +140,6 @@ describe('#createMenu', () => {
     // // // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // // // ```
     // assert.deepStrictEqual(objetoRetornado.pay(), 11.7);
-
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
