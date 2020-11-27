@@ -15,11 +15,15 @@
 const average = (array) => {
   let media = 0;
   let divisor = 0;
-  for (let key in array ) {
-    media = media + array[key];    
-    divisor = divisor + 1;
+  for (const key in array) {
+    if (array.lengh >= 0) {
+      media = media + array[key];    
+      divisor = divisor + 1;
+    }else {
+      console.log('array vazio!');
+    }
   }
-  media = media / divisor;
+  media /= divisor;
   return media;
 };
 
