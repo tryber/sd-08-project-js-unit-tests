@@ -83,11 +83,12 @@ const createMenu = (objectParameter) => {
           payment += Object.values(result.fetchMenu.food)[i];
         }
       }
-      for (let j = 0; j < Object.keys(result.fetchMenu.food).length; j += 1) { 
+      for (let j = 0; j < Object.keys(result.fetchMenu.food).length; j += 1) {
         if (Object.keys(result.fetchMenu.drink)[j] === result.consumption[index]) {
-          payment += Object.values(result.fetchMenu.drink)[j];}
+          payment += Object.values(result.fetchMenu.drink)[j];
         }
       }
+    }
     return 1.1 * payment;
   };
   return result;
