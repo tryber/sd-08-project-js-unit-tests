@@ -26,5 +26,8 @@
     "jest": "^24.9.0",
     "acorn": ">=5.7.4",
     "minimist": ">=1.2.2"
+  },
+  "dependencies": {
+    "jslint": "^0.12.1"
   }
 }
