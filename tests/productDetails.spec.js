@@ -38,7 +38,7 @@ describe('#productDetails', () => {
 
     assert.strictEqual(productDetails('Alcool gel', 'Máscara').length, 2);
 
-    assert.strictEqual(typeof (productDetails('Alcool gel', 'Máscara')[0]), 'object');
+    assert.strictEqual(typeof(productDetails('Alcool gel', 'Máscara')[0]), 'object');
     
     assert.notStrictEqual(productDetails('Alcool gel', 'Máscara')[0], productDetails('Alcool gel', 'Máscara')[1]);
 
