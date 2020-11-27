@@ -20,5 +20,9 @@
 */
 
 const calculator = {};
+calculator.add = (x, y) => x + y;
+calculator.mult = (x, y) => x * y;
+calculator.div = (x, y) => Math.floor(x / y);
+calculator.sub = (x, y) => x - y;
 
 module.exports = calculator;
