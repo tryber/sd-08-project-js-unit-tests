@@ -8,6 +8,7 @@
     - numbers([2, 3, 4]); // Retorna: true
     - numbers([2, 'errado', 5]); // Retorna: false
 */
+const assert = require('assert');
 
 const numbers = (myArray) => {
   for (let i = 0; i < myArray.length; i += 1) {
@@ -17,5 +18,7 @@ const numbers = (myArray) => {
   }
   return true;
 };
-
+assert.strictEqual(numbers([2, 3, 4,]), true)
+assert.notDeepStrictEqual(numbers([2, 3, 4]), false)
+assert.deepStrictEqual(numbers([2,3,4,2,'5']), false)
 module.exports = numbers;
