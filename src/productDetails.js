@@ -40,3 +40,10 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
+
+// const retorno = productDetails('Alcool gel', 'Máscara')
+// let acessProductID0 = retorno[0].details.productId;
+// let acessProductID1 = retorno[1].details.productId
+
+// console.log(acessProductID0.substr(acessProductID0.length -3, 3))
+// console.log(acessProductID1.substr(acessProductID1.length -3, 3))
