@@ -41,20 +41,17 @@ describe('#productDetails', () => {
     assert.deepStrictEqual(productDetails().length, 2);
 
     // Teste que os dois itens dentro do array retornado pela função são objetos.
-    assert.strictEqual(typeof productDetails().map((item) => typeof item), [
-      'object',
-      'object',
-    ]);
+    assert.strictEqual(
+      typeof productDetails().map((item) => typeof item),
+      'object'
+    );
 
     // Teste que os dois objetos são diferentes entre si.
     assert.notDeepStrictEqual(productDetails()[0], productDetails()[1]);
 
     // (Difícil) Teste que os dois productIds terminam com 123.
     assert.deepStrictEqual(
-      productDetais().map((item) => item.details.productId.slice(-3), [
-        '123',
-        '123',
-      ])
+      productDetais().map((item) => item.details.productId.slice(-3), '123')
     );
   });
 });
