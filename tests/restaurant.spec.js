@@ -51,18 +51,34 @@ const createMenu = require('../src/restaurant');
 
 describe('#createMenu', () => {
   it('tests the function has the correct behaviour', () => {
+<<<<<<< HEAD
+    //assert.fail();
+    // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto no seguinte formato: { fetchMenu: objetoQualquer }.
+    // ```
+    assert.deepStrictEqual(createMenu('objetoQualquer'), { fetchMenu: 'objetoQualquer' });
+    // createMenu(objetoQualquer) // Retorno: { fetchMenu: objetoQualquer }
+=======
     assert.fail();
     // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto que contêm a chave `fetchMenu` e esta por sua vez tem como valor uma função que ao ser executada retorna um objeto qualquer. Exemplo de retorno: { fetchMenu: function }.
     // ```
     // const objetoRetornadoTeste1 = createMenu(objetoQualquer) // Retorno: { fetchMenu: function }
     // const objetoRetornadoTeste1.fetchMenu() // retorno: objetoQualquer
+>>>>>>> a665641a2d05cd8e245d673e7c0dd1ef8cddb40a
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 2: Verifique que, quando a função createMenu for chamada passando como parâmetro o objeto: `{ food: {}, drink: {} }`, retorne um objeto que ao executar a função associada a propriedade `fetchMenu` deste objeto, o retorno da função de ser um objeto que tenha somente as chaves `food` e `drink`.
     // ```
+<<<<<<< HEAD
+
+    let call = createMenu({ food: {}, drink: {} });
+    assert.strictEqual(call,);
+    // const objetoRetornado = createMenu(objetoQualquer);
+    // objetoRetornado.fetchMenu // Retorno: { food: {}, drink: {}}
+=======
     // const objetoRetornadoTeste2 = createMenu(objetoQualquer);
     // objetoRetornadoTeste2.fetchMenu() // retorno: { food: {}, drink: {}}
+>>>>>>> a665641a2d05cd8e245d673e7c0dd1ef8cddb40a
     // ```
     // Agora faça o TESTE 3 deste arquivo.
     // --------------------------------------------------------------------------------------
