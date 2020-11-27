@@ -26,11 +26,10 @@ const circle = (radius) => {
   } else {
     result = {
       radius: radius,
-      area: parseFloat(PI * radius * radius).toFixed(3),
-      circumference: parseFloat(2 * PI * radius).toFixed(3),
+      area: parseFloat(PI * radius * radius).toFixed(2),
+      circumference: parseFloat(2 * PI * radius).toFixed(2),
     };
   }
   return result;
 };
-console.log(circle(1));
 module.exports = circle;
