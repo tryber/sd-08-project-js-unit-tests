@@ -71,26 +71,34 @@
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const payFood = (consumption, food) => {
+const payFood = (consumption, food, index) => {
   let sum = 0;
-  for (let index = 0; index < consumption.length; index += 1) {
-    for (let index1 = 0; index1 < food.length; index1 += 1) {
-      if (consumption[index] === food[index1][0]) {
-        sum += food[index1][1];
-      }
+  for (let index1 = 0; index1 < food.length; index1 += 1) {
+    if (consumption[index] === food[index1][0]) {
+      sum += food[index1][1];
     }
   }
   return sum;
-}
+};
 
-const drinkPay = (consumption, drinks) => {
+const payDrink = (consumption, drinks, index) => {
   let sum = 0;
-  for (let index = 0; index < consumption.length; index += 1) {
-    for (let index2 = 0; index2 < drinks.length; index2 += 1) {
-      if (consumption[index] === drinks[index2][0]) {
-        sum += drinks[index2][1];
-      }
+  for (let index2 = 0; index2 < drinks.length; index2 += 1) {
+    if (consumption[index] === drinks[index2][0]) {
+      sum += drinks[index2][1];
     }
+  }
+  return sum;
+};
+
+const mainFor = (consumption, food, drink) => {
+  let sum = 0;
+  const cons = consumption;
+  const foods = food;
+  const drinks = drink;
+  for (let index = 0; index < consumption.length; index += 1) {
+    sum += payFood(cons, foods, index);
+    sum += payDrink(cons, drinks, index);
   }
   return sum;
 }
@@ -106,7 +114,7 @@ const createMenu = (obj) => {
       const food = Object.entries(menu.fetchMenu.food);
       const drinks = Object.entries(menu.fetchMenu.drink);
       const consumption = menu.consumption;
-      let sum = payFood(consumption, food) + drinkPay(consumption, drinks);
+      const sum = mainFor(consumption, food, drinks);
       return sum;
     },
   };
