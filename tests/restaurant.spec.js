@@ -51,10 +51,13 @@ const createMenu = require('../src/restaurant');
 
 describe('#createMenu', () => {
   it('tests the function has the correct behaviour', () => {
-    assert.fail();
+    //assert.fail();
     // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto no seguinte formato: { fetchMenu: objetoQualquer }.
     // ```
     // createMenu(objetoQualquer) // Retorno: { fetchMenu: objetoQualquer }
+    const param = {food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9}};
+    const objetoRetornado = createMenu(param);
+    assert.deepStrictEqual(createMenu(param).fetchMenu, param);
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
@@ -62,6 +65,7 @@ describe('#createMenu', () => {
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.fetchMenu // Retorno: { food: {}, drink: {}}
+    assert.deepStrictEqual(Object.keys(objetoRetornado.fetchMenu), ['food', 'drink']);
     // ```
     // Agora faça o TESTE 3 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -69,6 +73,7 @@ describe('#createMenu', () => {
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.fetchMenu // Retorno: objetoQualquer
+    assert.deepStrictEqual(objetoRetornado.fetchMenu, param);
     // ```
     // Agora faça o TESTE 4 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -76,6 +81,7 @@ describe('#createMenu', () => {
     // ```
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.consumption // Retorno: []
+    assert.deepStrictEqual(objetoRetornado.consumption, []);
     // ```
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
@@ -84,6 +90,8 @@ describe('#createMenu', () => {
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.order("coxinha");
     // objetoRetornado.comsuption // Retorno: ["coxinha"]
+    objetoRetornado.order("coxinha");
+    assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha']);
     // ```
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
@@ -94,6 +102,12 @@ describe('#createMenu', () => {
     // objetoRetornado.order("sopa");
     // objetoRetornado.order("sashimi");
     // objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
+    objetoRetornado.consumption = [];
+    objetoRetornado.order("coxinha");
+    objetoRetornado.order("agua");
+    objetoRetornado.order("sopa");
+    objetoRetornado.order("sashimi");
+    assert.deepStrictEqual(objetoRetornado.consumption, ["coxinha", "agua", "sopa", "sashimi"]);
     // ```
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -103,6 +117,11 @@ describe('#createMenu', () => {
     // objetoRetornado.order('agua');
     // objetoRetornado.order('coxinha');
     // objetoRetornado.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
+    objetoRetornado.consumption = [];
+    objetoRetornado.order("coxinha");
+    objetoRetornado.order("agua");
+    objetoRetornado.order("coxinha");
+    assert.deepStrictEqual(objetoRetornado.consumption, ["coxinha", "agua", "coxinha"]);
     // ```
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -112,6 +131,7 @@ describe('#createMenu', () => {
     // objetoRetornado.order('agua');
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
+    assert.strictEqual(objetoRetornado.pay(), 11.7);
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
