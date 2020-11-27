@@ -14,7 +14,7 @@
 
 const average = (param) => {
   let sum = 0;
-  for(key in param){
+  for(let key = 0; key < param.length; param += 1){
     sum += param[key];
   }
   return sum;
