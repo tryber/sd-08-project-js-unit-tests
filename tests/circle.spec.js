@@ -41,6 +41,6 @@ describe('#circle', () => {
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
     const calculo1 = circle(3);
     const expected = { radius: 3, area: 28.26, circumference: 18.84 };
-    assert.deepStrictEqual(calculo1, expected);
+    assert.strictEqual(calculo1, expected);
   });
 });
