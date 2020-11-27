@@ -40,3 +40,8 @@ const productDetails = (firstProduct, secondProduct) => [
 ];
 
 module.exports = productDetails;
+
+// var str = 'algum, 123, texto';
+// if(str.match(/123/)){
+//   console.log('string encontrada');
+// }
