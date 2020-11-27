@@ -35,7 +35,7 @@ const calculator = {
   sub: (par1, par2) => {
     const total = par1 - par2;
     return total;
-  }
+  },
 };
 
 // console.log(calculator.div(1, 1))
