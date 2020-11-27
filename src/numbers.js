@@ -11,13 +11,13 @@ const assert = require('assert');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 const numbers = (myArray) => {
-  for (let i = 0; i < myArray.length; i += 1){
-    if (typeof myArray[i] !== 'number'){
+  for (let i = 0; i < myArray.length; i += 1) {
+    if (typeof myArray[i] !== 'number') {
       return false;
     }
   }
   return true;
-}
+};
 // Escreva um teste em que a função recebe [1, 2, 3, 4, 5] e retorna true
 assert.strictEqual(numbers([1, 2, 3, 4, 5]), true);
 // Escreva um teste em que a função recebe [1, 2, '3', 4, 5] e retorna false
