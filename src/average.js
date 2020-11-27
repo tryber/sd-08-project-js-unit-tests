@@ -12,11 +12,11 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-function average (arr) {
+const average = (arr) => {
   let avgTotal = 0;
-  if (arr.length === 0 || arr === [' '] || arr === ['']) return;
+  if (arr.length === 0 || arr === [' '] || arr === ['']) return undefined;
   for (index = 0; index < arr.length; index += 1) {
-    if (typeof arr[index] !== 'number') return;
+    if (typeof arr[index] !== 'number') return undefined;
     avgTotal += arr[index];
   }
   const avg = Math.round(avgTotal / arr.length);
