@@ -1,0 +1,1 @@
+console.log(numbers([3, 2, 1]));
