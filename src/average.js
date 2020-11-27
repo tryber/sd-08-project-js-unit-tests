@@ -13,19 +13,19 @@
 */
 
 const average = (arr) => {
-  if(arr.length === 0)
+  if (arr.length === 0) {
     return undefined;
+  }
 
   let sum = 0;
-  for(let index = 0; index < arr.length; index += 1) {
-    if(typeof(arr[index]) === 'string')
+  for (let index = 0; index < arr.length; index += 1) {
+    if (typeof arr[index] === 'string') {
       return undefined;
+    }
     sum += arr[index];
   }
   sum /= arr.length;
-  return parseInt(sum.toFixed(0));
+  return Number(sum.toFixed(0));
 };
 
-
 module.exports = average;
-
