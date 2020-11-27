@@ -54,7 +54,7 @@ describe('#productDetails', () => {
 
     // (Difícil) Teste que os dois productIds terminam com 123.
     assert.deepStrictEqual(
-      productDetais().map((item) => item.details.productId.slice(-3), '123')
+      productDetails().map((item) => item.details.productId.slice(-3), '123')
     );
   });
 });
