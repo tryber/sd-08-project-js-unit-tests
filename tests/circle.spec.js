@@ -25,9 +25,10 @@ const circle = require('../src/circle');
 
 describe('#circle', () => {
   it('given a radius, should return an object with circles info', () => {
-    assert.fail();
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste se circle retorna um objeto.
+  
+    // ESCREVA SEUS TESTES ABAIXO:    
+    assert.strictEqual(typeof circle(3), 'object');// Teste se circle retorna um objeto.
+    assert.strictEqual(Object.keys(circle(3)).length, 3);
     // Teste se o objeto retornado tem 3 entradas.
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
@@ -35,3 +36,23 @@ describe('#circle', () => {
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
   });
 });
+
+// it('returns the object as specified', () => {
+//   const estudante = createStudent('Leandrão, o Lobo Solitário');
+//   assert.strictEqual(typeof estudante, 'object');
+//   assert.strictEqual(typeof estudante.feedback, 'function');
+//   assert.strictEqual(estudante.name, 'Leandrão, o Lobo Solitário');
+//   assert.strictEqual(estudante.feedback(), 'Eita pessoa boa!');
+
+//   const estudante2 = createStudent('Nobre');
+//   assert.strictEqual(typeof estudante2, 'object');
+//   assert.strictEqual(typeof estudante2.feedback, 'function');
+//   assert.strictEqual(estudante2.name, 'Nobre');
+//   assert.strictEqual(estudante2.feedback(), 'Eita pessoa boa!');
+
+//   const estudante3 = createStudent('Inácio');
+//   assert.strictEqual(typeof estudante3, 'object');
+//   assert.strictEqual(typeof estudante3.feedback, 'function');
+//   assert.strictEqual(estudante3.name, 'Inácio');
+//   assert.strictEqual(estudante3.feedback(), 'Eita pessoa boa!');
+// });
