@@ -45,6 +45,6 @@ describe('#productDetails', () => {
     // Teste que os dois objetos são diferentes entre si.
     assert.deepStrictEqual(productDetails()[0] !== productDetails()[1], true);
     // (Difícil) Teste que os dois productIds terminam com 123.
-    assert.deepStrictEqual(Object.values(productDetails('Alcool gel', 'Máscara')[0].details)[0].split('')[Object.values(productDetails('Alcool gel', 'Máscara')[0].details)[0].split('').length - 3] === '1' && Object.values(productDetails('Alcool gel', 'Máscara')[0].details)[0].split('')[Object.values(productDetails('Alcool gel', 'Máscara')[0].details)[0].split('').length - 2] === '2' && Object.values(productDetails('Alcool gel', 'Máscara')[0].details)[0].split('')[Object.values(productDetails('Alcool gel', 'Máscara')[0].details)[0].split('').length - 1] === '3', true);
+    assert.deepStrictEqual(Object.values(productDetails()[0].details)[0].split('')[Object.values(productDetails()[0].details)[0].split('').length - 3] === '1' && Object.values(productDetails()[0].details)[0].split('')[Object.values(productDetails()[0].details)[0].split('').length - 2] === '2' && Object.values(productDetails()[0].details)[0].split('')[Object.values(productDetails()[0].details)[0].split('').length - 1] === '3', true);
   });
 });
