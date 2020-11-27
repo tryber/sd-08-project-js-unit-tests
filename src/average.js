@@ -25,6 +25,6 @@ const average = (vetor) => {
   }
   const resultado = Math.round(soma / (vetor.length));
   return resultado;
-}
+};
 
 module.exports = average;
