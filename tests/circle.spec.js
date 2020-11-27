@@ -25,7 +25,12 @@ const circle = require('../src/circle');
 
 describe('#circle', () => {
   it('given a radius, should return an object with circles info', () => {
-    assert.fail();
+    assert.strictEqual((typeof(circle(1)) == 'object'), true);
+    assert.strictEqual((Object.keys(circle(1)).length == 3), true);
+    assert.strictEqual(circle(), undefined);
+    assert.strictEqual(((circle(2).circumference) === 12.56), true);
+    assert.strictEqual((parseFloat(circle(3).area).toPrecision(2) === '28'), true);
+    assert.strictEqual(circle(3).radius === 3, (parseFloat(circle(3).area).toPrecision(2) === '28', circle(3).circumference === 18.84), true);
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
     // Teste se o objeto retornado tem 3 entradas.
