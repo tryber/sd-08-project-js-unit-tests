@@ -1,4 +1,4 @@
-/* eslint-disable max-len*/
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 
 const assert = require('assert');
@@ -33,12 +33,14 @@ const productDetails = require('../src/productDetails');
 
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
-    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
-    // Teste que o retorno da função é um array.
-    // Teste que o array retornado pela função contém dois itens dentro.
-    // Teste que os dois itens dentro do array retornado pela função são objetos.
-    // Teste que os dois objetos são diferentes entre si.
-    // (Difícil) Teste que os dois productIds terminam com 123.
+    assert(Array.isArray(productDetails('Alcool gel', 'Máscara')));
+    assert(productDetails('Alcool gel', 'Máscara').length === 2);
+    assert(typeof productDetails('Alcool gel', 'Máscara')[0] === 'object'
+      && typeof productDetails('Alcool gel', 'Máscara')[1] === 'object');
+    assert.notDeepStrictEqual(productDetails('Alcool gel', 'Máscara')[0],
+      productDetails('Alcool gel', 'Máscara')[1]);
+    assert(productDetails('Alcool gel', 'Máscara')[0].details.productId.slice(-3) === '123'
+      && productDetails('Alcool gel', 'Máscara')[1].details.productId.slice(-3));
   });
 });
