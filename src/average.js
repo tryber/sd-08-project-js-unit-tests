@@ -13,7 +13,7 @@
 */
 
 const average = (vetor) => {
-  let soma = 0;
+/*  let soma = 0;
   if (vetor.length === 0) {
     return undefined;
   }
@@ -26,5 +26,5 @@ const average = (vetor) => {
   const resultado = Math.round(soma / (vetor.length));
   return resultado;
 };
-
+*/
 module.exports = average;
