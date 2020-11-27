@@ -102,12 +102,4 @@ const createMenu = (myMenu) => {
   return restaurant;
 };
 
-restaurant = createMenu({
-  food: {'coxinha': 3.90, 'sanduiche': 9.90},
-  drinks: {'agua': 3.90, 'cerveja': 6.90}
-});
-restaurant.order('coxinha');
-restaurant.order('cerveja');
-console.log(restaurant.pay());
-
 module.exports = createMenu;
