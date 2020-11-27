@@ -1,9 +1,8 @@
 /*
-  A função average recebe um array (tamanho variável) e retorna a média dos valores recebidos.
+  A função average recebe um arra (tamanho variável) e retorna a média dos valores recebidos.
   Caso a função receba algum valor não númerico ou um array vazio,
   o valor undefined deve ser retornado.
   Todos os resultados devem ser arredondados para valores inteiros. Ex: 4,6 vira 5; 1,3 vira 1.
-
   Parâmetros:
     - Um array. Exemplos: [1, 2]; [1, 2, 3, 4, 5]; [1, 2, '3']; [];
   Comportamento:
@@ -12,31 +11,18 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const zinzin = (arrii) => {
-  if (arrii.length == 0 || arrii == ' ') {   
+const average = (arr) => {
+  let soma = 0;
+    if ( arr.length === 0) {
     return undefined;
   }
-  
-};
-const average = (arr) => {
-  zinzin(arr);
-  let soma = 0;
-  for (index = 0; index < arr.length; index += 1) {
-    soma += arr[index]
-    if (typeof arr[index] === 'string') {
+  for (let index = 0; index < arr.length; index += 1) {
+    if (!Number.isInteger(arr[index])) {
       return undefined;
-    } else if (arr[index] == 0) {
-      return 0;
     }
+    soma += arr[index];
   }
-  let media = (soma / arr.length);
-
-  if (media >= 0 || media < -2) {
-    return Math.floor(media);
-  } else {
-    return Math.ceil(media);
-  }
+  return Math.round(soma / arr.length);
 };
-
 
 module.exports = average;
