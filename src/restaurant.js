@@ -76,9 +76,7 @@ const menuTestes = {
 const createMenu = (menu) => {
   const menuImplement = {
     fetchMenu: () => {
-      {
-        Object.assign(menu);
-      }
+      Object.assign(menu);
     },
   };
   return menuImplement;
