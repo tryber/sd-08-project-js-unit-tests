@@ -73,10 +73,24 @@
 const createMenu = (order) => {
   const orderList = {
     fetchMenu: () => order,
+    consumption: [],
+    order: (item) => orderList.consumption.push(item),
+    pay: () => {
+      let sum = 0;
+      for (index in orderList.consumption) {
+        const item = orderList.consumption[index]
+        if (Object.keys(order.food).includes(orderList.consumption[index])) {
+          sum += order.food[item];
+        }
+        if (Object.keys(order.drink).includes(orderList.consumption[index])) {
+          sum += order.drink[item];
+        }
+      }
+      return parseFloat(sum + (sum * 0.1)).toPrecision(4);
+    }
   };
   return orderList;
 };
-const meuRestaurante = createMenu({ food: {}, drink: {} });
-console.log(meuRestaurante.fetchMenu());
+
 
 module.exports = createMenu;
