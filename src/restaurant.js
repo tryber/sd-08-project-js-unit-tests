@@ -125,16 +125,4 @@ const createMenu = (objeto) => {
   return meuRestaurante;
 };
 
-
-// const objetoRetornado = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9, 'sanduiche': 9.90}, drink: {'agua': 3.9, 'cerveja': 6.9} });
-// objetoRetornado.order("coxinha");
-// objetoRetornado.order("sopa");
-// objetoRetornado.order("agua");
-// objetoRetornado.order("cerveja");
-// objetoRetornado.order("cerveja");
-// objetoRetornado.order("sanduiche");
-
-// console.log(objetoRetornado.pay());
-// console.log(objetoRetornado.consumption);// 
-
 module.exports = createMenu;
