@@ -15,11 +15,10 @@
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
 function newObj(name) {
-  return ({
+  return (
+  {
     name,
-    feedback: () => (
-    ),
-    return: 'Eita pessoa boa!'
+    feedback: () => 'Eita pessoa boa!',
   }
   );
 }
