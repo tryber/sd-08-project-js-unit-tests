@@ -42,7 +42,7 @@ const outputEndSecond = output[1].details.productId.endsWith('123');
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
     // ESCREVA SEUS TESTES ABAIXO:
-    assert.strictEqual(typeof output, 'object');
+    assert.strictEqual(Array.isArray(output), true);
     // Teste que o retorno da função é um array.
     assert.strictEqual(outputLength, 2);
     // Teste que o array retornado pela função contém dois itens dentro.
