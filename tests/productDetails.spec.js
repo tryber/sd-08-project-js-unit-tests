@@ -37,11 +37,11 @@ describe('#productDetails', () => {
     const testArray = productDetails('comb', 'pen');
     const productIdNumbers = (index) => {
       const obj = testArray[index];
-      const id = obj.details.productId
+      const id = obj.details.productId;
       return id.slice(-3);
     }
     assert.strictEqual(Array.isArray(testArray), true);
-    assert.strictEqual(testArray.lenght, 2);
+    assert.strictEqual(testArray.length, 2);
     assert.strictEqual(typeof testArray[0], 'object');
     assert.strictEqual(typeof testArray[1], 'object');
     assert.notDeepStrictEqual(testArray[0], testArray[1]);
