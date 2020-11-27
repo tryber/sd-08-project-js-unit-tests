@@ -47,26 +47,21 @@ describe('#productDetails', () => {
       productDetails('test1', 'test2')[1]
     );
     // (Difícil) Teste que os dois productIds terminam com 123.
-    assert.notDeepStrictEqual(
-      () => {
-        const array = productDetails('test1', 'test2')[0].details.productId.split();
-        const newArray = []
-        for (let index = array.length; index >= array.length - 3; index -= 1){
+    const arrayEnd = (n) => {
+      const array = productDetails('test1', 'test2')[n].details.productId.split('');
+        const newArray = [];
+        for (let index = array.length - 1; index >= array.length - 3; index -= 1){
           newArray.push(array[index]);
         }
         return newArray;
-      },
+    };
+    
+    assert.deepStrictEqual(
+      arrayEnd(0),
       ['3','2','1',]
     );
-    assert.notDeepStrictEqual(
-      () => {
-        const array = productDetails('test1', 'test2')[1].details.productId.split();
-        const newArray = []
-        for (let index = array.length; index >= array.length - 3; index -= 1){
-          newArray.push(array[index]);
-        }
-        return newArray;
-      },
+    assert.deepStrictEqual(
+      arrayEnd(1),
       ['3','2','1',]
     );
   });
