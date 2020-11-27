@@ -14,14 +14,14 @@
 
 const average = (vetor) => {
   let soma = 0;
-  if (vetor.length <= 0) {
+  if (vetor.length === 0) {
     return undefined;
   }
-  for (let index; index < vetor.length; index += 1) {
-    if (typeof index !== 'number') {
+  for (let index = 0; index < vetor.length; index += 1) {
+    if (typeof vetor[index] !== 'number') {
       return undefined;
     }
-    soma += index;
+    soma += vetor[index];
   }
   const resultado = Math.round(soma / (vetor.length));
   return resultado;
