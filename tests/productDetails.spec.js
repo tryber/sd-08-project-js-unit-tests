@@ -52,18 +52,18 @@ describe('#productDetails', () => {
     assert.notDeepStrictEqual(item1, item2);
     const firstProductId = productDetails('a', 'b')[0].details.productId;
     const secondProductId = productDetails('a', 'b')[1].details.productId;
-    let firstId = null;
-    let secondId = null;
-    for (let i = firstProductId.length - 3; i < firstProductId.length; i += 1) {
-      firstId += firstProductId[i];
+    let endFirstId = '';
+    let endSecondId = '';
+    for (let iFirst = firstProductId.length - 3; iFirst < firstProductId.length; iFirst += 1) {
+      endFirstId += firstProductId[iFirst];
     }
-    for (let i = secondProductId.length - 3; i < secondProductId.length; i += 1) {
-      secondId += secondProductId[i];
+    for (let iSecond = secondProductId.length - 3; iSecond < secondProductId.length; iSecond += 1) {
+      endSecondId += secondProductId[iSecond];
     }
-    let final123 = null;
-    if (firstId === '123' && secondId === '123') {
-      final123 = 'ok';
+    let endIs123 = '';
+    if (endFirstId === '123' && endSecondId === '123') {
+      endIs123 = '123';
     }
-    assert.strictEqual(final123, 'ok');
+    assert.strictEqual(endIs123, '123');
   });
 });
