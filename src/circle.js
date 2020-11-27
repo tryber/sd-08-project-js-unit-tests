@@ -18,7 +18,7 @@
         Use esse conhecimento para te ajudar a lidar com possíveis problemas que esses testes trarão!
 */
 //DICA parseFloat().toPrecision()
-
+const circle = (radius) => {
   const PI = 3.14;
   if (!radius) { return undefined; }
   return {
