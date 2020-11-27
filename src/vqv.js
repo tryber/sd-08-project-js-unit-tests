@@ -15,7 +15,7 @@
       trabalho na Trybe e mando muito em programação!
       #VQV!'
 */
-
+// porque o nome === null nao deu certo.
 const vqv = (nome, idade) => {
   if (!nome || !idade) {
     return undefined;
