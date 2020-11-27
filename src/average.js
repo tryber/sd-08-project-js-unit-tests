@@ -31,6 +31,9 @@ const average = (array) => {
     }
   }
   result = Math.round(result / array.length);
+  if (isNaN(result)) {
+    result = undefined;
+  }
   return result;
 };
 module.exports = average;
