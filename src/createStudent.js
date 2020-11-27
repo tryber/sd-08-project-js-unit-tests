@@ -17,13 +17,13 @@
 
 const createStudent = (nome) => {
   return {
-     name: nome,
-     feedback: () => 'Eita pessoa boa!',
+    name: nome,
+    feedback: () => 'Eita pessoa boa!',
   };
 };
 
-//const estudante = createStudent('wagner');
-//console.log(estudante);
-//console.log(estudante.feedback);
+// const estudante = createStudent('wagner');
+// console.log(estudante);
+// console.log(estudante.feedback);
 
 module.exports = createStudent;
