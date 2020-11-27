@@ -71,20 +71,6 @@
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const payCalc = (consums, foods, drinks) => {
-  let valueTotal = 0;
-  let sumFoods = 0;
-  let sumDrinks = 0;
-  for (let index = 0; index < Object.values(foods).length; index += 1) {
-    sumFoods += payFood(consums, foods, index);    
-  }
-  for (let index = 0; index < Object.values(drinks).length; index += 1) {
-    sumDrinks += payDrinks(consums, drinks, index);
-  }
-  valueTotal = sumFoods + sumDrinks;
-  return valueTotal;
-};
-
 const payFood = (consums, foods, index) => {
   let sumFood = 0;
   for (let index2 = 0; index2 < consums.length; index2 += 1) {
@@ -93,9 +79,8 @@ const payFood = (consums, foods, index) => {
       console.log(Object.values(foods)[index]);
     }
   }
-  //console.log(sumFood);
-  return sumFood ;
-}
+  return sumFood;
+};
 
 const payDrinks = (consums, drinks, index) => {
   let sumDrink = 0;
@@ -103,10 +88,23 @@ const payDrinks = (consums, drinks, index) => {
     if (consums[index2] === Object.keys(drinks)[index]) {
       sumDrink += Object.values(drinks)[index];
     }
-    //console.log(sumDrink);
   }
   return sumDrink;
-}
+};
+
+const payCalc = (consums, foods, drinks) => {
+  let valueTotal = 0;
+  let sumFoods = 0;
+  let sumDrinks = 0;
+  for (let index = 0; index < Object.values(foods).length; index += 1) {
+    sumFoods += payFood(consums, foods, index);
+  }
+  for (let index = 0; index < Object.values(drinks).length; index += 1) {
+    sumDrinks += payDrinks(consums, drinks, index);
+  }
+  valueTotal = sumFoods + sumDrinks;
+  return valueTotal;
+};
 
 const createMenu = (objeto) => {
   const meuRestaurante = {
@@ -118,7 +116,7 @@ const createMenu = (objeto) => {
     pay: () => {
       const foods = meuRestaurante.fetchMenu.food;
       const consums = meuRestaurante.consumption;
-      const drinks = meuRestaurante.fetchMenu.drink;      
+      const drinks = meuRestaurante.fetchMenu.drink;
       let amount = payCalc(consums, foods, drinks);
       amount = parseFloat((amount * 1.1).toFixed(2));
       return amount;
