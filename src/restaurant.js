@@ -48,33 +48,28 @@ const createMenu = (myMenu) => {
   const restaurant = {
     fetchMenu: myMenu,
     consumption: [],
-    order: orderFromMenu = (request) => restaurant.consumption.push(request),
+    order: orderFromMenu = request => restaurant.consumption.push(request),
     pay: pay = () => {
       const foodMenu = restaurant.fetchMenu.food;
       const drinkMenu = restaurant.fetchMenu.drink;
       let sum = 0;
-      for (let indexA = 0; indexA < restaurant.consumption.length; indexA += 1 ) {
-        for (let indexB = 0; indexB < Object.values(foodMenu).length; indexB += 1 ) {
+      for (let indexA = 0; indexA < restaurant.consumption.length; indexA += 1) {
+        for (let indexB = 0; indexB < Object.values(foodMenu).length; indexB += 1) {
           if (restaurant.consumption[indexA] === Object.keys(foodMenu)[indexB]) {
             sum += Object.values(foodMenu)[indexB];
           }
         }
-        for (let indexB = 0; indexB < Object.values(drinkMenu).length; indexB += 1 ) {
+        for (let indexB = 0; indexB < Object.values(drinkMenu).length; indexB += 1) {
           if (restaurant.consumption[indexA] === Object.keys(drinkMenu)[indexB]) {
             sum += Object.values(drinkMenu)[indexB];
           }
         }
       }
       return sum + (sum * 0.1);
-    }
+    },
   };
-  // orderFromMenu('coxinha');
-  // orderFromMenu('sopa');
-  // orderFromMenu('agua');
-  // orderFromMenu('cerveja');
-  // console.log(pay());
   return restaurant;
-}
+};
 
 //
 // Agora faça o TESTE 2 no arquivo `tests/restaurant.spec.js`.
