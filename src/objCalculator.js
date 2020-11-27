@@ -22,7 +22,7 @@
 const calculator = {
   add: add = (num1, num2) => num1 + num2,
   mult: mult = (num1, num2) => num1 * num2,
-  div: div = (num1, num2) => num1 / num2,
+  div: div = (num1, num2) => Math.trunc(num1 / num2),
   sub: sub = (num1, num2) => num1 - num2,
 };
 
