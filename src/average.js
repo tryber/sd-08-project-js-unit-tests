@@ -25,8 +25,8 @@ const average = (array) => {
     }
 
     sum += array[pos];
-    result = (sum / array.length);
   }
+  result = (sum / array.length);
 
   return Math.round(result);
 };
