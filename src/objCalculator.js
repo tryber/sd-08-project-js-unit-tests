@@ -21,19 +21,19 @@
 
 const calculator = {
   add: (par1, par2) => {
-    let total = par1 + par2;
+    const total = par1 + par2;
     return total;
   },
   mult: (par1, par2) => {
-    let total = par1 * par2;
+    const total = par1 * par2;
     return total;
   },
   div: (par1, par2) => {
-    let total = par1 / par2;
+    const total = par1 / par2;
     return Math.floor(total);
   },
   sub: (par1, par2) => {
-    let total = par1 - par2;
+    const total = par1 - par2;
     return total;
   }
 };
