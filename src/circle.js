@@ -20,12 +20,17 @@
 
 const circle = (radius) => {
   const PI = 3.14;
-  if (!radius) { return undefined; }
-  return {
-    radius,
-    area: PI * radius * radius,
-    circumference: 2 * PI * radius,
-  };
+  let result = 0;
+  if (typeof radius !== 'number') {
+    result = undefined;
+  } else {
+    result = {
+      radius: radius,
+      area: parseFloat(PI * radius * radius).toFixed(3),
+      circumference: parseFloat(2 * PI * radius).toFixed(3),
+    };
+  }
+  return result;
 };
-
+console.log(circle(1));
 module.exports = circle;
