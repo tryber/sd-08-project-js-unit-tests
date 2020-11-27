@@ -33,12 +33,37 @@ const productDetails = require('../src/productDetails');
 
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
-    assert.fail();
+    //assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
     // Teste que o array retornado pela função contém dois itens dentro.
     // Teste que os dois itens dentro do array retornado pela função são objetos.
     // Teste que os dois objetos são diferentes entre si.
     // (Difícil) Teste que os dois productIds terminam com 123.
+    assert.strictEqual(Array.isArray(productDetails()), true);
+    assert.strictEqual(productDetails('a', 'b').length, 2);
+    const item1 = productDetails('a', 'b')[0];
+    const item2 = productDetails('a', 'b')[1];
+    let itensObjetos = null;
+    if (typeof item1 === 'object' && typeof item2 === 'object') {
+      itensObjetos = 'object';
+    }
+    assert.strictEqual(itens, 'object');
+    assert.notDeepStrictEqual(item1, item2);
+    const firstProductId = productDetails('a', 'b')[0].details.productId;
+    const secondProductId = productDetails('a', 'b')[1].details.productId;
+    let firstId = null;
+    let secondId = null;
+    for (let i = firstProductId.length - 3; i < firstProductId.length; i += 1) {
+      firstId += firstProductId[i];
+    }
+    for (let i = secondProductId.length - 3; i < secondProductId.length; i += 1) {
+      secondId += secondProductId[i];
+    }
+    let final123 = null;
+    if (firstId === '123' && secondId === '123') {
+      final123 = 'ok';
+    }
+    assert.strictEqual(final123, 'ok');
   });
 });
