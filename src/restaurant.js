@@ -55,14 +55,9 @@
 
 //------------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, cadiiona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
-// DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` define separadamente dela e, depois, a função que será definida em `order`.
-=======
 // PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função como valor da chave `order`.
 // DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` deve retornar e, depois, a função que será atribuida a chave `order` deste objeto.
->>>>>>> a665641a2d05cd8e245d673e7c0dd1ef8cddb40a
-// ```
+// ``` 
 // const restaurant = {}
 //
 // const createMenu = (myMenu) => // Lógica que edita e retorna o objeto `restaurant`
