@@ -28,4 +28,8 @@ const circle = (radius) => {
   };
 };
 
+console.log(circle(1).circumference);
+console.log(circle(2));
+console.log(Object.keys(circle(2)));
+
 module.exports = circle;
