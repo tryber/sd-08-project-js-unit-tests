@@ -13,21 +13,21 @@
 */
 const average = (array) => {
   const length = array.length;
-  let average;
+  const aux;
   let sum = 0;
-  let result;
+  const result;
 
-  if (array.length == 0 || array === []) {
+  if (array.length === 0 || array === []) {
     return undefined;
   }
   for (index = 0; index < array.length; index += 1) {
-    if (typeof(array[index]) !== "number") {
+    if (typeof (array[index]) !== 'number') {
       return undefined;
     }
     sum += array[index];
   }
-  average = sum / length;
-  result = Math.round(average);
+  aux = sum / length;
+  result = Math.round(aux);
   return result;
 };
 
