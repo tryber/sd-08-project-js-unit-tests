@@ -70,25 +70,6 @@
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 
-const createMenu = (obj) => {
-  const tempObj = {
-    fetchMenu: obj,
-    consumption: [],
-    order: (string) => tempObj.consumption.push(string),
-    pay: () => {
-      let totalPrice = tempObj.consumption.map((e) => {
-        if (conferirFood(e, tempObj)) return tempObj.fetchMenu.food[e];
-        if (conferirDrink(e, tempObj)) return tempObj.fetchMenu.drink[e];
-      });
-      totalPrice = somarArray(totalPrice);
-      totalPrice *= 1.1;
-      totalPrice = totalPrice.toFixed(2);
-      return +totalPrice;
-    },
-  };
-  return tempObj;
-};
-
 const conferirFood = (string, obj) => {
   const menuFood = Object.keys(obj.fetchMenu.food);
   return menuFood.includes(string);
@@ -99,7 +80,33 @@ const conferirDrink = (string, obj) => {
   return menuDrink.includes(string);
 };
 
-const somarArray = (array) => array.reduce((a, c) => (a += c));
+const somarArray = (array) => {
+  return array.reduce((a, c) => (a += c));
+};
+
+const createMenu = (obj) => {
+  const tempObj = {
+    fetchMenu: obj,
+    consumption: [],
+    order: (string) => {
+      return tempObj.consumption.push(string);
+    },
+    pay: () => {
+      let totalPrice = [];
+      for (let i = 0; i < tempObj.consumption.length; i += 1) {
+        if (conferirFood(e, tempObj)) totalPrice.push(tempObj.fetchMenu.food[tempObj.consumption[i]]);
+        if (conferirDrink(e, tempObj)) totalPrice.push(tempObj.fetchMenu.drink[tempObj.consumption[i]]);
+      }
+
+      tempObj.consumption.map((e) => {});
+      totalPrice = somarArray(totalPrice);
+      totalPrice *= 1.1;
+      totalPrice = totalPrice.toFixed(2);
+      return +totalPrice;
+    },
+  };
+  return tempObj;
+};
 
 const temp = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
 temp.order('coxinha');
