@@ -55,8 +55,7 @@ describe('#createMenu', () => {
     const meuRestaurante = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} })
     assert.strictEqual(Object.keys(meuRestaurante).length, 1);
     assert.strictEqual(typeof meuRestaurante, 'object');
-    assert.strictEqual(Object.keys(meuRestaurante.fetchMenu()).length, 2);
-    assert.strictEqual(typeof meuRestaurante.fetchMenu(), 'object');
+    assert.strictEqual(typeof meuRestaurante.fetchMenu, 'function');
     // ```
     // const objetoRetornadoTeste1 = createMenu(objetoQualquer) // Retorno: { fetchMenu: function }
     // const objetoRetornadoTeste1.fetchMenu() // retorno: objetoQualquer
@@ -64,6 +63,8 @@ describe('#createMenu', () => {
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 2: Verifique que, quando a função createMenu for chamada passando como parâmetro o objeto: `{ food: {}, drink: {} }`, retorne um objeto que ao executar a função associada a propriedade `fetchMenu` deste objeto, o retorno da função de ser um objeto que tenha somente as chaves `food` e `drink`.
+    const meuRestaurante2 = createMenu({ food: {}, drink: {} });
+    assert.deepStrictEqual(meuRestaurante2.fetchMenu(), { food: {}, drink: {} });
     // ```
     // const objetoRetornadoTeste2 = createMenu(objetoQualquer);
     // objetoRetornadoTeste2.fetchMenu() // retorno: { food: {}, drink: {}}
