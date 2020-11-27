@@ -29,7 +29,7 @@ const createMenu = require('../src/restaurant');
   meuRestaurante.pay() // Retorno: 3.9
 
   Uma função createMenu retorna um objeto com as seguintes características:
-  - Uma chave `fetchMenu` retorna o objeto que a função `createMenu` recebe por parâmetro. O menu tem sempre duas chaves, `food` e `drink`, no seguinte formato:
+  - Uma chave `fetchMenu` que tem uma função associada, esta por sua vez retorna o objeto recebido por parâmetro na função `createMenu`. O menu tem sempre duas chaves, `food` e `drink`, no seguinte formato:
 
   const meuRestaurante = createMenu({
     food: {'coxinha': 3.90, 'sanduiche', 9.90},
@@ -51,9 +51,10 @@ const createMenu = require('../src/restaurant');
 
 describe('#createMenu', () => {
   it('tests the function has the correct behaviour', () => {
-    // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto no seguinte formato: { fetchMenu: objetoQualquer }.
+    // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto que contêm a chave `fetchMenu` e esta por sua vez tem como valor uma função que ao ser executada retorna um objeto qualquer. Exemplo de retorno: { fetchMenu: function }.
     // ```
-    // createMenu(objetoQualquer) // Retorno: { fetchMenu: objetoQualquer }
+    // const objetoRetornadoTeste1 = createMenu(objetoQualquer) // Retorno: { fetchMenu: function }
+    // const objetoRetornadoTeste1.fetchMenu() // retorno: objetoQualquer
     // ```
     let restaurante = createMenu({});
     assert.strictEqual(typeof restaurante, 'object');
@@ -137,7 +138,6 @@ describe('#createMenu', () => {
     // // // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // // // ```
     // assert.deepStrictEqual(objetoRetornado.pay(), 11.7);
-
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
