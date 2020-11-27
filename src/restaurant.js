@@ -74,15 +74,18 @@ let restaurant = {};
 
 const payFunction = () => {
   let somaDosPrecosDosPedidos = 0;
-  for (let index = 0; index < restaurant.consumption.length; index += 1) {
-    for (let indFood in restaurant.fetchMenu.food) {
-      if (indFood === restaurant.consumption[index]) {
-        somaDosPrecosDosPedidos += restaurant.fetchMenu.food[indFood];
+  const food = restaurant.fetchMenu.food;
+  const drinks = restaurant.fetchMenu.drinks;
+  const consumo = restaurant.consumption;
+  for (let index = 0; index < consumo.length; index += 1) {
+    for (let indFood in food) {
+      if (indFood === consumo[index]) {
+        somaDosPrecosDosPedidos += food[indFood];
       }
     }
-    for (let indDrink in restaurant.fetchMenu.drinks) {
-      if (indDrink === restaurant.consumption[index]) {
-        somaDosPrecosDosPedidos += restaurant.fetchMenu.drinks[indDrink];
+    for (let indDrink in drinks) {
+      if (indDrink === consumo[index]) {
+        somaDosPrecosDosPedidos += drinks[indDrink];
       }
     }
   }
@@ -106,7 +109,7 @@ restaurant = createMenu({
   drinks: {'agua': 3.90, 'cerveja': 6.90}
 });
 restaurant.order('coxinha');
-restaurant.order('agua');
+restaurant.order('cerveja');
 console.log(restaurant.pay());
 
 module.exports = createMenu;
