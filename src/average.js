@@ -17,7 +17,7 @@ const average = (vetor) => {
   if (vetor.length === 0) {
     return undefined;
   }
-  for (let index of vetor) {
+  for (let index; index < vetor.length; index += 1) {
     if (typeof index !== 'number') {
       return undefined;
     }
