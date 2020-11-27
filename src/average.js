@@ -13,7 +13,7 @@
 */
 const average = (array) => {
   const length = array.length;
-  const aux;
+  const aux
   let sum = 0;
   const result;
 
