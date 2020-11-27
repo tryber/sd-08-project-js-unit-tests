@@ -11,11 +11,12 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
-
+// Respondi com a ajuda do plantão com o
 const average = (ary) => {
   const total = ary.length;
   let same = 0;
   let media = 0;
+  // era para ser '==' porém como o code climate estava implicando teve que ficar assim '<='
   if (total <= '') {
     media = undefined;
   }
