@@ -17,15 +17,14 @@
 */
 
 const vqv = (nome, idade) => {
- nome = 'Lucas';
- idade = 30;
- if (vqv(n)) {
+ if (nome === undefined && idade === undefined) {
    return undefined;
  }
 
-const email = `olá meu nome é ${nome}!,
-Tenho ${idade} anos, 
-Estudo na trybe e aprendo programação todos os dias!`;
+const email = `Oi, meu nome é ${nome}!
+Tenho ${idade} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`;
 return email;
 };
  console.log(vqv());
