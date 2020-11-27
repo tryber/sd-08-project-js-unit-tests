@@ -51,8 +51,12 @@ const createMenu = require('../src/restaurant');
 
 describe('#createMenu', () => {
   it('tests the function has the correct behaviour', () => {
-    assert.fail();
     // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto no seguinte formato: { fetchMenu: objetoQualquer }.
+    const meuRestaurante = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} })
+    assert.strictEqual(Object.keys(meuRestaurante).length, 1);
+    assert.strictEqual(typeof meuRestaurante, 'object');
+    assert.strictEqual(Object.keys(meuRestaurante.fetchMenu()).length, 2);
+    assert.strictEqual(typeof meuRestaurante.fetchMenu(), 'object');
     // ```
     // createMenu(objetoQualquer) // Retorno: { fetchMenu: objetoQualquer }
     // ```
