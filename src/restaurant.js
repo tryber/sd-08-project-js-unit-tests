@@ -89,7 +89,7 @@ const calculateAmount = () => {
   }
 
   return total;
-} 
+};
 
 const createMenu = (objeto) => {
   const menu = {
