@@ -70,28 +70,38 @@
 //------------------------------------------------------------------------------------------
 
 // PASSO 4: Adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função que varre todo os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará varrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
+const declarafor = (obj) => {
+  let payment = 0;
+    for (let index = 0; index < obj.consumption.length; index += 1) {
+      for (let i = 0; i < Object.keys(obj.fetchMenu.food).length; i += 1) {
+        if (Object.keys(obj.fetchMenu.food)[i] === obj.consumption[index]) {
+          payment += Object.values(obj.fetchMenu.food)[i];
+        }
+      }
+      for (let j = 0; j < Object.keys(obj.fetchMenu.food).length; j += 1) {
+        if (Object.keys(obj.fetchMenu.drink)[j] === obj.consumption[index]) {
+          payment += Object.values(obj.fetchMenu.drink)[j];
+        }
+      }
+    }
+    return 1.1 * payment;
+  };
+
+
 const createMenu = (objectParameter) => {
   const result = {};
   result.fetchMenu = objectParameter;
   result.consumption = [];
   result.order = pedido => result.consumption.push(pedido);
   result.pay = () => {
-    let payment = 0;
-    for (let index = 0; index < result.consumption.length; index += 1) {
-      for (let i = 0; i < Object.keys(result.fetchMenu.food).length; i += 1) {
-        if (Object.keys(result.fetchMenu.food)[i] === result.consumption[index]) {
-          payment += Object.values(result.fetchMenu.food)[i];
-        }
-      }
-      for (let j = 0; j < Object.keys(result.fetchMenu.food).length; j += 1) {
-        if (Object.keys(result.fetchMenu.drink)[j] === result.consumption[index]) {
-          payment += Object.values(result.fetchMenu.drink)[j];
-        }
-      }
-    }
-    return 1.1 * payment;
-  };
+    const payment = declarafor(result);
+    return payment;
+  }
   return result;
 };
 
 module.exports = createMenu;
+
+const meuPedido = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
+meuPedido.order('coxinha');
+console.log(meuPedido.pay())
