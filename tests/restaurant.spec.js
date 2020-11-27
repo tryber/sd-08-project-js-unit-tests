@@ -53,16 +53,11 @@ describe('#createMenu', () => {
   it('tests the function has the correct behaviour', () => {
     // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto no seguinte formato: { fetchMenu: objetoQualquer }.
     // ```
-    assert.deepStrictEqual(createMenu({}), { fetchMenu: {} });
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 2: Verifique que, dado que a função createMenu foi chamada com o objeto: `{ food: {}, drink: {} }`, verifique que 'objetoRetornado.fetchMenu' retorna um objeto cujas chaves são somente `food` e `drink`.
     // ```
-    assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).fetchMenu, {
-      food: {},
-      drink: {},
-    });
     // ```
     // Agora faça o TESTE 3 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -82,11 +77,6 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 5: Verifique que chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, como `objetoRetornado.order('coxinha')`, tal string é adicionada ao array retornado em `objetoRetornado.consumption
     // ```;
-    assert.deepStrictEqual(
-      createMenu({}).order(''),
-      createMenu({}).consumption,
-      ['']
-    );
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.order("coxinha");
     // objetoRetornado.comsuption // Retorno: ["coxinha"]
