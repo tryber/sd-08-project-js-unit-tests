@@ -16,24 +16,20 @@ const average = (array) => {
   let result = 0;
   if (
     Object.prototype.toString.call(array) !== '[object Array]' ||
-    array.length === 0
+    array.length <= 0
   ) {
     //solução encontrada em https://stackoverflow.com/questions/12996871/why-does-typeof-array-with-objects-return-object-and-not-array
-    result = undefined;
+    return (result = undefined);
   }
 
   for (let i = 0; i < array.length; i += 1) {
     if (typeof array[i] === 'number') {
       result += array[i];
     } else {
-      result = undefined;
-      break;
+      return (result = undefined);
     }
   }
   result = Math.round(result / array.length);
-  if (isNaN(result)) {
-    result = undefined;
-  }
   return result;
 };
 module.exports = average;
