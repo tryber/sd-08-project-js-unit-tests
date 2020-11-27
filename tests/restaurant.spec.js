@@ -57,6 +57,7 @@ describe('#createMenu', () => {
     // ```
     let restaurante = createMenu({});
     assert.strictEqual(typeof restaurante, 'object');
+    console.log(restaurante);
 
     // // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // // --------------------------------------------------------------------------------------
