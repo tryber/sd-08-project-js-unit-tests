@@ -12,16 +12,19 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = (arrayNumbers) => {
-  let soma = 0;
+const average = (arrayNumbers) => {  
+  if (arrayNumbers.length === 0) {
+    return undefined;
+  }
+  let sum = 0;
   let media = 0;
   for (let index = 0; index < arrayNumbers.length; index += 1) {
-    if (typeof arrayNumbers[index] !== 'number' || arrayNumbers[index] === '') {
+    if (typeof arrayNumbers[index] !== 'number') {
       return undefined;
     }
-    soma += arrayNumbers[index];
+    sum += arrayNumbers[index];
   }
-  media = Math.round(soma / arrayNumbers.length);
+  media = Math.round(sum / arrayNumbers.length);
   return media;
 };
 
