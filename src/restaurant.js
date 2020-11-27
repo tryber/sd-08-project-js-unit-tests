@@ -85,18 +85,21 @@ function somarArray(array) {
 }
 
 const createMenu = (obj) => {
-  function adicionarArray(string) {
-    return tempObj.consumption.push(string);
-  }
-
   const tempObj = {
     fetchMenu: obj,
     consumption: [],
-    order: adicionarArray,
+    order: (string) => {
+      tempObj.consumption.push(string);
+    },
     pay: () => {
       let totalPrice = tempObj.consumption.map((e) => {
-        if (conferirFood(e, tempObj)) return tempObj.fetchMenu.food[e];
-        if (conferirDrink(e, tempObj)) return tempObj.fetchMenu.drink[e];
+        if (conferirFood(e, tempObj)) {
+          return tempObj.fetchMenu.food[e];
+        } else if (conferirDrink(e, tempObj)) {
+          return tempObj.fetchMenu.drink[e];
+        } else {
+          return;
+        }
       });
       totalPrice = somarArray(totalPrice);
       totalPrice *= 1.1;
