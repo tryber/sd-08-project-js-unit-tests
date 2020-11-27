@@ -17,8 +17,8 @@ const average = (array) => {
   let divisor = 0;
   for (const key in array) {
     if (array.lengh >= 0) {
-      media = media + array[key];    
-      divisor = divisor + 1;
+      media += array[key];    
+      divisor += 1;
     }else {
       console.log('array vazio!');
     }
