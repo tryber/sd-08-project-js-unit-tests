@@ -17,12 +17,13 @@ const average = (array) => {
     return undefined;
   }
 
-  array.forEach((item) => {
-    if (typeof item === 'number') {
-      item = Math.round(item);
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof array[index] !== 'number') {
+      return undefined;
     }
-    return undefined;
-  });
+  }
+
+  array.forEach(number => Math.round(number));
 
   const total = array.reduce((accumulator, current) => accumulator + current);
 
