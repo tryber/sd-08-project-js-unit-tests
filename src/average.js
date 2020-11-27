@@ -13,15 +13,16 @@
 */
 
 const testingArray = (arr) => {
+  let array = true;
   if (arr.length === 0) {
-    return false;
+    array = false;
   }
   for (let index = 0; index < arr.length; index += 1) {
     if (typeof arr[index] !== 'number') {
-      return false;
+      array = false;
     }
   }
-  return true;
+  return array;
 };
 
 const average = (arr) => {
