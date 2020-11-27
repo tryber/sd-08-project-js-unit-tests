@@ -25,6 +25,6 @@ function newObj(name) {
 
 function createStudent(name) {
   return newObj(name);
-} 
+}
 
 module.exports = createStudent;
