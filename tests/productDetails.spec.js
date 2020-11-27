@@ -30,11 +30,12 @@ const productDetails = require('../src/productDetails');
 
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
-
+const retorno = productDetails('Alcool gel', 'Máscara')
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
     assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
+    assert.ok(array.isArray(productDetails()))
     // Teste que o retorno da função é um array.
     // Teste que o array retornado pela função contém dois itens dentro.
     // Teste que os dois itens dentro do array retornado pela função são objetos.

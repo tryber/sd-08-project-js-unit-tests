@@ -20,7 +20,7 @@ const createStudent = (estudante) => {
   const objetoEstudante = {
     name: estudante,
     feedback: () => 'Eita pessoa boa!',
- }; 
+  };
   return objetoEstudante;
 };
 
@@ -29,6 +29,6 @@ createStudent(estudante);
 
 console.log(createStudent(estudante));
 
-// console.log(createStudent('Victor'));
+console.log(createStudent('Victor Moraes'));
 
 module.exports = createStudent;
