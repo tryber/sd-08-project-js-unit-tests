@@ -37,8 +37,8 @@ describe('#productDetails', () => {
     assert.strictEqual(productDetails().length, 2);
     assert.strictEqual(typeof productDetails()[0], 'object');
     assert.strictEqual(typeof productDetails()[1], 'object');
-    assert.notDeepStrictEqual(productDetails()[0], productDetails()[1]);
-    assert.strictEqual(productDetails()[0].details.productId.substring(-3, 3), '123');
-    assert.strictEqual(productDetails()[1].details.productId.substring(-3, 3), '123');
+    assert.notDeepStrictEqual(productDetails('alcool', 'mascara')[0], productDetails()[1]);
+    assert.strictEqual(productDetails('alcool', 'mascara')[0].details.productId.slice(-3), '123');
+    assert.strictEqual(productDetails('alcool', 'mascara')[1].details.productId.slice(-3), '123');
   });
 });
