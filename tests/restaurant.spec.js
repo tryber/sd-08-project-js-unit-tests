@@ -88,8 +88,10 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 5: Verifique que chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro, como `objetoRetornado.order('coxinha')`, tal string é adicionada ao array retornado em `objetoRetornado.consumption
     // ```;
-    const order = 'coxinha';
-    assert.strictEqual(createMenu(menu, order).consumption.toString(), order);
+    const restmenu = createMenu(menu);
+    const request01 = 'coxinha';
+    restmenu.order(request01);
+    assert.strictEqual(request01, restmenu.consumption.toString());
     // const objetoRetornado = createMenu(objetoQualquer);
     // objetoRetornado.order("coxinha");
     // objetoRetornado.comsuption // Retorno: ["coxinha"]
@@ -98,6 +100,14 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens no array `objetoRetornado.consumption` conforme os itens pedidos.
     // ```
+    const request02 = 'agua';
+    const request03 = 'sopa';
+    const request04 = 'sashimi';
+    restmenu.order(request02);
+    restmenu.order(request03);
+    restmenu.order(request04);
+    const totalRequest = [request01, request02, request03, request04];
+    assert.deepStrictEqual(totalRequest, restmenu.consumption);
     // objetoRetornado.order("coxinha");
     // objetoRetornado.order("agua");
     // objetoRetornado.order("sopa");
@@ -108,6 +118,9 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função `order` aceita que pedidos repetidos sejam acrescidos a consumption.
     // ```
+    restmenu.order(request01);
+    totalRequest.push(request01);
+    assert.deepStrictEqual(totalRequest, restmenu.consumption);
     // objetoRetornado.order('coxinha');
     // objetoRetornado.order('agua');
     // objetoRetornado.order('coxinha');
@@ -122,6 +135,19 @@ describe('#createMenu', () => {
     // objetoRetornado.order('coxinha');
     // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
+
+    const menuWithPrice = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
+    const restaurantMenu = createMenu(menuWithPrice);
+    requestWithPrice01 = 'coxinha';
+    requestWithPrice02 = 'cerveja';
+    requestWithPrice03 = 'coxinha';
+    restaurantMenu.order(requestWithPrice01);
+    restaurantMenu.order(requestWithPrice02);
+    restaurantMenu.order(requestWithPrice03);
+    const totalPrice = (Object.values(restaurantMenu.fetchMenu.food)[0] * 2) + Object.values(restaurantMenu.fetchMenu.drink)[1]
+    const totalPriceWithTip = parseFloat(totalPrice + (totalPrice * 0.1)).toPrecision(4);
+    
+    assert.strictEqual(restaurantMenu.pay(), totalPriceWithTip);
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });

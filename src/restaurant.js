@@ -73,25 +73,46 @@
 
 const restaurant = {};
 
-const orderFromMenu = (request) => {
-  restaurant.order = request;
-  restaurant.consumption.push(request);
+const sumPayment = total => parseFloat(total + (total * 0.1)).toPrecision(4);
+
+const getPrices = (consumptionItem) => {
+  const foodsKeys = Object.keys(restaurant.fetchMenu.food);
+  const foodValues = Object.values(restaurant.fetchMenu.food);
+  const drinksKeys = Object.keys(restaurant.fetchMenu.drink);
+  const pricesDrink = Object.values(restaurant.fetchMenu.drink);
+  let price = 0;
+  const foodIndex = foodsKeys.indexOf(consumptionItem);
+  const drinkIndex = drinksKeys.indexOf(consumptionItem);
+
+  if (foodIndex >= 0) {
+    price = foodValues[foodIndex];
+  }
+
+  if (drinkIndex >= 0) {
+    price = pricesDrink[drinkIndex];
+  }
+
+  return price;
 };
 
-const createMenu = (myMenu, order) => {
+const createMenu = (myMenu) => {
   const fetch = { fetchMenu: myMenu };
   const consum = { consumption: [] };
-  Object.assign(restaurant, fetch, consum);
-  if (order !== undefined) {
-    orderFromMenu(order);
-  }
+
+  const request = { order: requestItem => restaurant.consumption.push(requestItem) };
+
+  const payment = { pay: () => {
+    let total = 0;
+    for (let index = 0; index < restaurant.consumption.length; index += 1) {
+      total += getPrices(restaurant.consumption[index]);
+    }
+
+    return sumPayment(total);
+  } };
+
+  Object.assign(restaurant, fetch, consum, request, payment);
 
   return restaurant;
 };
-
-// const menu = {food: {}, drink: {}};
-// const order = 'coxinha';
-
-// console.log(createMenu(menu, order).consumption.toString());
 
 module.exports = createMenu;
