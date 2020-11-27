@@ -70,42 +70,43 @@
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
+let restaurant = {};
+
 const payFunction = () => {
   let somaDosPrecosDosPedidos = 0;
-  const itensFood = Object.keys(restaurant.fetchMenu.food);
-  const foodValue = Object.values(restaurant.fetchMenu.food);
-  const itensDrink = Object.keys(restaurant.fetchMenu.drink);
-  const drinkValue = Object.values(restaurant.fetchMenu.drink);
   for (let index = 0; index < restaurant.consumption.length; index += 1) {
-    for (let indFood = 0; indFood < itensFood.length; indFood += 1) {
-      if (restaurant.consumption[index] === itensFood[indFood]) {
-        somaDosPrecosDosPedidos += foodValue[indFood];
+    for (let indFood in restaurant.fetchMenu.food) {
+      if (indFood === restaurant.consumption[index]) {
+        somaDosPrecosDosPedidos += restaurant.fetchMenu.food[indFood];
       }
     }
-    for (let indDrink = 0; indDrink < itensFood.length; indDrink += 1) {
-      if (restaurant.consumption[index] === itensDrink[indDrink]) {
-        somaDosPrecosDosPedidos += drinkValue[indDrink];
+    for (let indDrink in restaurant.fetchMenu.drinks) {
+      if (indDrink === restaurant.consumption[index]) {
+        somaDosPrecosDosPedidos += restaurant.fetchMenu.drinks[indDrink];
       }
     }
   }
   return somaDosPrecosDosPedidos;
 };
 
-const orderFromMenu = (request) => {
-  restaurant.consumption = [];
-  restaurant.consumption.push(request);
-};
-
-const restaurant = {};
-
 const createMenu = (myMenu) => {
   restaurant = {
-    fetchMenu: () => myMenu,
+    fetchMenu: myMenu,
     consumption: [],
-    order: orderFromMenu(),
-    pay: payFunction(),
-  }
+    order: (request) => {
+      restaurant.consumption.push(request);
+    },
+    pay: payFunction,
+  };
   return restaurant;
 };
+
+restaurant = createMenu({
+  food: {'coxinha': 3.90, 'sanduiche': 9.90},
+  drinks: {'agua': 3.90, 'cerveja': 6.90}
+});
+restaurant.order('coxinha');
+restaurant.order('agua');
+console.log(restaurant.pay());
 
 module.exports = createMenu;
