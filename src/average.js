@@ -21,7 +21,8 @@ const testingIfArrayIsNumber = (array) => {
       return false;
     }
   }
-}
+  return true;
+};
 
 const average = (array) => {
   if (testingIfArrayIsNumber === false) {
