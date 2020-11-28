@@ -72,28 +72,42 @@
 
 // const orderFromMenu = (str) =>  createMenu().comsuption.push(str);
 
+const sumFoodCalc = (entreisFood, restaurantConsumption) => {
+  let sum = 0;
+  for (let indexCons = 0; indexCons < restaurantConsumption.length; indexCons += 1) {
+    for (let indexFood = 0; indexFood < entreisFood.length; indexFood += 1) {
+      if (restaurantConsumption[indexCons] === entreisFood[indexFood][0]) {
+        sum += entreisFood[indexFood][1];
+      }
+    }
+  }
+  return sum;
+};
+
+const sumDrinkCalc = (entreisDrink, restaurantConsumption) => {
+  let sum = 0;
+  for (let indexCons = 0; indexCons < restaurantConsumption.length; indexCons += 1) {
+    for (let indexDrink = 0; indexDrink < entreisDrink.length; indexDrink += 1) {
+      if (restaurantConsumption[indexCons] === entreisDrink[indexDrink][0]) {
+        sum += entreisDrink[indexDrink][1];
+      }
+    }
+  }
+  return sum;
+};
+
 const createMenu = (obj) => {
   const restaurant = {
     fetchMenu: () => obj,
     consumption: [],
     order: (str) => { restaurant.consumption.push(str); },
     pay: () => {
-      let sum = 0;
       const entreisFood = Object.entries(restaurant.fetchMenu().food);
       const entreisDrink = Object.entries(restaurant.fetchMenu().drink);
-      for (let indexCons = 0; indexCons < restaurant.consumption.length; indexCons += 1) {
-        for (let indexFood = 0; indexFood < entreisFood.length; indexFood += 1) {
-          if (restaurant.consumption[indexCons] === entreisFood[indexFood][0]) {
-            sum += entreisFood[indexFood][1];
-          }
-        }
-        for (let indexDrink = 0; indexDrink < entreisDrink.length; indexDrink += 1) {
-          if (restaurant.consumption[indexCons] === entreisDrink[indexDrink][0]) {
-            sum += entreisDrink[indexDrink][1];
-          }
-        }
-      }
-      return sum * 1.1;
+      const restaurantConsumption = restaurant.consumption;
+      const sumFood = sumFoodCalc(entreisFood, restaurantConsumption);
+      const sumDrink = sumDrinkCalc(entreisDrink, restaurantConsumption);
+      return parseFloat(((sumFood + sumDrink) * 1.1).toPrecision(4));
     },
   };
   return restaurant;

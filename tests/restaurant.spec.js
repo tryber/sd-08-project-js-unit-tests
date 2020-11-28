@@ -84,6 +84,6 @@ describe('#createMenu', () => {
     objetoRetornadoTeste8.order("agua");
     objetoRetornadoTeste8.order("sopa");
     objetoRetornadoTeste8.order("sashimi");
-    assert.strictEqual(parseFloat(objetoRetornadoTeste8.pay().toPrecision(4)), 52.47);
+    assert.strictEqual(objetoRetornadoTeste8.pay(), 52.47);
   });
 });
