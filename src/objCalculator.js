@@ -18,7 +18,46 @@
   calculator.add(1, 1) // Retorno: 2;
   calculator.div(3, 2) // Retorno: 1;
 */
+const typeNums = (number1, number2) => (typeof number1 !== 'number' || typeof number2 !== 'number');
 
-const calculator = {};
+const add = (num1, num2) => {
+  if (typeNums(num1, num2)) {
+    return undefined;
+  }
+  return num1 + num2;
+};
+
+const mult = (num1, num2) => {
+  if (num1 === 0 || num2 === 0) {
+    return 0;
+  } else if (typeNums(num1, num2)) {
+    return undefined;
+  }
+  return num1 * num2;
+};
+
+const div = (num1, num2) => {
+  if (num2 === 0) {
+    return 0;
+  } else if (typeNums(num1, num2)) {
+    return undefined;
+  }
+  const resp = parseInt((num1 / num2), 0);
+  return resp;
+};
+
+const sub = (num1, num2) => {
+  if (typeNums(num1, num2)) {
+    return undefined;
+  }
+  return num1 - num2;
+};
+
+const calculator = {
+  add,
+  mult,
+  div,
+  sub,
+};
 
 module.exports = calculator;
