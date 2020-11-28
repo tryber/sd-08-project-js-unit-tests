@@ -34,11 +34,11 @@ const productDetails = require('../src/productDetails');
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
     // ESCREVA SEUS TESTES ABAIXO:
-    assert.ok(Array.isArray(productDetails('Alcool gel', 'Máscara')), 'array');
-    assert.ok(productDetails('Alcool gel', 'Máscara').length === 2);
-    assert(typeof productDetails('Alcool gel', 'Máscara')[0] === 'object'); 
-    assert(typeof productDetails('Alcool gel', 'Máscara')[1] === 'object');
-    assert.notDeepStrictEqual(productDetails('Alcool gel', 'Máscara')[0],
+    assert(Array.isArray(productDetails('Alcool gel', 'Máscara')), 'array');
+    assert(productDetails('Alcool gel', 'Máscara').length === 2);
+    assert(typeof(productDetails('Alcool gel', 'Máscara')[0]), 'Object');
+    assert(typeof(productDetails('Alcool gel', 'Máscara')[1]), 'Object');
+    assert(typeof(productDetails('Alcool gel', 'Máscara')[0]) !== 
     productDetails('Alcool gel', 'Máscara')[1]);
     assert(productDetails('Alcool gel', 'Máscara')[0].details.productId.slice(-3) === '123');
     assert(productDetails('Alcool gel', 'Máscara')[1].details.productId.slice(-3) === '123');
@@ -50,3 +50,22 @@ describe('#productDetails', () => {
     // (Difícil) Teste que os dois productIds terminam com 123.
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+    //assert.ok(Array.isArray(productDetails('Alcool gel', 'Máscara')), 'array');
+    // assert.ok(productDetails('Alcool gel', 'Máscara').length === 2);
+    // assert(typeof productDetails('Alcool gel', 'Máscara')[0] === 'object'); 
+    // assert(typeof productDetails('Alcool gel', 'Máscara')[1] === 'object');
+    // assert.notDeepStrictEqual(productDetails('Alcool gel', 'Máscara')[0],
+    // productDetails('Alcool gel', 'Máscara')[1]);
+    // assert(productDetails('Alcool gel', 'Máscara')[0].details.productId.slice(-3) === '123');
+    // assert(productDetails('Alcool gel', 'Máscara')[1].details.productId.slice(-3) === '123');
