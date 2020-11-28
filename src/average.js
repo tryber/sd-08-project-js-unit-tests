@@ -17,12 +17,12 @@ const average = (param1) => {
   let tp;
   let a;
   for (let i = 0; i < param1.length; i += 1) {
-    if (typeof (param1[i]) !== 'number'){ return undefined; }
+    if (typeof (param1[i]) !== 'number') { return undefined; }
     tp = param1[i];
     somartudo += tp;
   }
   a = Math.round(somartudo / param1.length);
-  if (a === 'NaN') { a = 'undefined' };
+  if (a === 'NaN') { a = 'undefined'; }
   return a;
 };
 module.exports = average;
