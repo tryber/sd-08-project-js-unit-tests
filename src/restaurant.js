@@ -79,16 +79,20 @@ const createMenu = (object) => {
     consumption: list,
     pay: () => {
       let payment = 0;
-      list.find((value) => {
-        if (object.food[value] > 0) {
-          payment += object.food[value];
-        }
+      //  modificação feita depois da ajuda da VIvi dia 27/11/2020 21h36
+      list.forEach((produto) => {
+        payment += object.drink[produto] || object.food[produto] || 0;
       });
-      list.find((value) => {
-        if (object.drink[value] > 0) {
-          payment += object.drink[value];
-        }
-      });
+      // const lixo1 = list.find((value) => {
+      //   if (object.food[value] > 0) {
+      //     payment += object.food[value];
+      //   }
+      // });
+      // const lixo = list.find((value) => {
+      // if (object.drink[value] > 0) {
+      //     payment += object.drink[value];
+      //   }
+      // });
       return (parseFloat(payment * 1.1).toPrecision(5));
     },
   };
