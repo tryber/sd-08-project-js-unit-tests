@@ -12,8 +12,6 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const array1 = [1, 2, 3, '4', 5];
-
 const testingIfArrayIsNumber = (array) => {
   if (array.length === 0) {
     return false;
@@ -27,7 +25,7 @@ const testingIfArrayIsNumber = (array) => {
 };
 
 const average = (array) => {
-  if (testingIfArrayIsNumber(array1) === false) {
+  if (testingIfArrayIsNumber(array) === false) {
     return undefined;
   }
   let sum = 0;
