@@ -42,6 +42,7 @@ describe('#productDetails', () => {
     productDetails('Alcool gel', 'Máscara')[1]);
     assert(productDetails('Alcool gel', 'Máscara')[0].details.productId.slice(-3) === '123');
     assert(productDetails('Alcool gel', 'Máscara')[1].details.productId.slice(-3) === '123');
+    //ideia do final pego no repositório do Silvio Dayube
     // Teste que o retorno da função é um array.
     // Teste que o array retornado pela função contém dois itens dentro.
     // Teste que os dois itens dentro do array retornado pela função são objetos.
