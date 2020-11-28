@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 
-const assert = require('assert');
-const circle = require('../src/circle');
+const assert = require("assert");
+const circle = require("../src/circle");
 
 /*
   Essa função recebe o raio de um círculo e retorna um objeto contendo suas informações (Raio, Área e Circunferência).
@@ -23,25 +23,24 @@ const circle = require('../src/circle');
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
 
-describe('#circle', () => {
-  it('given a radius, should return an object with circles info', () => {
+describe("#circle", () => {
+  it("given a radius, should return an object with circles info", () => {
     // ESCREVA SEUS TESTES ABAIXO:
-    const circleReturn = circle(1);
     // Teste se circle retorna um objeto.
-    assert.strictEqual(typeof circle(1), 'object');
+    assert.strictEqual(typeof circle(1), "object");
     // Teste se o objeto retornado tem 3 entradas.
     assert.strictEqual(Object.keys(circle(1)).length, 3);
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
     assert.strictEqual(circle(), undefined);
-
-    // const circumference = Object.values(circle(2));
     // Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
     assert.strictEqual(cicle(2).circumference, 12.56);
-
-    const circleData = Object.values(circle(3));
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
-    assert.strictEqual(circleData[1], 3.14 * 3 * 3);
+    assert.strictEqual(circle(3).area, 3.14 * 3 * 3);
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-    assert.strictEqual(circleData, { radius: 2, area: 28.259999999999998, circumference: 18.84 })
+    assert.strictEqual(circle(3), {
+      radius: 3,
+      area: 3.14 * 3 * 3,
+      circumference: 2 * 3.14 * 3,
+    });
   });
 });
