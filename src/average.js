@@ -15,7 +15,7 @@
 const average = (array) => {
   let result = 0;
   if (
-    Object.prototype.toString.call(array) !== '[object Array]' ||
+    !Array.isArray(array) || // Encontrado em https://stackoverflow.com/questions/12996871/why-does-typeof-array-with-objects-return-object-and-not-array
     array.length === 0
   ) {
     return (result = undefined);
