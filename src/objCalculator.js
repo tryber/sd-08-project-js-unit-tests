@@ -20,25 +20,29 @@
 */
 
 const calculator = {
-  add: function add (a, b) {
+  add: function add(a, b) {
     if (typeof a === 'number' && typeof b === 'number') {
       return Math.floor(a + b);
     }
+    return undefined;
   },
-  sub: function sub (a, b) {
+  sub: function sub(a, b) {
     if (typeof a === 'number' && typeof b === 'number') {
       return Math.floor(a - b);
     }
+    return undefined;
   },
-  mult: function mult (a, b) {
+  mult: function mult(a, b) {
     if (typeof a === 'number' && typeof b === 'number') {
       return Math.floor(a * b);
     }
+    return undefined;
   },
-  div: function div (a, b) {
+  div: function div(a, b) {
     if (typeof a === 'number' && typeof b === 'number' && b !== 0) {
       return Math.floor(a / b);
     }
+    return undefined;
   },
 };
 
