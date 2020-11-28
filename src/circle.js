@@ -17,6 +17,7 @@
         Uma solução pra isso pode ser fazer a soma no seguinte formato: `parseFloat((0.2 + 0.1)).toPrecision(2)`.
         Use esse conhecimento para te ajudar a lidar com possíveis problemas que esses testes trarão!
 */
+const assert = require('assert');
 
 const circle = (radius) => {
   const PI = 3.14;
@@ -27,5 +28,17 @@ const circle = (radius) => {
     circumference: 2 * PI * radius,
   };
 };
-
+assert.strictEqual(typeof circle(5), 'object');
+// Teste se o objeto retornado tem 3 entradas.
+assert.deepStrictEqual(circle(1), { radius: 1, area: 3.14, circumference: 6.28 });
+// Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
+assert.strictEqual(circle(), undefined);
+// Teste que a função retorna, dentro de um objeto, a circunferência correta para um círculo de raio 2.
+assert.deepStrictEqual(circle(2), { radius: 2, area: 12.56, circumference: 12.56 });
+// Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
+assert.deepStrictEqual(circle(3), {
+  radius: 3,
+  area: 28.259999999999998,
+  circumference: 18.84,
+});
 module.exports = circle;
