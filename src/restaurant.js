@@ -75,7 +75,7 @@ let restaurant = {};
 const payFunction = () => {
   const consumo = restaurant.consumption;
   let somaDosPrecosDosPedidos = 0;
-  consumo.forEach(element => {
+  consumo.forEach((element) => {
     const menuComidas = Object.keys(restaurant.fetchMenu.food);
     const menuBebidas = Object.keys(restaurant.fetchMenu.drinks);
     for (let ind = 0; ind < menuComidas.length; ind += 1) {
@@ -89,7 +89,7 @@ const payFunction = () => {
       }
     }
   });
-  return somaDosPrecosDosPedidos
+  return somaDosPrecosDosPedidos;
 };
 
 const createMenu = (myMenu) => {
@@ -103,6 +103,7 @@ const createMenu = (myMenu) => {
       if ((restaurant.fetchMenu.food !== undefined) && (restaurant.fetchMenu.drinks !== undefined)) {
         return payFunction();
       }
+      return 'O FetchMenu precisa de dados no food ou no drinks para funcionar';
     },
   };
   return restaurant;
