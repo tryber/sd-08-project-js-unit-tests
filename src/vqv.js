@@ -18,9 +18,9 @@
 const vqv = (name, age) => {
   if (typeof name === 'string' && typeof age === 'number') {
     return (`Oi, meu nome é ${name}!
-    tenho ${age} anos,
-    trabalho na Trybe e mando muito em programação!
-    #VQV!`);
+tenho ${age} anos,
+trabalho na Trybe e mando muito em programação!
+#VQV!`);
   }
   return undefined;
 };
