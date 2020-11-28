@@ -22,7 +22,7 @@ const average = (param1) => {
     somartudo += tp;
   }
   a = Math.round(somartudo / param1.length);
-  if (Number.isNaN (a)) { a = undefined; }
+  if (Number.isNaN(a)) { a = undefined; }
   return a;
 };
 module.exports = average;
