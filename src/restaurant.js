@@ -44,7 +44,9 @@
 */
 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: objetoPassadoPorParametro }.
-//
+// const teste = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } };
+// const menu = createMenu(teste);
+
 // Agora faça o TESTE 2 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
@@ -57,7 +59,7 @@
 
 // PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função como valor da chave `order`.
 // DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` deve retornar e, depois, a função que será atribuida a chave `order` deste objeto.
-// ```
+
 // const restaurant = {}
 //
 // const createMenu = (myMenu) => // Lógica que edita e retorna o objeto `restaurant`
@@ -70,6 +72,37 @@
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
-const createMenu = () => { };
+// const obj = { food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } };
+const createMenu = (object) => {
+  const restaurant = {
+    fetchMenu: object,
+    consumption: [],
+    order: (string) => {
+      restaurant.consumption.push(string);
+    },
+    pay: () => {
+      let total = 0;
+      const itens = Object.entries(restaurant.fetchMenu.food).concat(
+        Object.entries(restaurant.fetchMenu.drink),
+      );
+      const consumo = restaurant.consumption;
+      consumo.forEach((element) => {
+        for (let i = 0; i < itens.length; i += 1) {
+          if (itens[i][0] === element) {
+            total += itens[i][1];
+          }
+        }
+      });
+      return (total * 110) / 100;
+    },
+  };
+  return restaurant;
+};
+// const itens - Ideia de criar um array com Object.entries vista no projeto do colega Silvio Dayube
+// const menu = createMenu(obj);
+// menu.order('coxinha');
+// menu.order('coxinha');
+// menu.order('agua');
+// console.log(menu.pay());
 
 module.exports = createMenu;
