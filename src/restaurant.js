@@ -73,21 +73,23 @@
 let restaurant = {};
 
 const payFunction = () => {
-  let somaDosPrecosDosPedidos = 0;
-  const food = Object.keys(restaurant.fetchMenu.food);
-  const foodValue = Object.values(restaurant.fetchMenu.food);
-  const drinks = Object.keys(restaurant.fetchMenu.drinks);
-  const drinksValue = Object.values(restaurant.fetchMenu.drinks);
   const consumo = restaurant.consumption;
-  for (let index = 0; index < consumo.length; index += 1) {
-    if (food[index] === consumo[index]) {
-      somaDosPrecosDosPedidos += foodValue[index];
+  let somaDosPrecosDosPedidos = 0;
+  consumo.forEach(element => {
+    const menuComidas = Object.keys(restaurant.fetchMenu.food);
+    const menuBebidas = Object.keys(restaurant.fetchMenu.drinks);
+    for (let ind = 0; ind < menuComidas.length; ind += 1) {
+      if (element === menuComidas[ind]) {
+        somaDosPrecosDosPedidos += restaurant.fetchMenu.food[element];
+      }
     }
-    if (drinks[index] === consumo[index]) {
-      somaDosPrecosDosPedidos += drinksValue[index];
+    for (let ind = 0; ind < menuBebidas.length; ind += 1) {
+      if (element === menuBebidas[ind]) {
+        somaDosPrecosDosPedidos += restaurant.fetchMenu.drinks[element];
+      }
     }
-  }
-  return somaDosPrecosDosPedidos;
+  });
+  return somaDosPrecosDosPedidos
 };
 
 const createMenu = (myMenu) => {
@@ -97,7 +99,11 @@ const createMenu = (myMenu) => {
     order: (request) => {
       restaurant.consumption.push(request);
     },
-    pay: payFunction,
+    pay: () => {
+      if ((restaurant.fetchMenu.food !== undefined) && (restaurant.fetchMenu.drinks !== undefined)) {
+        return payFunction();
+      }
+    },
   };
   return restaurant;
 };
