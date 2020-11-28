@@ -60,7 +60,7 @@ describe('#createMenu', () => {
     //
     const restaurant = {};
     objetoRetornado = createMenu(restaurant);
-    assert.deepStrictEqual(createMenu(restaurant), objetoRetornado);
+    assert.deepStrictEqual(JSON.stringify(createMenu(restaurant)), "{\"fetchMenu\":{},\"consumption\":[]}");
     
     assert.deepStrictEqual(objetoRetornado.fetchMenu, {});
     
