@@ -19,6 +19,27 @@
   calculator.div(3, 2) // Retorno: 1;
 */
 
-const calculator = {};
+const calculator = {
+  add: function add (a, b) {
+    if (typeof a === 'number' && typeof b === 'number') {
+      return Math.floor(a + b);
+    }
+  },
+  sub: function sub (a, b) {
+    if (typeof a === 'number' && typeof b === 'number') {
+      return Math.floor(a - b);
+    }
+  },
+  mult: function mult (a, b) {
+    if (typeof a === 'number' && typeof b === 'number') {
+      return Math.floor(a * b);
+    }
+  },
+  div: function div (a, b) {
+    if (typeof a === 'number' && typeof b === 'number' && b !== 0) {
+      return Math.floor(a / b);
+    }
+  },
+};
 
 module.exports = calculator;
