@@ -46,6 +46,6 @@ describe('#productDetails', () => {
     assert.notDeepStrictEqual((productDetails('Alcool gel', 'Máscara')[0]), productDetails('Alcool gel', 'Máscara')[1]);
     // (Difícil) Teste que os dois productIds terminam com 123.
     assert.strictEqual(((productDetails('Alcool gel', 'Máscara')[0]).details.productId).endsWith('123'), true);
-    assert.strictEqual(((productDetails('Alcool gel', 'Máscara')[0]).details.productId).endsWith('123'), true);
+    assert.strictEqual(((productDetails('Alcool gel', 'Máscara')[1]).details.productId).endsWith('123'), true);
   });
 });
