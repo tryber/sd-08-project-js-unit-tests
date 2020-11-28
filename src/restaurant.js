@@ -70,6 +70,51 @@
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
-const createMenu = () => { };
+const restaurant = {};
+let objetoRetornado;
+
+const orderFromMenu = (request) => {
+  objetoRetornado.consumption.push(request);
+};
+
+const runFood = () => {
+  let somaFoods = 0;
+  const listPairFood = Object.entries(objetoRetornado.fetchMenu.food);
+  for (let foodIndex = 0; foodIndex < listPairFood.length; foodIndex += 1) {
+    if (listPairFood[foodIndex][0] === objetoRetornado.consumption[indexConsumption]) {
+      somaFoods += listPairFood[foodIndex][1];
+    }
+  }
+  return somaFoods;
+};
+
+const runDrinks = () => {
+  let somaDrinks = 0;
+  const listPairDrinks = Object.entries(objetoRetornado.fetchMenu.drinks);
+  for (let drinkIndex = 0; drinkIndex < listPairDrinks.length; drinkIndex += 1) {
+    if (listPairDrinks[drinkIndex][0] === objetoRetornado.consumption[indexConsumption]) {
+      somaDrinks += listPairDrinks[drinkIndex][1];
+    }
+  }
+  return somaDrinks;
+};
+
+const runConsumption = () => {
+  let soma = 0;
+  for (indexConsumption = 0; indexConsumption < objetoRetornado.consumption.length; indexConsumption += 1) {
+    somaDrinks = runDrinks();
+    somaFoods = runFood();
+    soma += somaDrinks + somaFoods;
+  }
+  return soma * 1.1;
+};
+
+const createMenu = object => ({
+  fetchMenu: object,
+  consumption: [],
+  order: orderFromMenu,
+  pay: runConsumption,
+});
+objetoRetornado = createMenu(restaurant);
 
 module.exports = createMenu;
