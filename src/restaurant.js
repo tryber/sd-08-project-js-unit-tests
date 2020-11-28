@@ -49,7 +49,7 @@
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 2: Adicione ao objeto retornado pela função `createMenu` uma chave `consumption` que, inicialmente, tem um array vazio.
+// PASSO 2: Adicione ao objeto retornado por `createMenu` uma chave `consumption` que, como valor inicial, tem um array vazio. (alterar o passo 1 do outro arquivo)
 //
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
@@ -70,6 +70,43 @@
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
-const createMenu = () => { };
+let restaurant = {};
+
+const payFunction = () => {
+  const consumo = restaurant.consumption;
+  let somaDosPrecosDosPedidos = 0;
+  consumo.forEach((element) => {
+    const menuComidas = Object.keys(restaurant.fetchMenu.food);
+    const menuBebidas = Object.keys(restaurant.fetchMenu.drinks);
+    for (let ind = 0; ind < menuComidas.length; ind += 1) {
+      if (element === menuComidas[ind]) {
+        somaDosPrecosDosPedidos += restaurant.fetchMenu.food[element];
+      }
+    }
+    for (let ind = 0; ind < menuBebidas.length; ind += 1) {
+      if (element === menuBebidas[ind]) {
+        somaDosPrecosDosPedidos += restaurant.fetchMenu.drinks[element];
+      }
+    }
+  });
+  return somaDosPrecosDosPedidos;
+};
+
+const createMenu = (myMenu) => {
+  restaurant = {
+    fetchMenu: myMenu,
+    consumption: [],
+    order: (request) => {
+      restaurant.consumption.push(request);
+    },
+    pay: () => {
+      if ((restaurant.fetchMenu.food !== undefined) && (restaurant.fetchMenu.drinks !== undefined)) {
+        return payFunction();
+      }
+      return 'O FetchMenu precisa de dados no food ou no drinks para funcionar';
+    },
+  };
+  return restaurant;
+};
 
 module.exports = createMenu;
