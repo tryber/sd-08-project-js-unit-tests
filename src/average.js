@@ -12,20 +12,22 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
+const array1 = [1, 2, 3, '4', 5];
+
 const testingIfArrayIsNumber = (array) => {
   if (array.length === 0) {
     return false;
   }
   for (let index = 0; index < array.length; index += 1) {
-    if (typeof array[index] !== 'number') {
+    if (typeof array[index] !== Number) {
       return false;
     }
+    return true;
   }
-  return true;
 };
 
 const average = (array) => {
-  if (testingIfArrayIsNumber === false) {
+  if (testingIfArrayIsNumber(array1) === false) {
     return undefined;
   }
   let sum = 0;
