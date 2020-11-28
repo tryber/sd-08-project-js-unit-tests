@@ -18,10 +18,13 @@ const numbers = require('../src/numbers');
 
 describe('#numbers', () => {
   it('should return an array and return if it has only numbers or not', () => {
-    assert.fail();
+    assert.strictEqual(numbers([1, 2, 3, 4, 5]),true , "the fuction wik be retunr true if all contents are number");
     // Escreva um teste em que a função recebe [1, 2, 3, 4, 5] e retorna true
+    assert.strictEqual(numbers([1, 2,'3', 4, 5]) , false , "the fuction will return false if any valuer is not a number ins case '3' is string");
     // Escreva um teste em que a função recebe [1, 2, '3', 4, 5] e retorna false
+    assert.strictEqual(numbers([1, 'a', 3]),false, "the fuction will return false if any valuer is not a number ins case 'a' is string");
     // Escreva um teste em que a função recebe [1, 'a', 3] e retorna false
+    assert.strictEqual(numbers([' ']),false, "the fuction will returr false because is empty");
     // Escreva um teste em que a função recebe [' '] e retorna false
   });
 });
