@@ -79,7 +79,7 @@ describe('#createMenu', () => {
     // ```
     // const objetoRetornadoTeste4 = createMenu(objetoQualquer);
     // objetoRetornadoTeste4.consumption // Valor: []
-    assert.deepStrictEqual(createMenu().consuption, []);
+    assert.strictEqual(createMenu().consuption, []);
     // ```
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
