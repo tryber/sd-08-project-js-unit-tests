@@ -87,7 +87,7 @@ describe('#createMenu', () => {
     // objetoRetornadoTeste5.comsuption // Valor: ["coxinha"]
     const test5 = createMenu({});
     test5.order('coxinha')
-    assert.strictEqual(test5.consumption, ['coxinha']);
+    assert.deepStrictEqual(test5.consumption, ['coxinha']);
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens ao array `objetoRetornadoTeste6.consumption` conforme os itens pedidos.
@@ -101,7 +101,7 @@ describe('#createMenu', () => {
     test6.order('agua');
     test6.order('sopa');
     test6.order('sashimi');
-    assert.strictEqual(test6.consumption, ['agua', 'sopa', 'sashimi']);
+    assert.deepStrictEqual(test6.consumption, ['agua', 'sopa', 'sashimi']);
     assert.strictEqual(test6.consumption.length, 3);
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -116,7 +116,7 @@ describe('#createMenu', () => {
     test7.order('coxinha')
     test7.order('agua')
     test7.order('coxinha')
-    assert.strictEqual(test7.consumption, ['coxinha', 'agua', 'coxinha'])
+    assert.deepStrictEqual(test7.consumption, ['coxinha', 'agua', 'coxinha'])
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
@@ -127,12 +127,12 @@ describe('#createMenu', () => {
     // objetoRetornadoTeste8.order("sopa");
     // objetoRetornadoTeste8.order("sashimi");
     // objetoRetornadoTeste8.pay() // Retorno: somaDosPreçosDosPedidos
-    let test8 = createMenu({});
+    let test8 = createMenu({ food: { 'sopa': 5, 'sashimi': 5 }, drink: { 'agua': 10 } });
     test8.order("agua");
     test8.order("agua");
     test8.order("sopa");
     test8.order("sashimi");
-    assert.strictEqual(test8.pay(), 30);
+    assert.strictEqual(test8.pay(), 33);
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
