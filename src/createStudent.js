@@ -14,7 +14,9 @@
     estudante.name // Retorna: 'Leandrão, o Lobo Solitário'
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
-const feedback = () => { return 'Eita pessoa boa!'; };
+const feedback = () => { 
+  return 'Eita pessoa boa!';
+};
 
 const createStudent = (name) => {
   if (!name) { return undefined; }
