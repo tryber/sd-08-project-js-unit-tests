@@ -63,7 +63,7 @@ describe('#createMenu', () => {
     // ```
     // const objetoRetornadoTeste2 = createMenu(objetoQualquer);
     // objetoRetornadoTeste2.fetchMenu() // retorno: { food: {}, drink: {}}
-    assert.strictEqual(createMenu({ food: {}, drink: {} }).fetchMenu(), { food: {}, drink: {} } );
+    assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).fetchMenu(), { food: {}, drink: {} } );
     // ```
     // Agora faça o TESTE 3 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -71,7 +71,7 @@ describe('#createMenu', () => {
     // ```
     // const objetoRetornadoTeste3 = createMenu(objetoQualquer);
     // objetoRetornadoTeste3.fetchMenu() // Retorno: objetoQualquer
-    assert.strictEqual(createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }).fetchMenu(), { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
+    assert.deepStrictEqual(createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }).fetchMenu(), { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
     // ```
     // Agora faça o TESTE 4 deste arquivo.
     // --------------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ describe('#createMenu', () => {
     // ```
     // const objetoRetornadoTeste4 = createMenu(objetoQualquer);
     // objetoRetornadoTeste4.consumption // Valor: []
-    assert.strictEqual(createMenu().consuption, []);
+    assert.deepStrictEqual(createMenu().consuption, []);
     // ```
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
@@ -88,7 +88,7 @@ describe('#createMenu', () => {
     // const objetoRetornadoTeste5 = createMenu(objetoQualquer);
     // objetoRetornadoTeste5.order("coxinha");
     // objetoRetornadoTeste5.comsuption // Valor: ["coxinha"]
-    assert.strictEqual(createMenu().consumption.push('coxinha'), ['coxinha']);
+    assert.deepStrictEqual(createMenu().consumption, ['coxinha']);
     // ```
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
