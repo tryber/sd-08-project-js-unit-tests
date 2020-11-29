@@ -14,14 +14,14 @@
 
 const average = (arrayNumbers) => {
   let sum = 0;
-for (let index = 0; index < arrayNumbers.length; index +=1){
+  for (let index = 0; index < arrayNumbers.length; index +=1 ) {
   if (typeof arrayNumbers[index] !== 'number' || !arrayNumbers || arrayNumbers === []) {
-  return undefined; 
+      return undefined;
   }
   sum += arrayNumbers[index];
 }
-let result = sum / arrayNumbers.length;
-return Math.round(result);
+    const result = sum / arrayNumbers.length;
+    return Math.round(result);
 };
 console.log(average([]));
 module.exports = average;
