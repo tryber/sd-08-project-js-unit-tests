@@ -19,11 +19,11 @@
   calculator.div(3, 2) // Retorno: 1;
 */
 
-const calculator = (integer1, integer2) => ({
-  add: () => integer1 + integer2,
-  mult: () => integer1 * integer2,
-  div: () => Math.floor(integer1 / integer2),
-  sub: () => integer1 - integer2,
-});
+const calculator = {
+  add: (integer1, integer2) => integer1 + integer2,
+  mult: (integer1, integer2) => integer1 * integer2,
+  div: (integer1, integer2) => Math.floor(integer1 / integer2),
+  sub: (integer1, integer2) => integer1 - integer2,
+};
 
 module.exports = calculator;
