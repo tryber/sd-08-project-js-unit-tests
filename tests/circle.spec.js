@@ -40,7 +40,7 @@ describe('#circle', () => {
     assert.strictEqual(circle(3), {
       radius: 3,
       area: 28.259999999999998,
-      circumference: 18.84
+      circumference: 18.84,
     });
   });
 });
