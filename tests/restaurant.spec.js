@@ -54,7 +54,6 @@ describe('#createMenu', () => {
     // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto que contêm a chave `fetchMenu` e esta por sua vez tem como valor uma função que ao ser executada retorna um objeto qualquer. Exemplo de retorno: { fetchMenu: function }.
     // ```
     // const objetoRetornadoTeste1 = createMenu(objetoQualquer) // Retorno: { fetchMenu: function }
-    assert.strictEqual(createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }), {fetchMenu: ƒ});
     // const objetoRetornadoTeste1.fetchMenu() // retorno: objetoQualquer
     assert.strictEqual(createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }).fetchMenu(), { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
     // ```
@@ -63,7 +62,6 @@ describe('#createMenu', () => {
     // TESTE 2: Verifique que, quando a função createMenu for chamada passando como parâmetro o objeto: `{ food: {}, drink: {} }`, retorne um objeto que ao executar a função associada a propriedade `fetchMenu` deste objeto, o retorno da função de ser um objeto que tenha somente as chaves `food` e `drink`.
     // ```
     // const objetoRetornadoTeste2 = createMenu(objetoQualquer);
-    assert.strictEqual(createMenu({ food: {}, drink: {} }), {fetchMenu: ƒ});
     // objetoRetornadoTeste2.fetchMenu() // retorno: { food: {}, drink: {}}
     assert.strictEqual(createMenu({ food: {}, drink: {} }).fetchMenu(), { food: {}, drink: {} } );
     // ```
