@@ -79,7 +79,7 @@ const createMenu = (rcptMenu) => {
 
   const totalPlusTen = () => {
     const allPricesArr = Object.values(rcptMenu.foods).concat(
-      Object.values(rcptMenu.drinks)
+      Object.values(rcptMenu.drinks),
     );
     let total = 0;
     allPricesArr.forEach((posicaoValor) => {
@@ -91,7 +91,7 @@ const createMenu = (rcptMenu) => {
   return {
     fetchMenu: () => farnel.menu,
     consumption: farnel.consumption,
-    order: (strParam) => farnel.consumption.push(strParam),
+    order: strParam => farnel.consumption.push(strParam),
     pay: () => totalPlusTen(),
   };
 };
