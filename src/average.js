@@ -12,6 +12,21 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
-
+const average = (array) => {
+  let result = 0;
+  if (
+    !Array.isArray(array) || // Encontrado em https://stackoverflow.com/questions/12996871/why-does-typeof-array-with-objects-return-object-and-not-array
+    array.length === 0
+  ) {
+    return (result = undefined);
+  }
+  for (let i = 0; i < array.length; i += 1) {
+    if (typeof array[i] !== 'number') {
+      return (result = undefined);
+    }
+    result += array[i];
+  }
+  result = Math.round(result / array.length);
+  return result;
+};
 module.exports = average;
