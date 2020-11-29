@@ -18,7 +18,6 @@
         Use esse conhecimento para te ajudar a lidar com possíveis problemas que esses testes trarão!
 */
 
-
 const circle = (radius) => {
   const PI = 3.14;
   if (!radius) {
