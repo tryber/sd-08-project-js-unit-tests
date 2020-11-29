@@ -73,7 +73,7 @@
 const createMenu = (rcptMenu) => {
   const farnel = {
     menu: { foods: {}, drinks: {} },
-    consumo: [],
+    consumption: [],
   };
   Object.assign(farnel.menu, rcptMenu);
 
@@ -87,13 +87,13 @@ const createMenu = (rcptMenu) => {
     });
     return Number((total * 1.1).toFixed(2));
   };
+
   return {
     fetchMenu: () => farnel.menu,
-    consumption: () => farnel.consumo,
-    order: (strParam) => farnel.consumo.push(strParam),
-    pay: () => totalPlusTen,
+    consumption: farnel.consumption,
+    order: (strParam) => farnel.consumption.push(strParam),
+    pay: () => totalPlusTen(),
   };
 };
 
 module.exports = createMenu;
-module.exports = menuTestes;
