@@ -41,7 +41,7 @@ describe('#productDetails', () => {
       else flag = false;
       return flag;
     }), true);
-    assert.strictEqual(productDetails('teste-1', 'teste-2').every((value, index, values) => {
+    assert.strictEqual(productDetails('teste-1', 'teste-2').every((value, _index, values) => {
       let output = 0;
       values.forEach((valueTest) => {
         if (value.name === valueTest.name) {
