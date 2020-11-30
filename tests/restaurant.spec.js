@@ -51,10 +51,29 @@ const createMenu = require('../src/restaurant');
 
 describe('#createMenu', () => {
   it('tests the function has the correct behaviour', () => {
-    const output = createMenu(obj);
+    const output = createMenu({});
+    const output2 = createMenu({ food: {}, drink: {} });
     const fetchOutput = output.fetchMenu();
-    assert.strictEqual(Object.entries(output), '{ fetchMenu: function }');
+    const param = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
+    const param2 = ['agua', 'sopa', 'sashimi'];
+    assert.deepStrictEqual(Object.keys(output).includes('fetchMenu'), true);
     assert.strictEqual(typeof fetchOutput, 'object');
+    assert.deepStrictEqual(Object.keys(output2.fetchMenu()),["food", "drink"]);
+    assert.deepStrictEqual(createMenu(param).fetchMenu(), param);
+    assert.deepStrictEqual(output.consumption, []);
+    assert.deepStrictEqual(output.order('coxinha'), output.consumption);
+    assert.deepStrictEqual(output.order(param2), output.consumption);
+    const objetoRetornadoTeste7 = createMenu({});
+    objetoRetornadoTeste7.order('coxinha');
+    objetoRetornadoTeste7.order('agua');
+    objetoRetornadoTeste7.order('coxinha');
+    assert.deepStrictEqual(objetoRetornadoTeste7.consumption, ['coxinha', 'agua', 'coxinha']);
+    const objetoRetornadoTeste8 = createMenu({ food: {'sashimi': 4, 'sopa': 4}, drink: {'agua': 4, 'cerveja': 6.9} });
+    objetoRetornadoTeste8.order("agua");
+    objetoRetornadoTeste8.order("agua");
+    objetoRetornadoTeste8.order("sopa");
+    objetoRetornadoTeste8.order("sashimi");
+    assert.strictEqual(objetoRetornadoTeste8.pay(), 16);
     // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto que contêm a chave `fetchMenu` e esta por sua vez tem como valor uma função que ao ser executada retorna um objeto qualquer. Exemplo de retorno: { fetchMenu: function }.
     // ```
     // const objetoRetornadoTeste1 = createMenu(objetoQualquer) // Retorno: { fetchMenu: function }
