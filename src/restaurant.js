@@ -77,12 +77,12 @@ const createMenu = anyObject => ({
 
 const restaurant = createMenu();
 
-const order = {order: (request) => orderFromMenu(request)}
-
-Object.assign(restaurant, order);
-
 const orderFromMenu = (request) => {
   restaurant.consumption.push(request);
-}
+};
+
+const order = { order: request => orderFromMenu(request) };
+
+Object.assign(restaurant, order);
 
 module.exports = createMenu;
