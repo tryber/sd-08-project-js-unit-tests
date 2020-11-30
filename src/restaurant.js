@@ -78,20 +78,12 @@ const createMenu = (obj) => {
     order: string => menu.consumption.push(string),
     pay: () => {
       menu.fetchMenu();
-      const foods = Object.keys(menu.fetchMenu()[Object.keys(menu.fetchMenu())[0]]);
-      const foodsValue = Object.values(menu.fetchMenu()[Object.keys(menu.fetchMenu())[0]]);
-      const drinks = Object.keys(menu.fetchMenu()[Object.keys(menu.fetchMenu())[1]]);
-      const drinksValue = Object.values(menu.fetchMenu()[Object.keys(menu.fetchMenu())[1]]);
+      const products = Object.assign({}, menu.fetchMenu()[Object.keys(menu.fetchMenu())[0]], menu.fetchMenu()[Object.keys(menu.fetchMenu())[1]]);
       let totalPayment = 0;
       for (let indexComsump = 0; indexComsump < menu.consumption.length; indexComsump += 1) {
-        for (let index = 0; index < foods.length; index += 1) {
-          if (foods[index] === menu.consumption[indexComsump]) {
-            totalPayment += foodsValue[index];
-          }
-        }
-        for (let index = 0; index < drinks.length; index += 1) {
-          if (drinks[index] === menu.consumption[indexComsump]) {
-            totalPayment += drinksValue[index];
+        for (let index = 0; index < Object.keys(products).length; index += 1) {
+          if (Object.keys(products)[index] === menu.consumption[indexComsump]) {
+            totalPayment += Object.values(products)[index];
           }
         }
       }
@@ -101,12 +93,15 @@ const createMenu = (obj) => {
 };
 
 // const obj = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
+// const foodss = Object.keys(obj)[0];
+// const test = Object.assign({}, obj.food, obj.drink);
+// console.log(foodss);
 // const newMenu2 = createMenu(obj);
 // newMenu2.order('coxinha');
 // newMenu2.order('sopa');
 // newMenu2.order('agua');
 // newMenu2.order('coxinha');
-// console.log(Object.values(newMenu2.fetchMenu()[Object.keys(newMenu2.fetchMenu())[1]]));
+// console.log(Object.keys(newMenu2.fetchMenu()[Object.keys(newMenu2.fetchMenu())[1]]));
 // console.log(newMenu2.pay());
 
 module.exports = createMenu;
