@@ -112,6 +112,6 @@ describe('#createMenu', () => {
     // objetoRetornadoTeste8.order("sashimi");
     // objetoRetornadoTeste8.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
-    // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
+    // Agora faça o PASSO 4 no arquivo `src/restaurant.js`..
   });
 });
