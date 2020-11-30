@@ -77,14 +77,12 @@ const createMenu = (obj) => {
     consumption: [],
     order: str => menu.consumption.push(str),
     pay: () => {
-      const { food, drinks } = menu.fetchMenu();
-      let prices = Object.entries(food).concat(Object.entries(drinks));
-      prices = prices.reduce((acc, [key, val]) => {
-        acc[key] = val;
-        return acc;
-      }, Object.create(null));
-      const total = menu.consumption.map(item => prices[item]).reduce((acc, cur) => acc + cur);
-      return Number((total * 1.1).toFixed(2));
+      const prices = menu.fetchMenu();
+      let total = menu.consumption.reduce((acc, item) => {
+        return acc + (prices.food[item] || prices.drinks[item]);
+      }, 0);
+      total *= 1.1;
+      return parseFloat(total.toFixed(2));
     },
   });
   return menu;
