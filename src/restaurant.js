@@ -94,6 +94,7 @@ const payBill = (restaurant) => {
 
   bill = array(bill);
   bill *= 1.1;
+  bill.toPrecision(2);
 
   return bill;
 };
@@ -101,8 +102,8 @@ const payBill = (restaurant) => {
 const createMenu = (object) => {
   const restaurant = {
     fetchMenu: object,
-    order: string => restaurant.consumption.push(string),
     consumption: [],
+    order: string => restaurant.consumption.push(string),
     pay: () => payBill(restaurant),
   };
 
