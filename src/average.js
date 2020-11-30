@@ -30,8 +30,4 @@ const average = (array) => {
 };
 
 module.exports = average;
-
 // assert.strictEqual(average([2, 2]), 2);
-
-
-
