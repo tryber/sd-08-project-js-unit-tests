@@ -88,7 +88,8 @@ describe('#createMenu', () => {
     // const objetoRetornadoTeste5 = createMenu(objetoQualquer);
     // objetoRetornadoTeste5.order("coxinha");
     // objetoRetornadoTeste5.comsuption // Valor: ["coxinha"]
-    assert.deepStrictEqual(createMenu().consumption, ['coxinha']);
+    restaurant.order('coxinha');
+    assert.deepStrictEqual(restaurant.consumption, ['coxinha']);
     // ```
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
