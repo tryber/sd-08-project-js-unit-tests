@@ -72,11 +72,11 @@
 
 const createMenu = (obj) => {
   const person = {
-      fetchMenu: () => obj,
-      consumption: [],
-      order: (items) => {
-          person.consumption.push(items);
-      },
+    fetchMenu: () => obj,
+    consumption: [],
+    order: (items) => {
+        person.consumption.push(items);
+    },
   };
   return person;
 };
