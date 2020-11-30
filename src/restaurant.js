@@ -79,7 +79,7 @@ const createMenu = (object) => {
       let bill = 0;
 
       restaurant.consumption.forEach((item) => {
-        for (let i in menu) {
+        for (let i = 0; i < menu.length; i += 1) {
           if (menu[i][0] === item) {
             bill += menu[i][1];
           }
