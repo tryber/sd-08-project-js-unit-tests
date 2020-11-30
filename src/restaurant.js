@@ -71,37 +71,34 @@
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
 const createMenu = (obj) => {
-  const menu = {};
-  return Object.assign(menu, {
-    fetchMenu: () => obj,
-    consumption: [],
-    order: string => menu.consumption.push(string),
-    pay: () => {
-      menu.fetchMenu();
-      const products = Object.assign({}, menu.fetchMenu()[Object.keys(menu.fetchMenu())[0]], menu.fetchMenu()[Object.keys(menu.fetchMenu())[1]]);
-      let totalPayment = 0;
-      for (let indexComsump = 0; indexComsump < menu.consumption.length; indexComsump += 1) {
-        for (let index = 0; index < Object.keys(products).length; index += 1) {
-          if (Object.keys(products)[index] === menu.consumption[indexComsump]) {
-            totalPayment += Object.values(products)[index];
-          }
-        }
-      }
-      return parseFloat(totalPayment.toFixed(2));
-    },
-  });
+  const table = {
+    menu: {},
+  };
+  const consumption = [];
+  Object.assign(table.menu, obj);
+  const pay = () => {
+    const products = Object.assign({}, Object.values(table.menu)[0], Object.values(table.menu)[1]);
+    let totalPayment = 0;
+    consumption.forEach((item) => {
+      totalPayment += products[item];
+    });
+    return parseFloat(totalPayment.toFixed(2));
+  };
+  return {
+    fetchMenu: () => table.menu,
+    consumption,
+    order: string => consumption.push(string),
+    pay,
+  };
 };
 
+
 // const obj = { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} };
-// const foodss = Object.keys(obj)[0];
-// const test = Object.assign({}, obj.food, obj.drink);
-// console.log(foodss);
 // const newMenu2 = createMenu(obj);
 // newMenu2.order('coxinha');
 // newMenu2.order('sopa');
 // newMenu2.order('agua');
 // newMenu2.order('coxinha');
-// console.log(Object.keys(newMenu2.fetchMenu()[Object.keys(newMenu2.fetchMenu())[1]]));
 // console.log(newMenu2.pay());
 
 module.exports = createMenu;
