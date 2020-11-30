@@ -1,4 +1,4 @@
-/* eslint-disable max-len*/
+/* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 
 const assert = require('assert');
@@ -33,12 +33,29 @@ const productDetails = require('../src/productDetails');
 
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
-    assert.fail();
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste que o retorno da função é um array.
-    // Teste que o array retornado pela função contém dois itens dentro.
-    // Teste que os dois itens dentro do array retornado pela função são objetos.
-    // Teste que os dois objetos são diferentes entre si.
-    // (Difícil) Teste que os dois productIds terminam com 123.
+    assert.strictEqual(Array.isArray((productDetails('alcool', 'mascara'))), true);
+    assert.strictEqual(productDetails('teste-1', 'teste-2').length, 2);
+    assert.strictEqual(productDetails('teste-1', 'teste-2').every((value, index, values) => {
+      let flag = false;
+      if (typeof (value) === 'object' && !flag) flag = true;
+      else flag = false;
+      return flag;
+    }), true);
+    assert.strictEqual(productDetails('teste-1', 'teste-2').every((value, _index, values) => {
+      let output = 0;
+      values.forEach((valueTest) => {
+        if (value.name === valueTest.name) {
+          output += 1;
+        }
+      });
+      if (output === 1) return true;
+      return false;
+    }), true);
+    assert.strictEqual(productDetails('teste-1', 'teste-2').every((value) => {
+      let output = 0;
+      const pattern = /123$/;
+      output = pattern.test(value.details.productId);
+      return output;
+    }), true);
   });
 });
