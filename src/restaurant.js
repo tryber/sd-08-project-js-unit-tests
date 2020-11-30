@@ -75,7 +75,7 @@ const createMenu = anyObject => ({
   fetchMenu: () => anyObject,
 });
 
-const restaurant = createMenu()
+const restaurant = createMenu();
 
 const orderFromMenu = (request) => {
   restaurant.consumption.push(request);
