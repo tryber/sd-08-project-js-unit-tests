@@ -82,15 +82,14 @@ const drinkMenu = (string, object) => {
   return food.includes(string);
 };
 
-const array = (arr) => {
-  return arr.reduce((food, drink) => (food += drink));
-};
+const array = (arr) => arr.reduce((food, drink) => (food += drink));
 
 const payBill = (restaurant) => {
   let bill = restaurant.consumption.map((item) => {
-      if (foodMenu(item, restaurant)) return restaurant.fetchMenu.food[item];
-      if (drinkMenu(item, restaurant)) return restaurant.fetchMenu.drink[item];
-      else return 0;
+    if (foodMenu(item, restaurant)) return restaurant.fetchMenu.food[item];
+    if (drinkMenu(item, restaurant)) return restaurant.fetchMenu.drink[item];
+
+    return 0;
   });
 
   bill = array(bill);
@@ -101,10 +100,10 @@ const payBill = (restaurant) => {
 
 const createMenu = (object) => {
   const restaurant = {
-      fetchMenu: () => object,
-      order: (string) => {restaurant.consumption.push(string)},
-      consumption: [],
-      pay: payBill(restaurant),
+    fetchMenu: () => object,
+    order: (string) => restaurant.consumption.push(string),
+    consumption: [],
+    pay: payBill(),
   };
 
   return restaurant;
