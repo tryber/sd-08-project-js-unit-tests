@@ -82,7 +82,7 @@ const drinkMenu = (string, object) => {
   return food.includes(string);
 };
 
-const array = (arr) => arr.reduce((food, drink) => (food += drink));
+const array = arr => arr.reduce((food, drink) => (food += drink));
 
 const payBill = (restaurant) => {
   let bill = restaurant.consumption.map((item) => {
@@ -101,7 +101,7 @@ const payBill = (restaurant) => {
 const createMenu = (object) => {
   const restaurant = {
     fetchMenu: () => object,
-    order: (string) => restaurant.consumption.push(string),
+    order: string => restaurant.consumption.push(string),
     consumption: [],
     pay: payBill(),
   };
