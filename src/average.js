@@ -11,7 +11,27 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+// const assert = require('assert');
+let soma = 0;
+let media = 0;
+const average = (array) => {
+  if (array.length < 1) {
+    return undefined;
+  }
+  for (let index = 0; index < array.length; index += 1) {
+    if (typeof (array[index]) !== 'number') {
+      return undefined;
+    }
+    soma += array[index];
+  }
+  media = Math.round(soma / array.length);
 
-const average = () => {};
+  return media;
+};
 
 module.exports = average;
+
+// assert.strictEqual(average([2, 2]), 2);
+
+
+
