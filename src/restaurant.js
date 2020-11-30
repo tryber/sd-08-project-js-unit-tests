@@ -69,42 +69,25 @@
 //------------------------------------------------------------------------------------------
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
-
-const foodMenu = (string, object) => {
-  const food = Object.keys(object.fetchMenu.food);
-
-  return food.includes(string);
-};
-
-const drinkMenu = (string, object) => {
-  const food = Object.keys(object.fetchMenu.drink);
-
-  return food.includes(string);
-};
-
-const array = arr => arr.reduce((food, drink) => (food += drink));
-
-const payBill = (restaurant) => {
-  let bill = restaurant.consumption.map((item) => {
-    if (foodMenu(item, restaurant)) return restaurant.fetchMenu.food[item];
-    if (drinkMenu(item, restaurant)) return restaurant.fetchMenu.drink[item];
-
-    return 0;
-  });
-
-  bill = array(bill);
-  bill *= 1.1;
-  bill.toPrecision(2);
-
-  return bill;
-};
-
 const createMenu = (object) => {
   const restaurant = {
     fetchMenu: object,
     consumption: [],
     order: string => restaurant.consumption.push(string),
-    pay: () => payBill(restaurant),
+    pay: () => {
+      const menu = Object.entries(restaurant.fetchMenu.food).concat(Object.entries(restaurant.fetchMenu.drink));
+      let bill = 0;
+
+      restaurant.consumption.forEach((item) => {
+        for (let i in menu) {
+          if (menu[i][0] === item) {
+            bill += menu[i][1];
+          }
+        }
+      });
+
+      return parseFloat((bill * 1.1).toFixed(2));
+    },
   };
 
   return restaurant;

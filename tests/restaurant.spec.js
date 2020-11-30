@@ -122,7 +122,7 @@ describe('#createMenu', () => {
     objetoRetornadoTeste8.order("sopa");
     objetoRetornadoTeste8.order("sashimi");
     // objetoRetornadoTeste8.pay() // Retorno: somaDosPreçosDosPedidos
-    assert.deepStrictEqual(objetoRetornadoTeste8.pay(), 23.7);
+    assert.deepStrictEqual(objetoRetornadoTeste8.pay(), 30.36);
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
