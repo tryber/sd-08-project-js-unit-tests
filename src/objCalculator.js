@@ -33,4 +33,7 @@ const calculator = {
   (num1 === Math.floor(num1) && num2 === Math.floor(num2)
   ? Math.floor(num1 / num2) : undefined),
 };
+
+console.log(Object.entries(calculator)[0]);
+
 module.exports = calculator;
