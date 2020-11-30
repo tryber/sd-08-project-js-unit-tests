@@ -137,12 +137,12 @@ describe('#createMenu', () => {
     // objetoRetornadoTeste8.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     const objetoTeste8 = createMenu({ food: { sopa: 3.90, sanduiche: 9.90, sashimi: 10.8 }, drinks: { agua: 3.90, cerveja: 6.90 } });
-    assert.strictEqual(objetoTeste8.pay(), 0);
+    assert.strictEqual(objetoTeste8.pay(), 0.00);
     objetoTeste8.order('agua');
     objetoTeste8.order('agua');
     objetoTeste8.order('sopa');
     objetoTeste8.order('sashimi');
-    assert.strictEqual(objetoTeste8.pay(), 22.5);
+    assert.strictEqual(objetoTeste8.pay(), 24.75);
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });

@@ -82,7 +82,7 @@ const payConsumption = () => {
     if (menu.food[key]) { total += menu.food[key]; }
     if (menu.drinks[key]) { total += menu.drinks[key]; }
   });
-  return total;
+  return parseFloat(((total) * 1.1).toFixed(2));
 };
 const createMenu = (menu) => {
   this.fetchMenu = () => menu;
