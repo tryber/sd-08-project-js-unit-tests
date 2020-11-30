@@ -19,8 +19,8 @@ const average = (array) => {
     if (typeof array[i] === 'string') return undefined;
     result += array[i];
   }
-  return Math.round(result = result / array.length);
+  return Math.round(result /= array.length);
 };
-console.log(average([]));
+console.log(average([1, 2]));
 
 module.exports = average;
