@@ -78,9 +78,7 @@ const createMenu = (obj) => {
     order: str => menu.consumption.push(str),
     pay: () => {
       const prices = menu.fetchMenu();
-      let total = menu.consumption.reduce((acc, item) => {
-        return acc + (prices.food[item] || prices.drinks[item]);
-      }, 0);
+      let total = menu.consumption.reduce((acc, item) => acc + (prices.food[item] || prices.drinks[item]), 0);
       total *= 1.1;
       return parseFloat(total.toFixed(2));
     },
