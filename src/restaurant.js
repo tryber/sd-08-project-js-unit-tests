@@ -100,7 +100,7 @@ const payBill = (restaurant) => {
 
 const createMenu = (object) => {
   const restaurant = {
-    fetchMenu: () => object,
+    fetchMenu: object,
     order: string => restaurant.consumption.push(string),
     consumption: [],
     pay: () => payBill(restaurant),
