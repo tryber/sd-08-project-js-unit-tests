@@ -126,3 +126,4 @@ describe('#createMenu', () => {
         // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
     });
 });
+
