@@ -74,19 +74,23 @@ const restaurant = {
   consumption: [],
 };
 
+const orderFromMenu = (request) => {
+  restaurant.consumption.push(request);
+};
+
 const createMenu = (obj) => {
   const menu = {
     fetchMenu: () => obj,
     consumption: [],
     order: (request) => {
       orderFromMenu(request);
-      return menu.consumption = restaurant.consumption;
+      menu.consumption = restaurant.consumption;
     },
     pay: () => {
       let sum = 0;
       const checkFood = menu.fetchMenu().food;
       const checkDrink = menu.fetchMenu().drink;
-      for (let i = 0; i < menu['consumption'].length; i += 1) {
+      for (let i = 0; i < menu.consumption.length; i += 1) {
         if (checkFood[`${menu.consumption[i]}`] !== undefined) {
           sum += checkFood[`${menu.consumption[i]}`];
         } else {
@@ -98,10 +102,6 @@ const createMenu = (obj) => {
   };
   const assign = Object.assign(restaurant, menu);
   return assign;
-};
-
-const orderFromMenu = (request) => {
-  restaurant.consumption.push(request);
 };
 
 module.exports = createMenu;
