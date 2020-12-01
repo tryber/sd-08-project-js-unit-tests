@@ -72,8 +72,8 @@
 
 const createMenu = (obj) => {
   const newObj = {
-    fetchMenu: obj
-  }
+    fetchMenu: obj,
+  };
   return newObj;
 };
 
