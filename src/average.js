@@ -14,7 +14,7 @@
 
 const average = (numbers) => {
   let media = 0;
-  let justNumbers = true;
+  let numeric = true;
 
   if (numbers.length === 0) {
     return undefined;
@@ -23,10 +23,10 @@ const average = (numbers) => {
     if (typeof (element) === 'number') {
       media += element;
     } else {
-      justNumbers = false;
+      numeric = false;
     }
   });
-  if (justNumbers === true) {
+  if (numeric === true) {
     media /= numbers.length;
     media = Math.round(media);
   } else {
