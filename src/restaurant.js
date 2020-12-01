@@ -93,10 +93,11 @@
 const createMenu = (myMenu) => {
   const consumo = [];
   const orderFromMenu = request => consumo.push(request);
-  let suaConta = () => {
+  const conta = () => {
     // consumo.forEach(item => {
     // conta += myMenu.drinks[item] || myMenu.food[item];
     // });
+    let suaConta = 0;
     for (let i = 0; i < consumo.length; i += 1) {
       suaConta += myMenu.drinks[consumo[i]] || myMenu.food[consumo[i]];
     }
@@ -106,7 +107,7 @@ const createMenu = (myMenu) => {
     fetchMenu: () => myMenu,
     consumption: consumo,
     order: orderFromMenu,
-    pay: suaConta,
+    pay: conta,
   };
 };
 
