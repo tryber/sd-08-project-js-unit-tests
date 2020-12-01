@@ -27,4 +27,3 @@ const calculator = {
 };
 
 module.exports = calculator;
-console.log(calculator.div(10,3))
