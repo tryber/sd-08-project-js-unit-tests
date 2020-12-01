@@ -18,7 +18,10 @@
   calculator.add(1, 1) // Retorno: 2;
   calculator.div(3, 2) // Retorno: 1;
 */
-
-const calculator = {};
-
+const calculator = {
+  add: (plusOne, plusTwo) => plusOne + plusTwo,
+  mult: (multOne, multTwo) => multOne * multTwo,
+  div: (divOne, divTwo) => Math.floor(divOne / divTwo),
+  sub: (subOne, subTwo) => subOne - subTwo
+};
 module.exports = calculator;
