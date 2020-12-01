@@ -77,47 +77,40 @@
   return { fetchMenu: objetoadd };
 };
 console.log(createMenu({ food: {}, drink: {} })); */
-const createMenu = (obj) => {
-  const restaurant = {
-    fetchMenu: () => obj,
+function orderFromMenu(request) {
+  this.consumption.push(request);
+}
+
+const restaurant = {};
+
+const createMenu = (objeto) => {
+  const menu = {
+    fetchMenu: () => objeto,
     consumption: [],
-    order: (str) => {
-      restaurant.consumption.push(str);
-    },
+    order: (order) => restaurant.consumption.push(order),
     pay: () => {
-      let sum = 0;
-      const entreisFood = Object.entries(restaurant.fetchMenu().food);
-      const entreisDrink = Object.entries(restaurant.fetchMenu().drink);
-      for (
-        let indexCons = 0;
-        indexCons < restaurant.consumption.length;
-        indexCons += 1
-      ) {
-        for (
-          let indexFood = 0;
-          indexFood < entreisFood.length;
-          indexFood += 1
-        ) {
-          if (restaurant.consumption[indexCons] === entreisFood[indexFood][0]) {
-            sum += entreisFood[indexFood][1];
-          }
+      const food = restaurant.fetchMenu().food;
+      const drink = restaurant.fetchMenu().drink;
+      const consumption = restaurant.consumption;
+      let total = 0;
+
+      for (let index = 0; index < consumption.length; index += 1) {
+        const order = consumption[index];
+        if (food.hasOwnProperty(order)) {
+          total += food[order];
         }
-        for (
-          let indexDrink = 0;
-          indexDrink < entreisDrink.length;
-          indexDrink += 1
-        ) {
-          if (
-            restaurant.consumption[indexCons] === entreisDrink[indexDrink][0]
-          ) {
-            sum += entreisDrink[indexDrink][1];
-          }
+        if (drink.hasOwnProperty(order)) {
+          total += drink[order];
         }
       }
-      return sum * 1.1;
+
+      return total;
     },
+    cost: 0,
   };
-  return restaurant;
+
+  Object.assign(restaurant, menu);
+  return menu;
 };
 module.exports = createMenu;
 

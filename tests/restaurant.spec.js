@@ -52,57 +52,38 @@ const createMenu = require('../src/restaurant');
 
 describe('#createMenu', () => {
   it('tests the function has the correct behaviour', () => {
-    const objetoRetornadoTeste1 = createMenu({});
-    assert.deepStrictEqual(objetoRetornadoTeste1.fetchMenu(), {});
-
-    const objetoRetornadoTeste2 = createMenu({ food: {}, drink: {} });
-    assert.deepStrictEqual(objetoRetornadoTeste2.fetchMenu(), {
-      food: {},
-      drink: {},
-    });
-
-    const objetoRetornadoTeste3 = createMenu({});
-    assert.deepStrictEqual(objetoRetornadoTeste3.fetchMenu(), {});
-
-    const objetoRetornadoTeste4 = createMenu({});
-    assert.deepStrictEqual(objetoRetornadoTeste4.consumption, []);
-
-    const objetoRetornadoTeste5 = createMenu({});
-    objetoRetornadoTeste5.order('coxinha');
-    assert.deepStrictEqual(objetoRetornadoTeste5.consumption, ['coxinha']);
-
-    const objetoRetornadoTeste6 = createMenu({});
-    objetoRetornadoTeste6.order('agua');
-    objetoRetornadoTeste6.order('sopa');
-    objetoRetornadoTeste6.order('sashimi');
-    assert.deepStrictEqual(objetoRetornadoTeste6.consumption, [
+    const objetoQualquer = {
+      food: { quibe: 2.5, misto: 2.0, coxinha: 4.0, sopa: 3.8, sashimi: 7.0 },
+      drink: { agua: 1.5 },
+    };
+    const objetoRetornado = createMenu(objetoQualquer);
+    assert.ok(objetoRetornado.hasOwnProperty('fetchMenu'));
+    assert.deepStrictEqual(Object.keys(objetoRetornado.fetchMenu()), [
+      'food',
+      'drink',
+    ]);
+    assert.deepStrictEqual(objetoQualquer, objetoRetornado.fetchMenu());
+    assert.deepStrictEqual(objetoRetornado.consumption, []);
+    objetoRetornado.order('coxinha');
+    assert.deepStrictEqual(objetoRetornado.consumption, ['coxinha']);
+    objetoRetornado.order('agua');
+    objetoRetornado.order('sopa');
+    objetoRetornado.order('sashimi');
+    assert.deepStrictEqual(objetoRetornado.consumption, [
+      'coxinha',
       'agua',
       'sopa',
       'sashimi',
     ]);
-
-    const objetoRetornadoTeste7 = createMenu({});
-    objetoRetornadoTeste7.order('coxinha');
-    objetoRetornadoTeste7.order('agua');
-    objetoRetornadoTeste7.order('coxinha');
-    assert.deepStrictEqual(objetoRetornadoTeste7.consumption, [
+    objetoRetornado.order('coxinha');
+    assert.deepStrictEqual(objetoRetornado.consumption, [
       'coxinha',
       'agua',
+      'sopa',
+      'sashimi',
       'coxinha',
     ]);
-
-    const objetoRetornadoTeste8 = createMenu({
-      food: { coxinha: 3.9, sopa: 9.9, sashimi: 30 },
-      drink: { agua: 3.9, cerveja: 6.9 },
-    });
-    objetoRetornadoTeste8.order('agua');
-    objetoRetornadoTeste8.order('agua');
-    objetoRetornadoTeste8.order('sopa');
-    objetoRetornadoTeste8.order('sashimi');
-    assert.strictEqual(
-      parseFloat(objetoRetornadoTeste8.pay().toPrecision(4)),
-      52.47
-    );
+    assert.strictEqual(objetoRetornado.pay(), 20.3);
   });
 });
 
