@@ -112,14 +112,3 @@ const createMenu = (objeto) => {
 };
 
 module.exports = createMenu;
-
-
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função como valor da chave `order`.
-// DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` deve retornar e, depois, a função que será atribuida a chave `order` deste objeto.
-// ```
-// const restaurant = {}
-//
-// const createMenu = (myMenu) => // Lógica que edita e retorna o objeto `restaurant`
-//
-// const orderFromMenu = (request) => // Lógica que adiciona a string recebida como parâmetro `request` ao array contido na chave `consumption` do objeto `restaurant`. Essa função deve ser associada à chave `order` de `restaurant`
-// ```
