@@ -90,7 +90,7 @@ const payOut = () => {
       sum += checkDrink[`${restaurant.consumption[i]}`];
     }
   }
-  return sum;
+  return sum + sum * 0.1;
 };
 
 const createMenu = (obj) => {

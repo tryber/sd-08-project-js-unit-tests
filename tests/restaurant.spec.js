@@ -73,7 +73,7 @@ describe('#createMenu', () => {
     objetoRetornadoTeste8.order("agua");
     objetoRetornadoTeste8.order("sopa");
     objetoRetornadoTeste8.order("sashimi");
-    assert.strictEqual(objetoRetornadoTeste8.pay(), 16);
+    assert.strictEqual(objetoRetornadoTeste8.pay(), 17.6);
     // TESTE 1: Verifique que, dado um objeto qualquer passado como um parâmetro para a função createMenu(), checa se o retorno da função é um objeto que contêm a chave `fetchMenu` e esta por sua vez tem como valor uma função que ao ser executada retorna um objeto qualquer. Exemplo de retorno: { fetchMenu: function }.
     // ```
     // const objetoRetornadoTeste1 = createMenu(objetoQualquer) // Retorno: { fetchMenu: function }
