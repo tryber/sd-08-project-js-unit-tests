@@ -21,7 +21,7 @@ const vqv = (nome, idade) => {
   if (typeof nome === 'string' && nome.length > 0) {
     message = `Oi, meu nome é ${nome}!
     Tenho ${idade} anos,
-    'trabalho na Trybe e mando muito em programação!
+    trabalho na Trybe e mando muito em programação!
     #VQV!`;
   } else {
     message = undefined;
