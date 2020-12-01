@@ -77,9 +77,7 @@
   return { fetchMenu: objetoadd };
 };
 console.log(createMenu({ food: {}, drink: {} })); */
-function orderFromMenu(request) {
-  this.consumption.push(request);
-}
+
 
 const restaurant = {};
 const calculateAmount = () => {
@@ -105,7 +103,7 @@ const createMenu = (objeto) => {
   const menu = {
     fetchMenu: () => objeto,
     consumption: [],
-    order: (order) => restaurant.consumption.push(order),
+    order: order => restaurant.consumption.push(order),
     pay: () => calculateAmount(),
   };
 
