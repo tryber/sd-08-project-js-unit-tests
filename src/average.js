@@ -18,6 +18,6 @@ const average = (array) => {
     newArray += array[index];
   }
   return newArray / array.length;
-}
+};
 
 module.exports = average;
