@@ -76,6 +76,7 @@ const restaurant = {
 
 const orderFromMenu = (request) => {
   restaurant.consumption.push(request);
+  return restaurant.consumption;
 };
 
 const payOut = () => {
@@ -90,7 +91,7 @@ const payOut = () => {
     }
   }
   return sum;
-}
+};
 
 const createMenu = (obj) => {
   const menu = {
