@@ -30,7 +30,7 @@ const calculator = {
   },
   div: (primeiroNumero, segundoNumero) => {
     const divResult = primeiroNumero / segundoNumero;
-    return divResult;
+    return Math.trunc(divResult);
   },
   sub: (primeiroNumero, segundoNumero) => {
     const subResult = primeiroNumero - segundoNumero;
