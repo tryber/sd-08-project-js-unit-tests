@@ -20,7 +20,7 @@ const average = (numbers) => {
     return undefined;
   }
   numbers.forEach((element) => {
-    if (typeof(element) === 'number') {
+    if (typeof (element) === 'number') {
       media += element;
     } else {
       justNumbers = false;
@@ -30,8 +30,6 @@ const average = (numbers) => {
     media /= numbers.length;
     media = Math.round(media);
     return media;
-  } else {
-    return undefined;
   }
 };
 
