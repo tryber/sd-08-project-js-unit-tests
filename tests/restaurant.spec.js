@@ -68,6 +68,7 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 2: Verifique que, quando a função createMenu for chamada passando como parâmetro o objeto: `{ food: {}, drink: {} }`, retorne um objeto que ao executar a função associada a propriedade `fetchMenu` deste objeto, o retorno da função de ser um objeto que tenha somente as chaves `food` e `drink`.
     // ```
+    assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).fetchMenu(), { food: {}, drink: {} });
     // const objetoRetornadoTeste2 = createMenu(objetoQualquer);
     // objetoRetornadoTeste2.fetchMenu() // retorno: { food: {}, drink: {}}
     // ```
