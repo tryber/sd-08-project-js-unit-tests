@@ -17,7 +17,7 @@ const average = (array) => {
   for (let index = 0; index < array.length; index += 1) {
     sum += array[index];
   }
-  let avg = sum / array.length;
+  let avg = Math.floor(sum / array.length);
   for (let i = 0; i < array.length; i += 1) {
     if (typeof array[i] === 'string') {
       avg = undefined;
