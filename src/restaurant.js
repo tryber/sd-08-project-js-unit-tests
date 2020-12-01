@@ -70,43 +70,33 @@
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
-/* const myMenu = { 
-  food: {
-    hambuger: 10,
-    batata: 7,
-    nuggets: 8,
-    sopa: 8,
-    sashimi: 10
-  }, 
-  drink: {
-    coca: 5,
-    soda: 4,
-    agua: 3,
-    tonica: 4
-  } 
-}; */
+function compare(elementArray) {
+  let priceOrder = 0;
+  for (let indexer = 0; indexer < myMenu().restaurant.consumption.length; indexer += 1) {
+    if (myMenu().restaurant.consumption[indexer] === elementArray[0]) {
+      priceOrder = elementArray[index][1];
+    }
+  }
+  return priceOrder;
+}
+
+const pay = () => {
+  let totalOrder = 0;
+  const myMenuArray = Object.values(myMenu().fetchMenu());
+  for (let i = 0; i < myMenuArray.length; i += 1) {
+    const elementArray = Object.values(myMenuArray[i]);
+    for (let index = 0; index < elementArray.length; index += 1) {
+      totalOrder += compare(elementArray[index]);
+    }
+  }
+  return totalOrder;
+};
 
 const createMenu = (myMenu) => {
+  let restaurant;
   const fetchMenu = () => myMenu;
-  
-  const orderFromMenu = (request) => {restaurant['consumption'].push(request)};
-  
-  const pay = () => {
-    let totalOrder = 0;
-    const myMenuArray = Object.values(fetchMenu());
-    for (let i = 0; i < myMenuArray.length; i += 1) {
-      for (let key in myMenuArray[i]) { 
-        restaurant['consumption'].forEach(element => {
-          if (element === key) {
-            totalOrder += myMenuArray[i][key];
-          }          
-        });
-      }       
-    }
-    return totalOrder;
-  };
-
-  const restaurant = {
+  const orderFromMenu = (request) => { restaurant.consumption.push(request); };
+  restaurant = {
     fetchMenu,
     consumption: [],
     order: orderFromMenu,
@@ -114,6 +104,5 @@ const createMenu = (myMenu) => {
   };
   return restaurant;
 };
-
 
 module.exports = createMenu;
