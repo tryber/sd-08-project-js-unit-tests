@@ -14,11 +14,11 @@
 
 const average = (array) => {
   let sum = 0;
-  let avg;
-  for (let index = 0; index < array.length; index += 1){
+  const avg;
+  for (let index = 0; index < array.length; index += 1) {
     sum += array[index];
   }
-  avg = sum/array.length;
+  avg = sum / array.length;
   return avg;
 };
 
