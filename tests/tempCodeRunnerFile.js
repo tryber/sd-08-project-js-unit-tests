@@ -1,1 +1,1 @@
-console.log(3.14 * 3 * 3)
+console.log(productDetails('Alcool gel', 'Máscara'))
