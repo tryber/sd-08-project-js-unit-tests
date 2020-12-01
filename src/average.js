@@ -12,9 +12,9 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = numbers => {
+const average = (numbers) => {
   let media = 0;
-  numbers.forEach(element => {
+  numbers.forEach((element) => {
     media += element;
   });
   media /= numbers.length;
