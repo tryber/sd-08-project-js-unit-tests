@@ -14,11 +14,25 @@
 
 const average = (numbers) => {
   let media = 0;
+  let justNumbers = true;
+
+  if (numbers.length === 0) {
+    return undefined;
+  }
   numbers.forEach((element) => {
-    media += element;
+    if (typeof(element) === 'number') {
+      media += element;
+    } else {
+      justNumbers = false;
+    }
   });
-  media /= numbers.length;
-  return media;
+  if (justNumbers === true) {
+    media /= numbers.length;
+    media = Math.round(media);
+    return media;
+  } else {
+    return undefined;
+  }
 };
 
 module.exports = average;
