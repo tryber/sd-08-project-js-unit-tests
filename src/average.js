@@ -18,10 +18,12 @@ const average = (array) => {
     sum += array[index];
   }
   let avg = sum / array.length;
-  if (array.some((name) => typeof name[0] === 'string'){
-    avg = 'undefined';
+  for (let i = 0; i < array.length; i += 1) {
+    if (typeof array[i] == 'string') {
+      avg = undefined;
+    }
   }
   return avg;
-};
+  };
 
 module.exports = average;
