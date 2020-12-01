@@ -70,6 +70,45 @@
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
-const createMenu = () => { };
+/* onst createMenu = (objeto) => {
+  let objzin = objeto;
+  let consumptions = { consumption: [] }; //para adicionar chaves e valores e necessario criar um obj e armazenalo
+  let objetoadd = Object.assign(objzin, consumptions);
+  return { fetchMenu: objetoadd };
+};
+console.log(createMenu({ food: {}, drink: {} })); */
+
+
+const restaurant = {};
+const calculateAmount = () => {
+  const food = restaurant.fetchMenu().food;
+  const drink = restaurant.fetchMenu().drink;
+  const consumption = restaurant.consumption;
+  let total = 0;
+
+  for (let index = 0; index < consumption.length; index += 1) {
+    const order = consumption[index];
+    if (Object.prototype.hasOwnProperty.call(food, order)) {
+      total += food[order];
+    }
+    if (Object.prototype.hasOwnProperty.call(drink, order)) {
+      total += drink[order];
+    }
+  }
+
+  return total;
+};
+
+const createMenu = (objeto) => {
+  const menu = {
+    fetchMenu: () => objeto,
+    consumption: [],
+    order: order => restaurant.consumption.push(order),
+    pay: () => calculateAmount(),
+  };
+
+  Object.assign(restaurant, menu);
+  return menu;
+};
 
 module.exports = createMenu;
