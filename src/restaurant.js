@@ -79,6 +79,20 @@ const orderFromMenu = (request) => {
   return restaurant.consumption;
 };
 
+const somaDosPreçosDosPedidos = () => {
+  let sum = 0;
+  const drink = restaurant.fetchMenu().drink;
+  const food = restaurant.fetchMenu().food;
+  for (let index = 0; index < restaurant.consumption.length; index += 1) {
+    if (food[`${restaurant.consumption[index]}`] !== undefined) {
+      sum += food[`${restaurant.consumption[index]}`];
+    } else {
+      sum += drink[`${restaurant.consumption[index]}`];
+    }
+  }
+  return sum * 1.1;
+};
+
 const createMenu = (anyObject) => {
   const menu = {
     fetchMenu: () => anyObject,
@@ -92,20 +106,6 @@ const createMenu = (anyObject) => {
   };
   const assign = Object.assign(restaurant, menu);
   return assign;
-};
-
-const somaDosPreçosDosPedidos = () => {
-  let sum = 0;
-  const drink = restaurant.fetchMenu().drink;
-  const food = restaurant.fetchMenu().food;
-  for (let index = 0; index < restaurant.consumption.length; index += 1) {
-    if (food[`${restaurant.consumption[index]}`] !== undefined) {
-      sum += food[`${restaurant.consumption[index]}`];
-    } else {
-      sum += drink[`${restaurant.consumption[index]}`];
-    }
-  }
-  return sum*1.1;
 };
 
 module.exports = createMenu;
