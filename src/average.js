@@ -29,8 +29,10 @@ const average = (numbers) => {
   if (justNumbers === true) {
     media /= numbers.length;
     media = Math.round(media);
-    return media;
+  } else {
+    media = undefined;
   }
+  return media;
 };
 
 module.exports = average;
