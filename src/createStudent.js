@@ -15,6 +15,22 @@
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
 
-const createStudent = () => {};
+const createStudent = (name) => {
+
+};
 
 module.exports = createStudent;
+
+
+function fn() {
+  const twitName = 'Hello world';
+  
+  const twit = { twitName:'Hello',
+  a: () => this.twitName}
+  // a: () => this.twitName}
+  return twit
+  }
+  console.log(fn().a());
+  console.log(fn().a);
+  // console.log('\n' + function()twit);
+  // console.log('\n ->' + function().twitName);
