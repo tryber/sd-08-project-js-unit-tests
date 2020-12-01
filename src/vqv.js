@@ -19,10 +19,10 @@
 const vqv = (nome, idade) => {
   let message;
   if (typeof nome === 'string' && nome.length > 0) {
-    message = `Oi, meu nome é ${nome}!\n` +
-    'Tenho ' + idade + ' anos,\n' +
-    'trabalho na Trybe e mando muito em programação!\n' +
-    '#VQV!';
+    message = `Oi, meu nome é ${nome}!
+    Tenho ${idade} anos,
+    'trabalho na Trybe e mando muito em programação!
+    #VQV!`;
   } else {
     message = undefined;
   }
