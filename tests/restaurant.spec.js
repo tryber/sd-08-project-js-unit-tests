@@ -81,41 +81,41 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique que, além da função `fetchMenu`, o objeto retornado pela função `createMenu` contem também um array associado a chave `consumption`. Inicialmente esse array deve estar vazio.
     // ```
-//    const objetoRetornadoTeste4 = createMenu(objetoQualquer);
-//    objetoRetornadoTeste4.consumption // Valor: []
+    const objetoRetornadoTeste4 = createMenu(objetoQualquer);
+    objetoRetornadoTeste4.consumption // Valor: []
     // ```
-//    assert.deepStrictEqual(objetoRetornadoTeste4.consumption, []);
+    assert.deepStrictEqual(objetoRetornadoTeste4.consumption, []);
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 5: Verifique que ao chamar a função associada à chave `order` no objeto retornado, passando uma string como parâmetro, como `objetoRetornadoTeste5.order('coxinha')`, tal string é adicionada ao array contido em `objetoRetornadoTeste5.consumption
     // ```;
-//    const objetoRetornadoTeste5 = createMenu(objetoQualquer);
-//    objetoRetornadoTeste5.order("coxinha");
-//    objetoRetornadoTeste5.consumption; // Valor: ["coxinha"]
+    const objetoRetornadoTeste5 = createMenu(objetoQualquer);
+    objetoRetornadoTeste5.order("coxinha");
+    objetoRetornadoTeste5.consumption; // Valor: ["coxinha"]
     // ```
-//    assert.deepStrictEqual(objetoRetornadoTeste5.consumption, ['coxinha']);
+    assert.deepStrictEqual(objetoRetornadoTeste5.consumption, ['coxinha']);
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens ao array `objetoRetornadoTeste6.consumption` conforme os itens pedidos.
     // ```
-//    const objetoRetornadoTeste6 = createMenu(objetoQualquer);
-//    objetoRetornadoTeste6.order("agua");
-//    objetoRetornadoTeste6.order("sopa");
-//    objetoRetornadoTeste6.order("sashimi");
-//   objetoRetornadoTeste6.consumption; // Valor: ["agua", "sopa", "sashimi"]
+    const objetoRetornadoTeste6 = createMenu(objetoQualquer);
+    objetoRetornadoTeste6.order("agua");
+    objetoRetornadoTeste6.order("sopa");
+    objetoRetornadoTeste6.order("sashimi");
+    objetoRetornadoTeste6.consumption; // Valor: ["agua", "sopa", "sashimi"]
     // ```
-//    assert.deepStrictEqual(objetoRetornadoTeste6.consumption, ['agua', 'sopa', 'sashimi']);
+    assert.deepStrictEqual(objetoRetornadoTeste6.consumption, ['agua', 'sopa', 'sashimi']);
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função associada a propriedade `order` aceita que pedidos repetidos sejam adicionados ao array `consumption`.
     // ```
-//    const objetoRetornadoTeste7 = createMenu(objetoQualquer);
-//    objetoRetornadoTeste7.order('coxinha');
-//    objetoRetornadoTeste7.order('agua');
-//    objetoRetornadoTeste7.order('coxinha');
-//    objetoRetornadoTeste7.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
+    const objetoRetornadoTeste7 = createMenu(objetoQualquer);
+    objetoRetornadoTeste7.order('coxinha');
+    objetoRetornadoTeste7.order('agua');
+    objetoRetornadoTeste7.order('coxinha');
+    objetoRetornadoTeste7.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
-//    assert.deepStrictEqual(objetoRetornadoTeste7.consumption, ['coxinha', 'agua', 'coxinha']);
+    assert.deepStrictEqual(objetoRetornadoTeste7.consumption, ['coxinha', 'agua', 'coxinha']);
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
