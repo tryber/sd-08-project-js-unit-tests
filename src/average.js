@@ -18,17 +18,17 @@ const average = (arr) => {
   }
   let soma = 0;
   for (let indice = 0; indice < arr.length; indice += 1) {
-    if (typeof arr[indice] === "number") {
+    if (typeof arr[indice] === 'number') {
       soma += arr[indice];
     } else {
       return undefined;
     }
   }
-  let media = soma / arr.length;
+  const media = soma / arr.length;
 
   return media;
 };
 
-console.log(average([1, 1]));
+console.log(average([1, 2, 3, 4, 5]));
 
 module.exports = average;
