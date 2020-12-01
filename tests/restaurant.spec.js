@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 const assert = require('assert');
+const { create } = require('domain');
 const createMenu = require('../src/restaurant');
 
 /*
@@ -79,48 +80,49 @@ describe('#createMenu', () => {
     // ```
     // const objetoRetornadoTeste4 = createMenu(objetoQualquer);
     // objetoRetornadoTeste4.consumption // Valor: []
-    assert.notStrictEqual(createMenu().consuption, []);
+    assert.deepStrictEqual(createMenu().consumption, []);
     // ```
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 5: Verifique que ao chamar a função associada à chave `order` no objeto retornado, passando uma string como parâmetro, como `objetoRetornadoTeste5.order('coxinha')`, tal string é adicionada ao array contido em `objetoRetornadoTeste5.consumption
     // ```;
     // const objetoRetornadoTeste5 = createMenu(objetoQualquer);
+    const objetoRetornadoTeste5 = createMenu( {food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
     // objetoRetornadoTeste5.order("coxinha");
-    restaurant.order('coxinha');
+    objetoRetornadoTeste5.order('coxinha');
     // objetoRetornadoTeste5.comsuption // Valor: ["coxinha"]
-    assert.deepStrictEqual(restaurant.consumption, ['coxinha']);
+    assert.deepStrictEqual(objetoRetornadoTeste5.consumption, ['coxinha']);
     // ```
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens ao array `objetoRetornadoTeste6.consumption` conforme os itens pedidos.
     // ```
-    // const objetoRetornadoTeste6 = createMenu(objetoQualquer);
-    // objetoRetornadoTeste6.order("agua");
-    // objetoRetornadoTeste6.order("sopa");
-    // objetoRetornadoTeste6.order("sashimi");
-    // objetoRetornadoTeste6.consumption // Valor: ["agua", "sopa", "sashimi"]
+    const objetoRetornadoTeste6 = createMenu();
+    objetoRetornadoTeste6.order("agua");
+    objetoRetornadoTeste6.order("sopa");
+    objetoRetornadoTeste6.order("sashimi");
+    assert.deepStrictEqual(objetoRetornadoTeste6.consumption, ["agua", "sopa", "sashimi"]); // Valor: ["agua", "sopa", "sashimi"]
     // ```
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função associada a propriedade `order` aceita que pedidos repetidos sejam adicionados ao array `consumption`.
     // ```
-    // const objetoRetornadoTeste7 = createMenu(objetoQualquer);
-    // objetoRetornadoTeste7.order('coxinha');
-    // objetoRetornadoTeste7.order('agua');
-    // objetoRetornadoTeste7.order('coxinha');
-    // objetoRetornadoTeste7.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
+    const objetoRetornadoTeste7 = createMenu();
+    objetoRetornadoTeste7.order('coxinha');
+    objetoRetornadoTeste7.order('agua');
+    objetoRetornadoTeste7.order('coxinha');
+    assert.deepStrictEqual(objetoRetornadoTeste7.consumption, ['coxinha', 'agua', 'coxinha']); // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
     // ```
-    // const objetoRetornadoTeste8 = createMenu(objetoQualquer);
-    // objetoRetornadoTeste8.order("agua");
-    // objetoRetornadoTeste8.order("agua");
-    // objetoRetornadoTeste8.order("sopa");
-    // objetoRetornadoTeste8.order("sashimi");
-    // objetoRetornadoTeste8.pay() // Retorno: somaDosPreçosDosPedidos
+    const objetoRetornadoTeste8 = createMenu({food: {'coxinha': 3.9, 'sashimi': 17.9,'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
+    objetoRetornadoTeste8.order("agua");
+    objetoRetornadoTeste8.order("agua");
+    objetoRetornadoTeste8.order("sopa");
+    objetoRetornadoTeste8.order("sashimi");
+    assert.deepStrictEqual(objetoRetornadoTeste8.pay(), 39.16);// Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
