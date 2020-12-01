@@ -1,0 +1,1 @@
+console.log(productDetails('Alcool gel', 'Máscara'))

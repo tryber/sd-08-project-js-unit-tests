@@ -1,0 +1,1 @@
+console.log(typeof vqv('Tunico', 30))
