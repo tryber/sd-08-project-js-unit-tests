@@ -68,7 +68,9 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 2: Verifique que, quando a função createMenu for chamada passando como parâmetro o objeto: `{ food: {}, drink: {} }`, retorne um objeto que ao executar a função associada a propriedade `fetchMenu` deste objeto, o retorno da função de ser um objeto que tenha somente as chaves `food` e `drink`.
     // ```
-    assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).fetchMenu(), { food: {}, drink: {} });
+    //const pedidoVazio = { food: {}, drink: {} };
+    const objetoRetornadoTeste2 = createMenu({ food: {}, drink: {} })
+    assert.deepStrictEqual(objetoRetornadoTeste2.fetchMenu(), { food: {}, drink: {} });
     // const objetoRetornadoTeste2 = createMenu(objetoQualquer);
     // objetoRetornadoTeste2.fetchMenu() // retorno: { food: {}, drink: {}}
     // ```
@@ -76,6 +78,9 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 3: Verifique que o menu passado como parâmetro para a função createMenu é idêntico ao menu retornado pela função `fetchMenu`, dentro do objeto retornado pela função `createMenu`. Ou seja, o valor ao executar 'objetoRetornadoTeste3.fetchMenu()' deve ser exatamente o mesmo objeto menu passado por parâmetro.
     // ```
+    const objetoRetornadoTeste3 = createMenu(pedido);
+    assert.deepStrictEqual(objetoRetornadoTeste3.fetchMenu(), pedido);
+
     // const objetoRetornadoTeste3 = createMenu(objetoQualquer);
     // objetoRetornadoTeste3.fetchMenu() // Retorno: objetoQualquer
     // ```
@@ -83,6 +88,8 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique que, além da função `fetchMenu`, o objeto retornado pela função `createMenu` contem também um array associado a chave `consumption`. Inicialmente esse array deve estar vazio.
     // ```
+    const objetoRetornadoTeste4 = createMenu(pedido);
+    assert.deepStrictEqual(objetoRetornadoTeste4.consumption, []);
     // const objetoRetornadoTeste4 = createMenu(objetoQualquer);
     // objetoRetornadoTeste4.consumption // Valor: []
     // ```
