@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 /*
-  Você é responsável por escrever o código do sistema de pedidos de um restaurante. Deve ser possível, 
+  Você é responsável por escrever o código do sistema de pedidos de um restaurante. Deve ser possível,
   através desse sistema, cadastrar um menu. Dado que um menu foi cadastrado, o sistema deve disponibilizar
   um objeto através do qual se consegue:
   - ler o menu cadastrado;
@@ -10,7 +10,7 @@
   - somar o valor da conta.
 
   A estrutura deste código e deste objeto já foi definida e você irá implementá-la.
-  Abaixo você verá uma série de testes e passos que devem ser, NECESSARIAMENTE, feitos em ordem para o 
+  Abaixo você verá uma série de testes e passos que devem ser, NECESSARIAMENTE, feitos em ordem para o
   bom desenvolvimento do sistema. Eles guiarão você pelo desenvolvimento.
 
   Parâmetros:
@@ -28,7 +28,7 @@
   meuRestaurante.pay() // Retorno: 3.9
 
   Uma função createMenu retorna um objeto com as seguintes características:
-  - Uma chave `fetchMenu` retorna o objeto que a função `createMenu` recebe por parâmetro. O menu tem sempre duas 
+  - Uma chave `fetchMenu` retorna o objeto que a função `createMenu` recebe por parâmetro. O menu tem sempre duas
   chaves, `food` e `drink`, no seguinte formato:
 
   const meuRestaurante = createMenu({
@@ -39,19 +39,15 @@
   meuRestaurante.fetchMenu() // Retorno: Menu acima
 
   - Uma chave `consumption` que contém um array de strings, com cada string sendo a chave de um pedido. Por exemplo: ['coxinha', 'cerveja']
-  
+
   - Uma chave `order` que tem uma função que, recebida uma string como parâmetro, adiciona essa string à lista salva em `consumption`.
-  
+
   - Uma chave `pay` que, quando chamada, invoca uma função que soma o valor de todos os pedidos e dá o preço com acréscimo de 10%.
-  
+
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
   */
 
-
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: objetoPassadoPorParametro }.
-
-
-
 
 // Agora faça o TESTE 2 no arquivo `tests/restaurant.spec.js`.
 
@@ -65,15 +61,12 @@
 
 // PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro,
 // adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função à chave `order`.
-// DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a 
-//`createMenu()` define separadamente dela e, depois, a função que será definida em `order`.
+// DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a
+// `createMenu()` define separadamente dela e, depois, a função que será definida em `order`.
 // const restaurant = {}
 // const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
-// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string 
-//recebida no parâmetro `request`. Essa função deve ser associada à chave `order` de `restaurant`
-
-
-
+// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string
+// recebida no parâmetro `request`. Essa função deve ser associada à chave `order` de `restaurant`
 // objetoRetornado.order('coxinha');
 // objetoRetornado.order('agua');
 // objetoRetornado.order('coxinha');
@@ -86,31 +79,23 @@
 
 
 const createMenu = (myMenu) => {
-
-  const consumo = []
-  const orderFromMenu = (request) => consumo.push(request);
-
-  const suaConta = () => {
-    let suaConta = 0;
-
-    //consumo.forEach(item => {
-    //  conta += myMenu.drinks[item] || myMenu.food[item];
-    //});
-
+  const consumo = [];
+  const orderFromMenu = request => consumo.push(request);
+  let suaConta = () => {
+    // consumo.forEach(item => {
+    // conta += myMenu.drinks[item] || myMenu.food[item];
+    // });
     for (let i = 0; i < consumo.length; i += 1) {
       suaConta += myMenu.drinks[consumo[i]] || myMenu.food[consumo[i]];
     }
-
     return parseFloat((suaConta * 1.1).toFixed(2));
-
-  }
-
+  };
   return {
     fetchMenu: () => myMenu,
     consumption: consumo,
     order: orderFromMenu,
     pay: suaConta,
-  }
+  };
 };
 
 module.exports = createMenu;
