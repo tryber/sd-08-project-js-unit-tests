@@ -19,12 +19,8 @@ const createStudent = (nome) => {
   if (!nome) { return undefined; }
   return {
     name: nome,
-    feedback:  () => 'Eita pessoa boa!'
-  }
-};
-
+    feedback: () => 'Eita pessoa boa!',
+  };
+}
 
 module.exports = createStudent;
-
-console.log(createStudent('bruce').feedback);
-console.log(typeof createStudent('bruce'))
