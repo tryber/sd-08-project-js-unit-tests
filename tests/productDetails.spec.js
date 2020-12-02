@@ -38,7 +38,7 @@ describe('#productDetails', () => {
     const id2 = expected[1][1];
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
-    assert.strictEqual(typeof expected, 'array');
+    assert.strictEqual(typeof expected, 'object');
     // Teste que o array retornado pela função contém dois itens dentro.
     assert.strictEqual(expected.length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
