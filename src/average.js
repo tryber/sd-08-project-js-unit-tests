@@ -17,12 +17,14 @@ const average = (value) => {
   if (value.length === 0) {
     return undefined;
   }
-  for (let index = 0; index <= value.length; index += 1) {
-    if (typeof (value[index]) !== 'number') {
+  for (let index = 0; index < value.length; index += 1) {
+    if (typeof (value[index]) !== "number") {
       return undefined;
     }
     numbersCount += value[index];
   }
   return Math.round(numbersCount / value.length);
 };
+
+console.log(average([2, 3]))
 module.exports = average;
