@@ -31,7 +31,6 @@ describe('#circle', () => {
     const definition = circle();
     const two = circle(2);
     const three = circle(3);
-    assert.fail();
     assert.strictEqual(typeof expected, 'object');
     assert.strictEqual(size, 3);
     assert.strictEqual(definition, undefined);
