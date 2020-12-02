@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 const assert = require('assert');
+const { type } = require('os');
 const circle = require('../src/circle');
 
 /*
