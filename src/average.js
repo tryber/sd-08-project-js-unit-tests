@@ -12,13 +12,13 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {
-  const numbers = [3, 4, 5];
+const average = (numbers) => {
+  numbers.length = 3;
   let sumNumbers = 0;
   let averageN = 0;
   for (let index = 0; index < numbers.length; index += 1) {
     sumNumbers += numbers[index];
-    if (numbers[index] === '' || typeof numbers[index] !== 'number') {
+    if (numbers === '' || typeof numbers[index] !== 'number') {
       return undefined;
     }
     averageN = sumNumbers / numbers.length;
