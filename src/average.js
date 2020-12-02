@@ -18,7 +18,7 @@ const average = (value) => {
     return undefined;
   }
   for (let index = 0; index <= value.length; index += 1) {
-    if (typeof(value[index] !== 'number' )) {
+    if (typeof (value[index]) !== 'number') {
       return undefined;
     }
     numbersCount += value[index];
