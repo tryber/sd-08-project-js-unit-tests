@@ -15,19 +15,16 @@
       trabalho na Trybe e mando muito em programação!
       #VQV!'
 */
-
 const vqv = (nome, idade) => {
-  const paragraph = 
-  `Oi, meu nome é ${nome}!
+  if (nome === undefined || idade === undefined) {
+    return undefined;
+  } 
+  const paragraph = `Oi, meu nome é ${nome}!
   Tenho ${idade} anos,
   trabalho na Trybe e mando muito em programação!
   #VQV!'`;
 
-  if (nome === undefined || idade === undefined) {
-    return undefined;
-  } else {
-    return paragraph;
-  }
+  return paragraph;
 };
 
 module.exports = vqv;
