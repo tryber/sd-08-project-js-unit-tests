@@ -120,14 +120,23 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
     // ```
-//    const objetoRetornadoTeste8 = createMenu(objetoQualquer);
-//    objetoRetornadoTeste8.order("agua");
-//    objetoRetornadoTeste8.order("agua");
-//    objetoRetornadoTeste8.order("sopa");
-//    objetoRetornadoTeste8.order("sashimi");
-//    objetoRetornadoTeste8.pay(); // Retorno: somaDosPreçosDosPedidos
+    objetoQualquer = { 
+      food: {
+        sopa: 6,
+        sashimi: 8
+      },
+      drink: {
+        agua: 2
+      }
+    };
+    const objetoRetornadoTeste8 = createMenu(objetoQualquer);
+    objetoRetornadoTeste8.order("agua");
+    objetoRetornadoTeste8.order("agua");
+    objetoRetornadoTeste8.order("sopa");
+    objetoRetornadoTeste8.order("sashimi");
+    objetoRetornadoTeste8.pay(); // Retorno: somaDosPreçosDosPedidos
     // ```
-//    assert.deepStrictEqual(objetoRetornadoTeste8.pay(), somaDosPreçosDosPedidos);
+    assert.strictEqual(objetoRetornadoTeste8.pay(), 18);
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
