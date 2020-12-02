@@ -14,17 +14,15 @@
 
 const average = (value) => {
   let numbersCount = 0;
-  if(value.length === 0) {
+  if (value.length === 0) {
     return undefined;
   }
-
-  for(let index = 0; index <= value.length; index ++){
-    if(typeof(value[index] !== 'number')){
+  for (let index = 0; index <= value.length; index += 1) {
+    if (typeof(value[index] !== 'number' )) {
       return undefined;
     }
-    numbersCount += value[index]
+    numbersCount += value[index];
   }
-  return Math.round(numbersCount / value.length)
+  return Math.round(numbersCount / value.length);
 };
-
-module.exports = average; 
+module.exports = average;
