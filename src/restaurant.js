@@ -73,18 +73,18 @@ const createMenu = (myMenu) => {
   const consumo = [];
   const orderFromMenu = request => consumo.push(request);
   const valueCont = () => {
-    const total = 0;
-    consumo.forEach(item => {
+    let total = 0;
+    consumo.forEach((item) => {
       total += myMenu.drinks[item] || myMenu.food[item] || 0;
-    })
+    });
     return parseFloat((total * 1.1).toFixed(2));
-  }
+  };
   return {
     fetchMenu: () => myMenu,
     consumption: consumo,
     order: orderFromMenu,
     pay: valueCont,
-  }
+  };
 };
 
 module.exports = createMenu;

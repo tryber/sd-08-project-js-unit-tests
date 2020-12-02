@@ -85,7 +85,7 @@ describe('#createMenu', () => {
         // ```
         // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
         // --------------------------------------------------------------------------------------
-
+        
         // TESTE 5: Verifique que ao chamar a função associada à chave `order` no objeto retornado, passando uma string como parâmetro, como `objetoRetornadoTeste5.order('coxinha')`, tal string é adicionada ao array contido em `objetoRetornadoTeste5.consumption
         // ```;
         // const objetoRetornadoTeste5 = createMenu(objetoQualquer);
