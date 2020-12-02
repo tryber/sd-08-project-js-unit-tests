@@ -36,7 +36,7 @@ describe('#circle', () => {
     assert.strictEqual(definition, undefined);
     assert.strictEqual(two.circumference, 12.56);
     assert.strictEqual(three.area, 28.259999999999998);
-    assert.strictEqual(three, '{ radius: 3, area: 28.259999999999998, circumference: 18.84 }')
+    assert.strictEqual(three, circle(3))
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
     // Teste se o objeto retornado tem 3 entradas.
