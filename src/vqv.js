@@ -16,7 +16,8 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {
+const vqv = (nome, idade) => {}
+const vqv = (nome, idade) => {  
   if (nome === null && idade === null) {
     return undefined;
   }
