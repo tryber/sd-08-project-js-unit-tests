@@ -13,6 +13,16 @@
 */
 
 const average = () => {
+  const numbers = [1, 2, 3, 4, 5];
+  if (numbers === '' || numbers !== 'number') {
+    return undefined;
+  }
+  let averageN = [];
+  for (let index = 0; index < numbers.length; index += 1) {
+    averageN = (numbers[index] + numbers[index]) / 2;
+  }
+  return Math.round(averageN);
 };
+average();
 
 module.exports = average;
