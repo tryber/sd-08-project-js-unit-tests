@@ -34,8 +34,8 @@ const productDetails = require('../src/productDetails');
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
     const expected = productDetails('maça', 'banana');
-    const id1 = expected[0][1];
-    const id2 = expected[1][1];
+    const id1 = expected[0].details.productId;
+    const id2 = expected[1].details.productId;
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
     assert.strictEqual(typeof expected, 'object');
