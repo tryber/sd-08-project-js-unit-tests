@@ -12,7 +12,8 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = (numbers) => {
+const average = () => {
+  const numbers = [3, 4, 5];
   let sumNumbers = 0;
   let averageN = 0;
   for (let index = 0; index < numbers.length; index += 1) {
