@@ -29,3 +29,6 @@ const circle = (radius) => {
 };
 
 module.exports = circle;
+const three = circle(3);
+const values = Object.values(three);
+console.log(values)
