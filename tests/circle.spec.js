@@ -34,7 +34,7 @@ describe('#circle', () => {
     assert.strictEqual(typeof expected, 'object');
     assert.strictEqual(size, 3);
     assert.strictEqual(definition, undefined);
-    assert.strictEqual(two.circunference, 12.56);
+    assert.strictEqual(two.circumference, 12.56);
     assert.strictEqual(three.area, 28.259999999999998);
     assert.strictEqual(three, '{ radius: 3, area: 28.259999999999998, circumference: 18.84 }')
     // ESCREVA SEUS TESTES ABAIXO:
