@@ -16,9 +16,8 @@
       #VQV!'
 */
 
-const vqv = (nome, idade) => {}
-const vqv = (nome, idade) => {  
-  if (nome === null && idade === null) {
+const vqv = (nome, idade) => {
+  if (nome === undefined && idade === undefined) {
     return undefined;
   }
   const sentence =
