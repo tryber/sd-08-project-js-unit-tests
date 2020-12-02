@@ -15,12 +15,14 @@
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
 
-const createStudent = () => {
+const createStudent = (nameP) => {
   const student = {
-    name: 'Leandrão, o Lobo Solitário',
-    feedback: 'Eita pessoa boa!',
+    name: nameP,
+    feedback: () => 'Eita pessoa boa!',
   };
   return student;
 };
-
+createStudent('Leandrão, o Lobo Solitário');
+// Estava usando template literals para atribuir nameP à chave name,
+// consultei o código do colega Massaki neste ponto.
 module.exports = createStudent;
