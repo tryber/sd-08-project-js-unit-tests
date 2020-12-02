@@ -77,8 +77,11 @@ const createMenu = (obj) => {
     order: (string) => {
       objeto.consumption.push(string);
     },
-    pay: () => objeto.consumption.reduce((acumula, produto) =>
-      acumula + (objeto.fetchMenu().drink[produto] || objeto.fetchMenu().food[produto]), 0),
+    pay: () => {
+      const valor = objeto.consumption.reduce((acumula, produto) =>
+      acumula + (objeto.fetchMenu().drink[produto] || objeto.fetchMenu().food[produto]), 0);
+      return parseFloat((valor * 1.1).toFixed(2));
+    },
   });
   return objeto;
 };

@@ -136,7 +136,7 @@ describe('#createMenu', () => {
     restaurant4.order('agua');
     restaurant4.order('agua');
     restaurant4.order('sopa');
-    assert.deepStrictEqual(restaurant4.pay(), 17.5);
+    assert.deepStrictEqual(restaurant4.pay(), 19.25);
     // const objetoRetornadoTeste8 = createMenu(objetoQualquer);
     // objetoRetornadoTeste8.order("agua");
     // objetoRetornadoTeste8.order("agua");
