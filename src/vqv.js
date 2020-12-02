@@ -16,10 +16,10 @@
       #VQV!'
 */
 const vqv = (nome, idade) => {
-  const paragraph = `Oi, meu nome é ${nome}!
+  const paragraph = `Oi, meu nome é ${nome}! 
   Tenho ${idade} anos,
   trabalho na Trybe e mando muito em programação!
-  #VQV!'`;
+  #VQV!`;
 
   if (typeof (nome) === 'string' && typeof (idade) === 'number') {
     return paragraph;
