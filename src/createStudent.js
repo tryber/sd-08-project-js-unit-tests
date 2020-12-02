@@ -16,14 +16,11 @@
 */
 
 const createStudent = () => {
-  // const student = {
-  //   name: ${nameP},
-  //   feedback: () => {
-  //     return 'Eita pessoa boa!';
-  //     },
-  //   };
-  //   return student;
+  const student = {
+    name: 'Leandrão, o Lobo Solitário',
+    feedback: 'Eita pessoa boa!',
+  };
+  return student;
 };
-createStudent('Leandrão, o Lobo Solitário');
 
 module.exports = createStudent;
