@@ -22,7 +22,4 @@ const vqv = (nome, idade) =>
   trabalho na Trybe e mando muito em programação! 
   #VQV!`;
 
-
-//console.log(vqv('Pedro', 30));  
-
 module.exports = vqv;
