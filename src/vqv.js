@@ -17,8 +17,8 @@
 */
 
 const vqv = (nome, idade) => {
-  if(nome === undefined && idade === undefined){
-    return undefined
+  if (nome === undefined && idade === undefined) {
+    return undefined;
   }
   const mensagem = `Oi, meu nome é ${nome}!
   Tenho ${idade} anos,
