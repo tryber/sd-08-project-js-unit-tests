@@ -34,7 +34,7 @@ const { type } = require('os');
 
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
-    //assert.fail();
+    assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
     let expected = productDetails('mascara', 'alcool')
