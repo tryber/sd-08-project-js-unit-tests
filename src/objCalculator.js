@@ -18,7 +18,7 @@
   calculator.add(1, 1) // Retorno: 2;
   calculator.div(3, 2) // Retorno: 1;
 */
-const assert = require('assert');
+
 
 const calculator = {
   add: (int1, int2) => int1 + int2,
