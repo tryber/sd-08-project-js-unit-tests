@@ -20,19 +20,19 @@
 */
 
 const calculator = {
-  add: function (a, b) {
+  add: (a, b) => {
     return a + b;
   },
 
-  mult: function (a, b) {
+  mult: (a, b) => {
     return a * b;
   },
 
-  div: function (a, b) {
+  div: (a, b) => {
     return Math.floor(a / b);
   },
 
-  sub: function (a, b) {
+  sub: (a, b) => {
     return Math.round(a - b);
   },
 };
