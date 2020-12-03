@@ -1,5 +1,5 @@
 {
-  "name": "sd-0x-block8-project-js-unit-tests",
+  "name": "s",
   "version": "1.0.0",
   "description": "Project for block 8",
   "main": "index.js",
@@ -23,8 +23,13 @@
   },
   "homepage": "https://github.com/betrybe/sd-0x-block8-project-js-unit-test#readme",
   "devDependencies": {
-    "jest": "^24.9.0",
     "acorn": ">=5.7.4",
+    "eslint": "^7.14.0",
+    "jest": "^24.9.0",
     "minimist": ">=1.2.2"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {}
 }
