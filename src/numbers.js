@@ -8,6 +8,7 @@
     - numbers([2, 3, 4]); // Retorna: true
     - numbers([2, 'errado', 5]); // Retorna: false
 */
+// const assert = require('assert');
 
 const numbers = (myArray) => {
   for (let i = 0; i < myArray.length; i += 1) {
