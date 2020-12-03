@@ -17,22 +17,24 @@
 
 const myCounter = () => {
   var myArray = [];
+  
+  function counter1 () {
+    for (var counter = 1; counter <= 3; counter += 1) {
+      myArray.push(counter);
+    }
+  };
 
   for (var counter = 0; counter <= 3; counter += 1) {
     myArray.push(counter);
     for (var counter = 2; counter <= 3; counter += 1) {
       myArray.push(counter);
     }
-    for (var counter = 1; counter <= 3; counter += 1) {
-      myArray.push(counter);
-    }
+    counter1();
     for (let counter1 = 2; counter1 <= 3; counter1 += 1) {
       myArray.push(counter1);
       myArray.push(counter1);
     }
-    for (let counter2 = 1; counter2 <= 3; counter2 += 1) {
-      myArray.push(counter2);
-    }
+    counter1();
   }
   return myArray;
 };
