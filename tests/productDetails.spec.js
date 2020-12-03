@@ -37,17 +37,22 @@ describe('#productDetails', () => {
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
     const produto = productDetails('Alcool gel', 'Mascara');
-    index = 0;
     assert.StrictEqual(Array.isArray(produto), true);
-    // Teste que o retorno da função é um array.
-    assert.deepStrictEqual(Array.isArray(produto), true)
     // Teste que o array retornado pela função contém dois itens dentro.
-    assert.deepStrictEqual(produto.length === 2, true)
+    assert.strictEqual = (produto.length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
-    assert.deepStrictEqual(typeof produto[index], 'object');
+    assert.deepStrictEqual(typeof(produto), 'object' );
     // Teste que os dois objetos são diferentes entre si.
-    assert.deepStrictEqual(typeof produto[index] !== produto[1], true);
-    // (Difícil) Teste que os dois productIds terminam com 123.
-    assert.deepStrictEqual(produto[index].details.productId.endsWith('123'), true);
+    assert.notStrictEqual(produto[0], produto[1]);
+   /* // (Difícil) Teste que os dois productIds terminam com 123.
+    const finalWords = expected[0].details.productId;
+    const finalWordsTwo = expected[1].details.productId;
+    const resultFirst = finalWords.slice(-3);
+    const resultSecond = finalWordsTwo.slice(-3);
+    let finalResult = false;
+    if(resultFirst === "123" && resultSecond === "123"){
+      finalResult = true;
+    }
+    assert.deepStrictEqual( finalResult, true);*/
   });
 });
