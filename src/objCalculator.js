@@ -5,7 +5,8 @@
     - div;
     - sub.
   Para cada uma delas atribua uma função que realiza a respectiva operação.
-  A função deve receber dois inteiros e retornar um  resultados das divisões devem sempre ser arredondados pinteiro.
+  A função deve receber dois inteiros e retornar um  resultados das divisões 
+  devem sempre ser arredondados pinteiro.
   Osara baixo.
 
   Faça as funções com arrow functions!
@@ -25,5 +26,4 @@ const calculator = {
   div: (n1, n2) => n1 / n2,
   sub: (n1, n2) => Math.round(n1 - n2),
 };
-
 module.exports = calculator;
