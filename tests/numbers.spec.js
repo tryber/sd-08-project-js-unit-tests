@@ -30,6 +30,6 @@ describe('#numbers', () => {
     assert.strictEqual(expected, false);
     // Escreva um teste em que a função recebe [' '] e retorna false
     expected = numbers([' ']);
-    assert.strictEqual(expected,true);
+    assert.strictEqual(expected,false);
   });
 });
