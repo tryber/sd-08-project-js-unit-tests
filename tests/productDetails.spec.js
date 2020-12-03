@@ -51,7 +51,7 @@ describe('#productDetails', () => {
     const finalWords = expected[0].productId;
     const finalWordsTwo = expected[1].productId;
     const resultFirst = finalWords.Substring(finalWords.length-3);
-    const resultSecond = finalWordsTwo.Substring(finalWords.length-3)
-    assert.strictEqual(resultFirst , resultSecond)
+    const resultSecond = finalWordsTwo.Substring(finalWords.length-3);
+    assert.strictEqual(resultFirst , resultSecond);
   });
 });
