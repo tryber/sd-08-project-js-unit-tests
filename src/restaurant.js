@@ -82,11 +82,11 @@ const createMenu = (myMenu) => {
       totalValueToPay += menuAndConsumption.menu.drinks[index] || menuAndConsumption.menu.foods[index] || 0;
     });
     return totalValueToPay + (totalValueToPay / 10);
-  }
+  };
   return {
     fetchMenu: () => menuAndConsumption.menu,
     consumption: () => menuAndConsumption.consumption,
-    order: (value) => menuAndConsumption.consumption.push(value),
+    order: value => menuAndConsumption.consumption.push(value),
     pay: () => myBill(),
   };
 };
