@@ -45,7 +45,11 @@ describe('#circle', () => {
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
     expected = circle(3)
     expected.area = parseFloat(circle(3).area.toPrecision(4))
-    assert.strictEqual(expected, { radius: 3, area: 28.26, circumference: 18.84})
+    const value = {
+      radius : 3,
+      area : 28.26,
+      circumference: 18.84,
+    };
+    assert.strictEqual(expected, value)
   });
 });
-
