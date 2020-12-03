@@ -40,11 +40,12 @@ describe('#circle', () => {
     expected = circle(2);
     assert.strictEqual(expected.area, 12.56);
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
-    expected = circle(3)
-    assert.strictEqual(expected.area, 28.27);
+    expected = parseFloat(circle(3).area).toPrecision(4)
+    assert.strictEqual(expected.area, 28.26);
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
     expected = circle(3)
-    assert.strictEqual(expected, { radius: 3, area: 28.27, circumference: 7.07})
+    expected.area = parseFloat(circle(3).area).toPrecision(4)
+    assert.strictEqual(expected, { radius: 3, area: 28.26, circumference: 18.84})
   });
 });
 
