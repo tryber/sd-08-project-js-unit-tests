@@ -39,7 +39,7 @@ describe('#circle', () => {
     assert.strictEqual(parseFloat(circle(3).area.toPrecision(4)), 28.26);
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
     assert.strictEqual(circle(3).radius, 3);
-    assert.strictEqual(circle(3).area, 28.26);
+    assert.strictEqual(circle(3).area, 28.259999999999998);
     assert.strictEqual(circle(3).circumference, 18.84);
   });
 });
