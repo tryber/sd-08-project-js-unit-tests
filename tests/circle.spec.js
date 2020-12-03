@@ -28,7 +28,7 @@ describe('#circle', () => {
     //assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
-    let expected = typeof(circle(8));
+    let expected = typeof (circle(8));
     assert.equal(expected, 'object');
     // Teste se o objeto retornado tem 3 entradas.
     expected = Object.keys(circle(1)).length;
@@ -43,13 +43,6 @@ describe('#circle', () => {
     expected = parseFloat(circle(3).area.toPrecision(4))
     assert.strictEqual(expected, 28.26);
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-    expected = circle(3)
-    expected.area = parseFloat(circle(3).area.toPrecision(4))
-    const value = {
-      radius : 3,
-      area : 28.26,
-      circumference: 18.84,
-    };
-    assert.strictEqual(expected, value)
+    assert.strictEqual(Object.values(circle(3)), [3, (3.14 * 3 * 3), [2 * 3.14 * 3]])
   });
 });
