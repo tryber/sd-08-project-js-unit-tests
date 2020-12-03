@@ -16,19 +16,19 @@ const average = (xablau) => {
   if (xablau.length === 0) {
     return undefined;
   }
-let soma = 0;
+  let soma = 0;
 
-for (let index = 0; index < xablau.length; index += 1) {
-  if (typeof xablau[index] === 'number') {
-    soma += xablau[index];
-  } else {
-    return undefined;
-  };
-};
+  for (let index = 0; index < xablau.length; index += 1) {
+    if (typeof xablau[index] === 'number') {
+      soma += xablau[index];
+    } else {
+      return undefined;
+    }
+  }
 
-const media = soma / xablau.length;
+  const media = soma / xablau.length;
 
-return Math.round(media);
+  return Math.round(media);
 };
 module.exports = average;
 
