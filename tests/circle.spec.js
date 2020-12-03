@@ -31,7 +31,7 @@ describe('#circle', () => {
     let expected = typeof(circle(8));
     assert.equal(expected, 'object');
     // Teste se o objeto retornado tem 3 entradas.
-    expected = Object.keys(circle).length;
+    expected = Object.keys(circle(1)).length;
     assert.strictEqual(expected, 3);
     // Teste se a função, quando não recebe nenhum parâmetro, retorna undefined.
     expected = circle();
