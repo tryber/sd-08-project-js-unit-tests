@@ -22,6 +22,9 @@ const circle = require('../src/circle');
 
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
 */
+const onlyTwoDecimals = (num) => {
+  return Number(num.toFixed(2));
+}
 
 describe('#circle', () => {
   it('given a radius, should return an object with circles info', () => {
