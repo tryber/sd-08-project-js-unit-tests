@@ -47,8 +47,8 @@ describe('#productDetails', () => {
     // Teste que os dois objetos são diferentes entre si.
     assert.notStrictEqual(expected[0], expected[1])
     // (Difícil) Teste que os dois productIds terminam com 123.
-    const finalWords = Object.values(expected.details.productId);
-    const finalWordsTwo = Object.values(expected.details.productId);
+    const finalWords = expected.details.productId;
+    const finalWordsTwo = expected.details.productId;
     const resultFirst = finalWords.slice(-3);
     const resultSecond = finalWordsTwo.slice(-3);
     assert.strictEqual(resultFirst , resultSecond);
