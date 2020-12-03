@@ -11,7 +11,7 @@
 
 const numbers = (array) => {
   for (let i = 0; i < array.length; i += 1) {
-    if (typeof myArray[i] !== 'number') {
+    if (typeof array[i] !== 'number') {
       return false;
     }
   }
