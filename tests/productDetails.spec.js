@@ -37,7 +37,7 @@ describe('#productDetails', () => {
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
     const produto = productDetails('Alcool gel', 'Mascara');
-    assert.StrictEqual(Array.isArray(produto), true);
+    assert.strictEqual(Array.isArray(produto), true);
     // Teste que o array retornado pela função contém dois itens dentro.
     assert.strictEqual = (produto.length, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
