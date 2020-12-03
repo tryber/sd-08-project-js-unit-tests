@@ -29,7 +29,7 @@ describe('#circle', () => {
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
     let expected = typeof(circle(8));
-    assert.Equal(expected, 'object');
+    assert.equal(expected, 'object');
     // Teste se o objeto retornado tem 3 entradas.
     expected = Object.keys(circle).length;
     assert.strictEqual(expected, 3);
