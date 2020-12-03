@@ -3,7 +3,6 @@
 
 const assert = require('assert');
 const productDetails = require('../src/productDetails');
-const { type } = require('os');
 
 /*
   Dadas duas strings que representam nomes de produtos, retorne um array contendo dois objetos com os detalhes dos respectivos produtos.
@@ -48,10 +47,10 @@ describe('#productDetails', () => {
     // Teste que os dois objetos são diferentes entre si.
     assert.notStrictEqual(expected[0], expected[1])
     // (Difícil) Teste que os dois productIds terminam com 123.
-    const finalWords = expected[0].productId;
-    const finalWordsTwo = expected[1].productId;
-    const resultFirst = finalWords.Substring(finalWords.length-3);
-    const resultSecond = finalWordsTwo.Substring(finalWords.length-3);
+    const finalWords = Object.values(expected.details.productId);
+    const finalWordsTwo = Object.values(expected.details.productId);
+    const resultFirst = finalWords.slice(-3);
+    const resultSecond = finalWordsTwo.slice(-3);
     assert.strictEqual(resultFirst , resultSecond);
   });
 });
