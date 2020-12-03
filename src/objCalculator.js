@@ -5,7 +5,7 @@
     - div;
     - sub.
   Para cada uma delas atribua uma função que realiza a respectiva operação.
-  A função deve receber dois inteiros e retornar um  resultados das divisões 
+  A função deve receber dois inteiros e retornar um  resultados das divisões
   devem sempre ser arredondados pinteiro.
   Osara baixo.
 
