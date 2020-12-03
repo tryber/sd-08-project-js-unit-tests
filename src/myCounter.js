@@ -14,13 +14,12 @@
   Comportamento:
   myCounter() // Retorna: [0, 2, 3, 1, 2, 3, 2, 2, 3, 3, 2, 3];
 */
-
 const myCounter = () => {
-  var myArray = [];
-  for (var counter = 0; counter <= 3; counter += 1) {
-    myArray.push(counter);
-    for (var counter = 2; counter <= 3; counter += 1) {
-      myArray.push(counter);
+  const myArray = [];
+  for (let index1 = 0; index1 <= 3; index1 += 1) {
+    myArray.push(index1);
+    for (let index2 = 2; index2 <= 3; index2 += 1) {
+      myArray.push(index2);
     }
   }
   return myArray;
