@@ -36,19 +36,19 @@ describe('#productDetails', () => {
     //assert.fail();
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste que o retorno da função é um array.
-    let expected = productDetails('mascara', 'alcool')
-    assert.strictEqual(Array.isArray(productDetails('mascara', 'alcool')), true)
+    let expected = productDetails('mascara', 'alcool');
+    assert.strictEqual(Array.isArray(productDetails('mascara', 'alcool')), true);
     // Teste que o array retornado pela função contém dois itens dentro.
     expected = Object.keys(productDetails('mascara', 'alcool')).length
-    assert.strictEqual = (expected, 2)
+    assert.strictEqual = (expected, 2);
     // Teste que os dois itens dentro do array retornado pela função são objetos.
-    expected = Object.values(productDetails('mascara', 'alcool'))
-    assert.deepStrictEqual(typeof(expected), 'object' )
+    expected = Object.values(productDetails('mascara', 'alcool'));
+    assert.deepStrictEqual(typeof(expected), 'object' );
     // Teste que os dois objetos são diferentes entre si.
-    assert.notStrictEqual(expected[0], expected[1])
+    assert.notStrictEqual(expected[0], expected[1]);
     // (Difícil) Teste que os dois productIds terminam com 123.
-    const finalWords = expected.details.productId;
-    const finalWordsTwo = expected.details.productId;
+    const finalWords = expected[0].details.productId;
+    const finalWordsTwo = expected[1].details.productId;
     const resultFirst = finalWords.slice(-3);
     const resultSecond = finalWordsTwo.slice(-3);
     let finalResult = false;
