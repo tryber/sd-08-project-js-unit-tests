@@ -38,7 +38,6 @@ const productDetails = (firstProduct, secondProduct) => [
     },
   },
 ];
-
 /* const aux =productDetails('Alcool gel', 'Máscara')
 const firtsID = aux[0].details.productId.slice(-3)
 const secondID = aux[1].details.productId.slice(-3)
@@ -46,7 +45,7 @@ const secondID = aux[1].details.productId.slice(-3)
 if(firtsID==secondID){console.log(true)}
 else console.log(false)
 
-console.log(aux) */
+//console.log(aux)  */
 
 
 module.exports = productDetails;
