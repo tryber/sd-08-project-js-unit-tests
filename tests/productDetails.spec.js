@@ -33,12 +33,12 @@ const productDetails = require('../src/productDetails');
 
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
-    assert.fail();
-    // ESCREVA SEUS TESTES ABAIXO:
-    // Teste que o retorno da função é um array.
-    // Teste que o array retornado pela função contém dois itens dentro.
-    // Teste que os dois itens dentro do array retornado pela função são objetos.
-    // Teste que os dois objetos são diferentes entre si.
-    // (Difícil) Teste que os dois productIds terminam com 123.
+    assert.ok(Array.isArray(productDetails('Alcool', 'Algodão')));
+    assert.deepStrictEqual(productDetails('Alcool', 'Algodão').length, 2)
+    assert.deepStrictEqual(typeof productDetails('Alcool', 'Algodão')[0], 'object');
+    assert.deepStrictEqual(typeof productDetails('Alcool', 'Algodão')[1], 'object');
+    assert.notDeepStrictEqual(Object.entries(productDetails('Alcool', 'Algodão')[0]).sort(), Object.entries(productDetails('Alcool', 'Algodão')[1]).sort())
+    assert.deepStrictEqual(Object.values(productDetails('Alcool', 'Algodão'))[0].details.productId.substring(Object.values(productDetails('Alcool', 'Algodão'))[0].details.productId.length - 3, Object.values(productDetails('Alcool', 'Algodão'))[0].details.productId.length), '123');
+    assert.deepStrictEqual(Object.values(productDetails('Alcool', 'Algodão'))[1].details.productId.substring(Object.values(productDetails('Alcool', 'Algodão'))[1].details.productId.length - 3, Object.values(productDetails('Alcool', 'Algodão'))[1].details.productId.length), '123');
   });
 });
