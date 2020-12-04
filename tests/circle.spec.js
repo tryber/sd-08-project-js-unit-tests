@@ -38,6 +38,6 @@ describe('#circle', () => {
     // Teste que a função retorna, dentro de um objeto, a área correta para um círculo de raio 3.
     assert.strictEqual(parseFloat(Object.values(circle(3))[1].toFixed(2)), 28.26);
     // Teste que a função retorna, num objeto, os dados corretos de um círculo de raio 3.
-    assert.strictEqual(typeof circle(3), 'object'); // Referência utilizada do código do Tiago Bovolin  https://github.com/tryber/sd-08-project-js-unit-tests/blob/tiagaoalb-js-unit-tests/tests/circle.spec.js
+    assert.strictEqual(typeof circle(3), 'object');
   });
 });
