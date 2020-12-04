@@ -70,21 +70,12 @@ const createMenu = (menu) => {
       orderFromMenu(restaurant, str);
     },
     pay: () => {
-      toPay(restaurant);
+      return toPay(restaurant);
     },
   };
 
   return restaurant;
 };
-
-const pedirItems = createMenu({
-  food: { sopa: 3.9, sashimi: 9.9 },
-  drink: { agua: 3.9, cerveja: 6.9 },
-});
-
-pedirItems.order('frango');
-
-console.log(pedirItems.consumption);
 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: objetoPassadoPorParametro }.
 //
