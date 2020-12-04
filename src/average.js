@@ -18,16 +18,15 @@ const average = (array) => {
   let soma = 0;
   for (let index = 0; index < array.length; index += 1) {
     if (typeof array[index] === 'string') {
-      return undefined;
-      
+      return undefined;  
     } else {
       soma += array[index];
-    } 
+    }
   }
   if (array.length === 0) {
     return undefined;
   }
-    return Math.round(soma / array.length);
+  return Math.round(soma / array.length);
 };
 
 console.log(average([]));
