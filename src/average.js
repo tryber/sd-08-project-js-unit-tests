@@ -14,7 +14,7 @@
 
 const isNumber = (value) => {
   return (typeof value === "number" && !isNaN(value));
-}
+};
 
 const average = (values) => {
   if (Array.isArray(values) && values.length > 0) {
