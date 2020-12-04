@@ -92,7 +92,7 @@ const createMenu = (menu) => {
   const restaurante = {
     fetchMenu: () => menu,
     consumption: [],
-    order: (str) => orderFromMenu(restaurante, str),
+    order: str => orderFromMenu(restaurante, str),
     pay: () => conta(restaurante),
   };
 
