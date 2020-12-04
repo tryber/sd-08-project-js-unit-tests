@@ -13,7 +13,7 @@
 */
 
 const isNumber = (value) => {
-  return (typeof value === "number" && !isNaN(value));
+  return (typeof value === 'number' && !isNaN(value));
 };
 
 const average = (values) => {
