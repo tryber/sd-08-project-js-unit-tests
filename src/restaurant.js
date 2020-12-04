@@ -42,20 +42,23 @@
 
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
 */
+const orderFromMenu = (restaurant, str) => {
+  restaurant.consumption.push(str);
+};
 const createMenu = (menu) => {
   const restaurant = {
-    fetchMenu: menu,
+    fetchMenu: () => menu,
     consumption: [],
     order: (str) => {
-      restaurant.consumption.push(str);
+      const orderItems = orderFromMenu(restaurant, str);
     },
     pay: () => {
       const checks = restaurant.consumption.map((element) => {
-        if (Object.keys(restaurant.fetchMenu.food).includes(element)) {
-          return restaurant.fetchMenu.food[element];
+        if (Object.keys(restaurant.fetchMenu().food).includes(element)) {
+          return restaurant.fetchMenu().food[element];
         }
-        if (Object.keys(restaurant.fetchMenu.drink).includes(element)) {
-          return restaurant.fetchMenu.drink[element];
+        if (Object.keys(restaurant.fetchMenu().drink).includes(element)) {
+          return restaurant.fetchMenu().drink[element];
         }
         return 0;
       });
