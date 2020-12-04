@@ -12,16 +12,13 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const isNumber = (value) => {
-  return (typeof value === 'number' && !isNaN(value));
-};
+const isNumber = (value) => typeof value === 'number' && !isNaN(value);
 
 const average = (values) => {
   if (Array.isArray(values) && values.length > 0) {
-    const round = Math.round(values.reduce((previousValue, currentValue) => {
-      return (isNumber(previousValue) && isNumber(currentValue)) ?
-        currentValue + previousValue : undefined;
-    }, 0) / values.length);
+    const round = Math.round(values.reduce((previousValue, currentValue) => (isNumber(previousValue) && isNumber(currentValue)) ?
+        currentValue + previousValue : undefined
+    , 0) / values.length);
     return (isNaN(round)) ? undefined : round;
   }
   return undefined;
