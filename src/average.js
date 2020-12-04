@@ -12,21 +12,19 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-//https://stackoverflow.com/questions/20169217/how-to-write-isnumber-in-javascript
 const isNumber = (value) => {
-    return (typeof value === "number" && !isNaN(value));
+  return (typeof value === "number" && !isNaN(value));
 }
 
 const average = (values) => {
-    if (Array.isArray(values) && values.length > 0) {
-        let round = Math.round(values.reduce((previousValue, currentValue) => {
-            return (isNumber(previousValue) && isNumber(currentValue)) ?
-            currentValue + previousValue : undefined;
-        }, 0) / values.length);
-        return (isNaN(round)) ? undefined : round;
-    } else {
-        return undefined;
-    }
+  if (Array.isArray(values) && values.length > 0) {
+    const round = Math.round(values.reduce((previousValue, currentValue) => {
+      return (isNumber(previousValue) && isNumber(currentValue)) ?
+        currentValue + previousValue : undefined;
+    }, 0) / values.length);
+    return (isNaN(round)) ? undefined : round;
+  }
+  return undefined;
 };
 
 console.log(average([1]));
