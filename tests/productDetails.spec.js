@@ -41,7 +41,7 @@ describe('#productDetails', () => {
     // Teste que os dois itens dentro do array retornado pela função são objetos.
     assert.strictEqual(typeof productDetails('hehehe', 'hahaha'), 'object');
     // Teste que os dois objetos são diferentes entre si.
-    assert.notStrictEqual(productDetails(), false);
+    assert.notStrictEqual(productDetails(), true);
     // (Difícil) Teste que os dois productIds terminam com 123.
     assert.deepStrictEqual(productDetails('Hehehe', 'hahaha')[0].details.productId.substr(-3), productDetails('Hehehe', 'Hahaha')[1].details.productId.substr(-3), ['123', '123']); // Referência tirada do código da Bianca Cateano https://github.com/tryber/sd-08-project-js-unit-tests/blob/bianca-caetano-js-unit-tests/tests/productDetails.spec.js
   });
