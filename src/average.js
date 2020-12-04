@@ -19,13 +19,18 @@ const average = (array) => {
   for (let index = 0; index < array.length; index += 1) {
     if (typeof array[index] === 'string') {
       return undefined;
-    }
-    soma += array[index];
+      
+    } else {
+      soma += array[index];
+    } 
   }
-  return Math.round(soma / array.length);
+  if (array.length === 0) {
+    return undefined;
+  }
+    return Math.round(soma / array.length);
 };
 
-console.log(average([0, 0, 0, 0, 0, 0, 0]));
+console.log(average([]));
 
 // assert.strictEqual(average([1, 2, '3', 4, 5]), undefined);
 // assert.strictEqual(average([3, 4, 5]), 4);
