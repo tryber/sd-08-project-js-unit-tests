@@ -38,15 +38,15 @@ describe('#productDetails', () => {
     assert.strictEqual(typeof (test), 'object');
     assert.strictEqual(test.length, 2);
     assert.strictEqual(typeof (test[0], test[1]), 'object');
-    assert.notDeepStrictEqual(typeof (test[0], test[1]), 'object');
+    assert.notDeepStrictEqual(Object.values(productDetails('Alcool gel', 'Máscara')), [productDetails('Alcool gel', 'Máscara')]);
     
     const produto1 = test[0].details.productId;
     const produto2 = test[1].details.productId;
     let checkProduto1 = 0;
     let checkProduto2 = 0;
-    if (product1[produto1.length-1] === '3') {
-      if (product1[produto1.length-2] === '2') {
-        if (product1[produto1.length-3] === '1') {
+    if (produto1[produto1.length-1] === '3') {
+      if (produto1[produto1.length-2] === '2') {
+        if (produto1[produto1.length-3] === '1') {
           checkProduto1 = 1;
         }
       }
