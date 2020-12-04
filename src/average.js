@@ -16,8 +16,8 @@ const isNumber = (value) => typeof value === 'number' && !isNaN(value);
 
 const average = (values) => {
   if (Array.isArray(values) && values.length > 0) {
-    const round = Math.round(values.reduce((previousValue, currentValue) => (isNumber(previousValue) && isNumber(currentValue)) ?
-        currentValue + previousValue : undefined
+    const round = Math.round(values.reduce((previousValue, currentValue) => ((isNumber(previousValue) && isNumber(currentValue)) ?
+        currentValue + previousValue : undefined)
     , 0) / values.length);
     return (isNaN(round)) ? undefined : round;
   }
