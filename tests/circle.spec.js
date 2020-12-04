@@ -36,8 +36,8 @@ const circle = require('../src/circle');
       it('given a radius, should return an object with circles info', () => {
         assert.strictEqual(typeof circle(1), 'object');
         assert.strictEqual(circle(), undefined);
-        assert.deepStrictEqual(circle(2), {"area": 12.56, "circumference": 12.56, "radius": 2});
-        assert.deepStrictEqual(circle(3), {"area": 28.259999999999998, "circumference": 18.84, "radius": 3});
+        assert.strictEqual(Object.values(circle(2))[2], 12.56);
+        assert.strictEqual(Object.values(circle(3))[1], 28.259999999999998);
         assert.deepStrictEqual(circle(3), {"area": 28.259999999999998, "circumference": 18.84, "radius": 3});
       });
     });
