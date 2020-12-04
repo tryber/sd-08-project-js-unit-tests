@@ -13,7 +13,13 @@
 */
 
 const average = (values) => {
-    
+    if (Array.isArray(values) && values.length > 0) {
+        values.reduce((previousValue, currentValue) => {
+            return (isNumber(currentValue)) ? currentValue + previousValue : undefined;
+        }, 0);
+    } else {
+        return undefined;
+    }
 };
 
 module.exports = average;
