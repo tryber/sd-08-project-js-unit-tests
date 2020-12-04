@@ -12,8 +12,6 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-// const assert = require('assert');
-
 const average = (array) => {
   let soma = 0;
   for (let index = 0; index < array.length; index += 1) {
@@ -29,7 +27,4 @@ const average = (array) => {
 };
 
 console.log(average([]));
-
-// assert.strictEqual(average([1, 2, '3', 4, 5]), undefined);
-// assert.strictEqual(average([3, 4, 5]), 4);
 module.exports = average;
