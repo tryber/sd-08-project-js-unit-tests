@@ -45,6 +45,23 @@
 const orderFromMenu = (restaurant, str) => {
   restaurant.consumption.push(str);
 };
+
+const toPay = (restaurant) => {
+  const checks = restaurant.consumption.map((element) => {
+    if (Object.keys(restaurant.fetchMenu().food).includes(element)) {
+      return restaurant.fetchMenu().food[element];
+    }
+    if (Object.keys(restaurant.fetchMenu().drink).includes(element)) {
+      return restaurant.fetchMenu().drink[element];
+    }
+    return 0;
+  });
+  const newValue = checks.reduce((acc, curr) => (acc += curr));
+  const percentage = (newValue * 10) / 100;
+  const valueWithPercentage = (newValue + percentage).toPrecision(4);
+  return Number(valueWithPercentage);
+};
+
 const createMenu = (menu) => {
   const restaurant = {
     fetchMenu: () => menu,
@@ -53,19 +70,7 @@ const createMenu = (menu) => {
       orderFromMenu(restaurant, str);
     },
     pay: () => {
-      const checks = restaurant.consumption.map((element) => {
-        if (Object.keys(restaurant.fetchMenu().food).includes(element)) {
-          return restaurant.fetchMenu().food[element];
-        }
-        if (Object.keys(restaurant.fetchMenu().drink).includes(element)) {
-          return restaurant.fetchMenu().drink[element];
-        }
-        return 0;
-      });
-      const newValue = checks.reduce((acc, curr) => (acc += curr));
-      const percentage = (newValue * 10) / 100;
-      const valueWithPercentage = (newValue + percentage).toPrecision(4);
-      return Number(valueWithPercentage);
+      toPay(restaurant);
     },
   };
 
