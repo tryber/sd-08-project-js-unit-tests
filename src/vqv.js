@@ -22,7 +22,7 @@ const vqv = (nome, idade) => {
   }
   return `Oi, meu nome é ${nome}!
   tenho ${idade} anos,
-  trabalho na Trybe e mando muito em programação!`
+  trabalho na Trybe e mando muito em programação!`;
 };
 
 console.log(vqv('Bruno', 23));
