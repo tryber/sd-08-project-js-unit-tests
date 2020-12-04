@@ -22,5 +22,6 @@ const average = (array) => {
   return Math.round(soma / array.length);
 };
 
-assert.strictEqual(average([3, 4, 6, 8]), 5);
+assert.strictEqual(average([1, 2, 3, '4', 5]), undefined, 'undefined');
+assert.strictEqual(average([3, 4, 5]), 4);
 module.exports = average;
