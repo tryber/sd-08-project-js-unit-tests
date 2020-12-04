@@ -17,7 +17,7 @@ const circle = require('../src/circle');
     - circle(3) // Retorno: {radius: 3, area: 28,26, circumference: 18.84}
 
   DICA: Números de ponto flutuante em JavaScript são imprecisos!  Para testar, vá no seu navegador e faça `0.2 + 0.1`.
-        Uma solução pra isso pode ser fazer a soma no seguinte formato: `parseFloat((0.2 + 0.1).toPrecision(2))`.
+        Uma solução pra isso pode ser fazer a soma no seguinte formato: `parseFloat((0.2 + 0.1).toFixed(2))`.
         Use esse conhecimento para te ajudar a lidar com possíveis problemas que esses testes trarão!
 
   OBS: Lembre-se que você não precisa se preocupar com o describe e o it por enquanto, isso será aprendido posteriormente.
@@ -25,7 +25,15 @@ const circle = require('../src/circle');
 
 describe('#circle', () => {
   it('given a radius, should return an object with circles info', () => {
-    assert.fail();
+    assert.strictEqual(typeof circle(1), 'object');
+    assert.strictEqual(Object.keys(circle(1)).length, 3);
+    assert.strictEqual(circle(), undefined);
+    assert.strictEqual(circle(2).circumference.toFixed(2), '12.56');
+    assert.strictEqual(circle(3).area.toFixed(2), '28.26');
+    assert.deepStrictEqual(Object.entries(circle(3)).reduce((acc, [key, value]) => {
+      acc[key] = value.toFixed(2);
+      return acc;
+    }, {}), {radius: '3.00', area: '28.26', circumference: '18.84'});
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna um objeto.
     // Teste se o objeto retornado tem 3 entradas.
