@@ -69,9 +69,7 @@ const createMenu = (menu) => {
     order: (str) => {
       orderFromMenu(restaurant, str);
     },
-    pay: () => {
-      return toPay(restaurant);
-    },
+    pay: () => toPay(restaurant),
   };
 
   return restaurant;
