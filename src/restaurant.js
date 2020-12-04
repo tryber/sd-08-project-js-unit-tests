@@ -42,6 +42,38 @@
 
   IMPORTANTE: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E NÃO PELO PASSO 1 DESTE ARQUIVO!
 */
+const orderFromMenu = (restaurant, str) => {
+  restaurant.consumption.push(str);
+};
+
+const toPay = (restaurant) => {
+  const checks = restaurant.consumption.map((element) => {
+    if (Object.keys(restaurant.fetchMenu().food).includes(element)) {
+      return restaurant.fetchMenu().food[element];
+    }
+    if (Object.keys(restaurant.fetchMenu().drink).includes(element)) {
+      return restaurant.fetchMenu().drink[element];
+    }
+    return 0;
+  });
+  const newValue = checks.reduce((acc, curr) => (acc += curr));
+  const percentage = (newValue * 10) / 100;
+  const valueWithPercentage = (newValue + percentage).toPrecision(4);
+  return Number(valueWithPercentage);
+};
+
+const createMenu = (menu) => {
+  const restaurant = {
+    fetchMenu: () => menu,
+    consumption: [],
+    order: (str) => {
+      orderFromMenu(restaurant, str);
+    },
+    pay: () => toPay(restaurant),
+  };
+
+  return restaurant;
+};
 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: objetoPassadoPorParametro }.
 //
@@ -69,7 +101,5 @@
 //------------------------------------------------------------------------------------------
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
-
-const createMenu = () => { };
 
 module.exports = createMenu;
