@@ -17,7 +17,7 @@
 const average = (array) => {
   let soma = 0;
   for (let index = 0; index < array.length; index += 1) {
-    if (typeof array[index] === 'string' || array[index] === 0) {
+    if (typeof array[index] === 'string') {
       return undefined;
     }
     soma += array[index];
@@ -25,7 +25,7 @@ const average = (array) => {
   return Math.round(soma / array.length);
 };
 
-console.log(average([1, 2, '3', 4]));
+console.log(average([0, 0, 0, 0, 0, 0, 0]));
 
 // assert.strictEqual(average([1, 2, '3', 4, 5]), undefined);
 // assert.strictEqual(average([3, 4, 5]), 4);
