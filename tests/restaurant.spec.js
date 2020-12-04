@@ -64,12 +64,11 @@ describe('#createMenu', () => {
       Object.keys(createMenu()).includes('fetchMenu'),
       true
     );
-    assert.deepStrictEqual(typeof createMenu().fetchMenu, 'function');
-    assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).fetchMenu(), {
+    assert.deepStrictEqual(createMenu({ food: {}, drink: {} }).fetchMenu, {
       food: {},
       drink: {},
     });
-    assert.deepStrictEqual(createMenu(menuTest3).fetchMenu(), menuTest3);
+    assert.deepStrictEqual(createMenu(menuTest3).fetchMenu, menuTest3);
     assert.deepStrictEqual(menuTest4, []);
 
     const objetoRetornadoTeste5 = createMenu({

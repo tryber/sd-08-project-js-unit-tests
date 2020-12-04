@@ -44,23 +44,22 @@
 */
 const createMenu = (menu) => {
   const restaurant = {
-    fetchMenu: () => menu,
+    fetchMenu: menu,
     consumption: [],
     order: (str) => {
       restaurant.consumption.push(str);
     },
     pay: () => {
       const checks = restaurant.consumption.map((element) => {
-        if (Object.keys(restaurant.fetchMenu().food).includes(element)) {
-          return restaurant.fetchMenu().food[element];
+        if (Object.keys(restaurant.fetchMenu.food).includes(element)) {
+          return restaurant.fetchMenu.food[element];
         }
-        if (Object.keys(restaurant.fetchMenu().drink).includes(element)) {
-          return restaurant.fetchMenu().drink[element];
+        if (Object.keys(restaurant.fetchMenu.drink).includes(element)) {
+          return restaurant.fetchMenu.drink[element];
         }
+        return 0;
       });
-      const newValue = checks.reduce((acc, curr) => {
-        return (acc += curr);
-      });
+      const newValue = checks.reduce((acc, curr) => (acc += curr));
       const percentage = (newValue * 10) / 100;
       const valueWithPercentage = (newValue + percentage).toPrecision(4);
       return Number(valueWithPercentage);
