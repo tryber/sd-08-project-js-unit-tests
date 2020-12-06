@@ -16,7 +16,7 @@ const average = (values) => {
   if (!Array.isArray(values)) return undefined;
   if (values.length === 0) return undefined;
   const resultingValue = values.reduce((previousValue, currentValue) =>
-    currentValue + previousValue
+    (typeof currentValue !== 'string') ? currentValue + previousValue : undefined
   , 0) / values.length;
   return (isNaN(resultingValue)) ? undefined : Math.round(resultingValue);
 };
