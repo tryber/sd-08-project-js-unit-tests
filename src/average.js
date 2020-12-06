@@ -15,16 +15,14 @@
 const isNumber = value => typeof value === 'number' && !isNaN(value);
 
 const average = (values) => {
-  if (Array.isArray(values) && values.length > 0) {
-    const resultingValue = values.reduce((previousValue, currentValue) =>
-      ((isNumber(previousValue) && isNumber(currentValue)) ?
-        currentValue + previousValue : undefined)
-    , 0) / values.length;
-    return (isNaN(resultingValue)) ? undefined : Math.round(resultingValue);
-  }
-  return undefined;
+  if (!Array.isArray(values)) return undefined;
+  if (values.length == 0) return undefined;
+  const resultingValue = values.reduce((previousValue, currentValue) =>
+    ((isNumber(previousValue) && isNumber(currentValue)) ?
+      currentValue + previousValue : undefined)
+  , 0) / values.length;
+  return (isNaN(resultingValue)) ? undefined : Math.round(resultingValue);
 };
 
-console.log(average([1]));
 
 module.exports = average;
