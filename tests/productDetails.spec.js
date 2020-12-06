@@ -33,7 +33,7 @@ const productDetails = require('../src/productDetails');
 
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
-    assert.strictEqual(typeof productDetails('Alcool gel', 'Máscara'), 'array');
+    assert.strictEqual(Array.isArray(productDetails('Alcool gel', 'Máscara')), true);
     assert.deepStrictEqual(productDetails('Alcool gel', 'Máscara').map(a => typeof a), ['object', 'object']);
     assert.notDeepStrictEqual(productDetails('Alcool gel', 'Máscara')[0], productDetails('Alcool gel', 'Máscara')[1]);
     assert.strictEqual(productDetails('Alcool gel', 'Máscara').every(a => a.details.productId.endsWith('123')), true);
