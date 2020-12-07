@@ -54,7 +54,7 @@ describe('#createMenu', () => {
     assert.strictEqual(typeof createMenu({}).fetchMenu, 'function');
     assert.deepStrictEqual(Object.keys(createMenu({food: {}, drink: {}})
       .fetchMenu()), ['food', 'drink']);
-    assert.deepStrictEqual(createMenu({food: {}, drink: {}}).fetchMenu, {food: {}, drink: {}});
+    assert.deepStrictEqual(createMenu({food: {}, drink: {}}).fetchMenu(), {food: {}, drink: {}});
     assert.strictEqual(createMenu({food: {}, drink: {}}).consumption.length, 0);
     assert.strictEqual(createMenu({food: {}, drink: {}}).order('coxinha')[0], 'coxinha');
     assert.deepStrictEqual(['agua', 'sopa', 'sashimi'].reduce((acc, val) => {
