@@ -74,7 +74,7 @@ const createMenu = data => ({
   data,
   fetchMenu: () => data,
   consumption: [],
-  order: (orderName) => {
+  order(orderName) {
     this.consumption.push(orderName);
   },
   pay: () => consumption.reduce((acc, val) =>
