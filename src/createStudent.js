@@ -16,10 +16,10 @@
 */
 
 
-const createStudent = (name) => {
+const createStudent = (parameter) => {
   const informations = {
-    name: name,
-    feedback: () => 'Eita pessoa boa!', 
+    name: parameter,
+    feedback: () => 'Eita pessoa boa!',
   };
   return informations;
 };
