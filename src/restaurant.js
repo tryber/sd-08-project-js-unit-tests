@@ -75,7 +75,7 @@ const createMenu = data => ({
   fetchMenu: () => data,
   consumption: [],
   order: (orderName) => {
-    consumption.push(orderName);
+    this.consumption.push(orderName);
   },
   pay: () => consumption.reduce((acc, val) =>
     1.1 * (acc + { ...data.food, ...data.drink }[val]).toFixed(2), 0),
