@@ -78,8 +78,7 @@ const createMenu = data => ({
     consumption.push(orderName);
   },
   pay: () => consumption.reduce((acc, val) =>
-    1.1 * (acc + { ...data.food,
-      ...data.drink, }[val]).toFixed(2), 0)
+    1.1 * (acc + { ...data.food, ...data.drink }[val]).toFixed(2), 0),
 });
 
 module.exports = createMenu;
