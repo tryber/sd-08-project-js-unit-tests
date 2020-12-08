@@ -37,9 +37,9 @@ describe('#productDetails', () => {
     assert.strictEqual(productDetails('Alcool gel', 'Máscara').length, 2);
     assert.strictEqual(typeof (productDetails()[0] && productDetails()[1]), 'object');
     assert.notStrictEqual(productDetails('Alcool gel', 'Máscara')[0], productDetails('Alcool gel', 'Máscara')[1]);
-    const string1 = productDetails()[0].details.productId;
+    const string1 = productDetails('bruno')[0].details.productId;
     const string2 = productDetails()[1].details.productId;
-    assert.strictEqual(string1.endsWith('123'), '123');
-    assert.strictEqual(string2.endsWith('123'), '123');
+    assert.strictEqual(string1.endsWith('123'), true);
+    assert.strictEqual(string2.endsWith('123'), true);
   });
 });
