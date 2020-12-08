@@ -64,9 +64,9 @@ describe('#createMenu', () => {
           agua: 3.90,
           cerveja: 6.90,
        }
-      }
+      };
       
-      assert.deepStrictEqual(typeof (createMenu(menu).fetchMenu()), 'function');
+      assert.deepStrictEqual(createMenu(menu).fetchMenu(), menu);
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 2: Verifique que, quando a função createMenu for chamada passando como parâmetro o objeto: `{ food: {}, drink: {} }`, retorne um objeto que ao executar a função associada a propriedade `fetchMenu` deste objeto, o retorno da função de ser um objeto que tenha somente as chaves `food` e `drink`.
