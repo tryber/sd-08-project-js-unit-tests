@@ -34,9 +34,12 @@ const productDetails = require('../src/productDetails');
 describe('#productDetails', () => {
   it('tests the function has the correct behaviour', () => {
     assert.strictEqual(Array.isArray(productDetails()), true);
-    assert.strictEqual(productDetails('Alcool gel', 'Máscara').length, 2)
-    assert.strictEqual(typeof (productDetails()[0] && productDetails()[1]), 'object')
+    assert.strictEqual(productDetails('Alcool gel', 'Máscara').length, 2);
+    assert.strictEqual(typeof (productDetails()[0] && productDetails()[1]), 'object');
     assert.notStrictEqual(productDetails('Alcool gel', 'Máscara')[0], productDetais('Alcool gel', 'Máscara')[1]);
-    assert.strictEqual(productDetails('Alcool gel', 'Máscara')[0])
+    const string1 = productDetails()[0].details.productId;
+    const string2 = productDetails()[1].details.productId;
+    assert.strictEqual(string1.endsWith('123'), '123');
+    assert.strictEqual(string2.endsWith('123'), '123');
   });
 });
