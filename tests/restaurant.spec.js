@@ -66,7 +66,7 @@ describe('#createMenu', () => {
        }
       }
       
-      assert.strictEqual(typeof createMenu(menu).fetchMenu, 'function');
+      assert.strictEqual(typeof (createMenu(menu).fetchMenu), 'object');
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 2: Verifique que, quando a função createMenu for chamada passando como parâmetro o objeto: `{ food: {}, drink: {} }`, retorne um objeto que ao executar a função associada a propriedade `fetchMenu` deste objeto, o retorno da função de ser um objeto que tenha somente as chaves `food` e `drink`.
