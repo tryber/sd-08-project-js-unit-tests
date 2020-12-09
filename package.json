@@ -25,6 +25,9 @@
   "devDependencies": {
     "acorn": ">=5.7.4",
     "jest": "^24.9.0",
-    "minimist": ">=1.2.2"
+    "minimist": "^1.2.5"
+  },
+  "dependencies": {
+    "mocha": "^8.2.1"
   }
 }
