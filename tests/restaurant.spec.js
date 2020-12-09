@@ -74,8 +74,8 @@ describe('#createMenu', () => {
     // const objetoRetornadoTeste2 = createMenu(objetoQualquer);
     // objetoRetornadoTeste2.fetchMenu() // retorno: { food: {}, drink: {}}
       const objeto = {
-        food: {},
-        drink: {}
+        food: {coxinha: 3.9, sopa: 10.00, sashimi: 10.00},
+        drink: {agua: 3.90}
       }
       assert.deepStrictEqual(Object.keys(createMenu(objeto)).fetchMenu(), ['food', 'drink'])
     // Agora faça o TESTE 3 deste arquivo.
@@ -110,28 +110,33 @@ describe('#createMenu', () => {
     // objetoRetornadoTeste6.order("sopa");
     // objetoRetornadoTeste6.order("sashimi");
     // objetoRetornadoTeste6.consumption // Valor: ["agua", "sopa", "sashimi"]
-    // ```
+       createMenu(objeto).order("agua");
+       createMenu(objeto).order("sopa");
+       createMenu(objeto).order("sashimi");
+       assert.deepStrictEqual(createMenu(objeto).consumption, ["agua", "sopa", "sashimi"]);
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função associada a propriedade `order` aceita que pedidos repetidos sejam adicionados ao array `consumption`.
-    // ```
+      
     // const objetoRetornadoTeste7 = createMenu(objetoQualquer);
     // objetoRetornadoTeste7.order('coxinha');
     // objetoRetornadoTeste7.order('agua');
     // objetoRetornadoTeste7.order('coxinha');
     // objetoRetornadoTeste7.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
-    // ```
+       createMenu(objeto).order("coxinha");
+       createMenu(objeto).order("coxinha");
+       assert.deepStrictEqual(createMenu(objeto).consumption, ["coxinha", "coxinha"]);
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
-    // ```
+    
     // const objetoRetornadoTeste8 = createMenu(objetoQualquer);
     // objetoRetornadoTeste8.order("agua");
     // objetoRetornadoTeste8.order("agua");
     // objetoRetornadoTeste8.order("sopa");
     // objetoRetornadoTeste8.order("sashimi");
     // objetoRetornadoTeste8.pay() // Retorno: somaDosPreçosDosPedidos
-    // ```
+       assert.strictEqual(createMenu(objeto).pay(), 35.60)
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
