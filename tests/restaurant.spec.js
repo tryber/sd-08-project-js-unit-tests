@@ -82,7 +82,7 @@ describe('#createMenu', () => {
     // const objetoRetornadoTeste3 = createMenu(objetoQualquer);
     // objetoRetornadoTeste3.fetchMenu() // Retorno: objetoQualquer
     // ```
-    // assert.ok(objetoRetornadoTeste3.fetchMenu() === objetoQualquer);
+    assert.ok(createMenu(menu).fetchMenu() === menu);
     // Agora faça o TESTE 4 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 4: Verifique que, além da função `fetchMenu`, o objeto retornado pela função `createMenu` contem também um array associado a chave `consumption`. Inicialmente esse array deve estar vazio.
