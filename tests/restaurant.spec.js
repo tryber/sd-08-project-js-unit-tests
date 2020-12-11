@@ -85,11 +85,14 @@ describe('#createMenu', () => {
     assert.ok(createMenu(menu).fetchMenu() === menu);
     // Agora faça o TESTE 4 deste arquivo.
     // --------------------------------------------------------------------------------------
-    // TESTE 4: Verifique que, além da função `fetchMenu`, o objeto retornado pela função `createMenu` contem também um array associado a chave `consumption`. Inicialmente esse array deve estar vazio.
+    // TESTE 4: Verifique que, além da função `fetchMenu`,
+    // o objeto retornado pela função `createMenu` contem também um array associado a chave `consumption`.
+    // Inicialmente esse array deve estar vazio.
     // ```
     // const objetoRetornadoTeste4 = createMenu(objetoQualquer);
     // objetoRetornadoTeste4.consumption // Valor: []
-    // ```assert.strictEqual(objetoRetornadoTeste4.consumption, []);
+    // ```
+    assert.strictEqual(createMenu('objetoQualquer').consumption.length, 0);
     // Agora faça o PASSO 2 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 5: Verifique que ao chamar a função associada à chave `order` no objeto retornado,
