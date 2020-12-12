@@ -132,11 +132,11 @@ describe('#createMenu', () => {
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
     // ```
-    // const objetoRetornadoTeste8 = createMenu(objetoQualquer);
-    // objetoRetornadoTeste8.order("agua");
-    // objetoRetornadoTeste8.order("agua");
-    // objetoRetornadoTeste8.order("sopa");
-    // objetoRetornadoTeste8.order("sashimi");
+    const objetoRetornadoTeste8 = createMenu(objetoQualquer);
+    objetoRetornadoTeste8.order("agua");
+    objetoRetornadoTeste8.order("agua");
+    objetoRetornadoTeste8.order("sopa");
+    objetoRetornadoTeste8.order("sashimi");
     // objetoRetornadoTeste8.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
