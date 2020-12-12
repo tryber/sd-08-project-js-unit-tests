@@ -103,26 +103,31 @@ describe('#createMenu', () => {
     // objetoRetornadoTeste5.order("coxinha");
     // objetoRetornadoTeste5.comsuption // Valor: ["coxinha"]
     // ```
+    const menuTest4 = createMenu({food: {}, drink: {}});
+    menuTest4.order('coxinha');
+    assert.deepStrictEqual(menuTest4.consumption, ['coxinha']);
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
     // TESTE 6: Verifique que as três orders seguintes, de bebidas e comidas mescladas, somam três itens ao array `objetoRetornadoTeste6.consumption` conforme os itens pedidos.
     // ```
-    // const objetoRetornadoTeste6 = createMenu(objetoQualquer);
-    // objetoRetornadoTeste6.order("agua");
-    // objetoRetornadoTeste6.order("sopa");
-    // objetoRetornadoTeste6.order("sashimi");
+    const objetoRetornadoTeste6 = createMenu('objetoQualquer');
+    objetoRetornadoTeste6.order("agua");
+    objetoRetornadoTeste6.order("sopa");
+    objetoRetornadoTeste6.order("sashimi");
     // objetoRetornadoTeste6.consumption // Valor: ["agua", "sopa", "sashimi"]
     // ```
+    assert.deepStrictEqual(objetoRetornadoTeste6.consumption, ["agua", "sopa", "sashimi"]);
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função associada a propriedade `order` aceita que pedidos repetidos sejam adicionados ao array `consumption`.
     // ```
-    // const objetoRetornadoTeste7 = createMenu(objetoQualquer);
-    // objetoRetornadoTeste7.order('coxinha');
-    // objetoRetornadoTeste7.order('agua');
-    // objetoRetornadoTeste7.order('coxinha');
+    const objetoRetornadoTeste7 = createMenu('objetoQualquer');
+    objetoRetornadoTeste7.order('coxinha');
+    objetoRetornadoTeste7.order('agua');
+    objetoRetornadoTeste7.order('coxinha');
     // objetoRetornadoTeste7.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
+    assert.deepStrictEqual(objetoRetornadoTeste7.consumption, ['coxinha', 'agua', 'coxinha']);
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
