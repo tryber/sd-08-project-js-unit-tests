@@ -106,9 +106,7 @@ describe('#createMenu', () => {
     // TESTE 5: Verifique que ao chamar a função associada à chave `order` no objeto retornado, passando uma string como parâmetro, como `objetoRetornadoTeste5.order('coxinha')`, tal string é adicionada ao array contido em `objetoRetornadoTeste5.consumption
     // ```
     // const objetoRetornadoTeste5 = createMenu(objetoQualquer);
-    // objetoRetornadoTeste5.order("coxinha");
-    // objetoRetornadoTeste5.comsuption // Valor: ["coxinha"]
-    // ```
+    // objetoRetornadoTeste5.order("coxinha");Pizza
     const objetoRetornadoTeste5 = createMenu(menuTest)
     objetoRetornadoTeste5.order("coxinha");
     assert.deepStrictEqual(objetoRetornadoTeste5.consumption, ["coxinha"]);
@@ -122,6 +120,11 @@ describe('#createMenu', () => {
     // objetoRetornadoTeste6.order("sashimi");
     // objetoRetornadoTeste6.consumption // Valor: ["agua", "sopa", "sashimi"]
     // ```
+    const objetoRetornadoTeste6 = createMenu(menuTest);
+    objetoRetornadoTeste6.order("agua");
+    objetoRetornadoTeste6.order("cerveja");
+    objetoRetornadoTeste6.order("sopa");
+    assert.deepStrictEqual(objetoRetornadoTeste6.consumption, ["agua", "cerveja", "sopa"]);
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
     // TESTE 7: Verifique que a função associada a propriedade `order` aceita que pedidos repetidos sejam adicionados ao array `consumption`.
@@ -132,9 +135,14 @@ describe('#createMenu', () => {
     // objetoRetornadoTeste7.order('coxinha');
     // objetoRetornadoTeste7.comsuption // Retorno: ['coxinha', 'agua', 'coxinha']
     // ```
+    const objetoRetornadoTeste7 = createMenu(menuTest);
+    objetoRetornadoTeste7.order("coxinha");
+    objetoRetornadoTeste7.order("agua");
+    objetoRetornadoTeste7.order("coxinha");
+    assert.deepStrictEqual(objetoRetornadoTeste7.consumption, ["coxinha", "agua", "coxinha"]);
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
-    // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
+    // TESTE 8: Verifique qe, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
     // ```
     // const objetoRetornadoTeste8 = createMenu(objetoQualquer);
     // objetoRetornadoTeste8.order("agua");
@@ -143,6 +151,11 @@ describe('#createMenu', () => {
     // objetoRetornadoTeste8.order("sashimi");
     // objetoRetornadoTeste8.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
+    const objetoRetornadoTeste8 = createMenu(menuTest);
+    objetoRetornadoTeste8.order("agua");
+    objetoRetornadoTeste8.order("coxinha");
+    assert.deepStrictEqual(objetoRetornadoTeste7.pay, 7.8);
+
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
