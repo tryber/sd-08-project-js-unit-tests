@@ -72,10 +72,9 @@
 
 
 const createMenu = (object) => { 
-  const restaurant = {}
-  totalConsumption = restaurant.consumption;
-
-  const orderMenu = (restaurant, request) => {restaurant.consumption.push(request); }
+  const orderMenu = (restaurant, request) => { 
+    restaurant.consumption.push(request); 
+  }
 
   const bill = () => {
     let total = 0;
@@ -84,12 +83,13 @@ const createMenu = (object) => {
     });
     return parseFloat((total * 1.1).toFixed(2));
   };
-  return restaurant = { 
+  restaurant = { 
     fetchMenu: object,
     consumption: [],
     order: orderMenu,
     pay: bill
   }
+return restaurant;
 };
 
 module.exports = createMenu;
