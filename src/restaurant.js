@@ -82,7 +82,7 @@ const createMenu = (object) => {
         total += object.drink[item] || object.food[item] || 0;
       });
       return parseFloat((total * 1.1).toFixed(2));
-    }
+    },
   };
   return restaurant;
 };
