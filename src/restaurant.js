@@ -72,18 +72,17 @@
 
 
 const createMenu = (object) => {
-  const bill = () => {
-    let total = 0;
-    consumption.forEach((item) => {
-      total += object.drink[item] || object.food[item] || 0;
-    });
-    return parseFloat((total * 1.1).toFixed(2));
-  };
   restaurant = {
     fetchMenu: () => object,
     consumption: [],
     order: request => restaurant.consumption.push(request),
-    pay: bill,
+    pay: () => {
+      let total = 0;
+      consumption.forEach((item) => {
+        total += object.drink[item] || object.food[item] || 0;
+      });
+      return parseFloat((total * 1.1).toFixed(2));
+    }
   };
   return restaurant;
 };
