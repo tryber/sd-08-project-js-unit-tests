@@ -72,10 +72,6 @@
 
 
 const createMenu = (object) => {
-  const orderMenu = (restaurant, request) => {
-    restaurant.consumption.push(request);
-  };
-
   const bill = () => {
     let total = 0;
     consumption.forEach((item) => {
@@ -86,7 +82,7 @@ const createMenu = (object) => {
   restaurant = {
     fetchMenu: () => object,
     consumption: [],
-    order: orderMenu,
+    order: request => restaurant.consumption.push(request),
     pay: bill,
   };
   return restaurant;
