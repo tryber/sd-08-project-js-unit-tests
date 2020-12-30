@@ -44,20 +44,20 @@
 */
 
 // PASSO 1: Crie uma função `createMenu()` que, dado um objeto passado por parâmetro, retorna um objeto com o seguinte formato: { fetchMenu: objetoPassadoPorParametro }.
-//
+
 // Agora faça o TESTE 2 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
 
 // PASSO 2: Adicione ao objeto retornado pela função `createMenu` uma chave `consumption` que, inicialmente, tem um array vazio.
-//
+
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
 
 // PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função como valor da chave `order`.
 // DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` deve retornar e, depois, a função que será atribuida a chave `order` deste objeto.
-// ```
+
 // const restaurant = {}
 //
 // const createMenu = (myMenu) => // Lógica que edita e retorna o objeto `restaurant`
@@ -70,6 +70,20 @@
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
-const createMenu = () => { };
+
+const createMenu = (objeto) => {
+  const restaurant = {
+    fetchMenu: () => objeto,
+    consumption: [],
+    order: string => restaurant.consumption.push(string),
+    pay: () => {
+      const menu = Object.assign(newMenu = {}, restaurant.fetchMenu().food, restaurant.fetchMenu().drinks);
+      let result = restaurant.consumption.reduce((acumulator, item) => acumulator + menu[item], 0);
+      result *= 1.1;
+      return result.toFixed(2);
+    },
+  };
+  return restaurant;
+};
 
 module.exports = createMenu;
