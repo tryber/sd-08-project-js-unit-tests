@@ -61,7 +61,7 @@ describe('#createMenu', () => {
       Object.keys(createMenu()).includes('fetchMenu'),
       true
     );
-    assert.strictEqual(typeof createMenu().fetchMenu, 'function');
+    assert.strictEqual(typeof createMenu().fetchMenu(), 'function');
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
@@ -154,7 +154,7 @@ describe('#createMenu', () => {
     const objetoRetornadoTeste8 = createMenu(menuTest);
     objetoRetornadoTeste8.order("agua");
     objetoRetornadoTeste8.order("coxinha");
-    assert.deepStrictEqual(objetoRetornadoTeste7.pay, 7.8);
+    assert.deepStrictEqual(objetoRetornadoTeste7.pay, 8.58);
 
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
