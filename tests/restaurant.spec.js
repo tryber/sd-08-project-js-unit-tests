@@ -61,7 +61,7 @@ describe('#createMenu', () => {
       Object.keys(createMenu()).includes('fetchMenu'),
       true
     );
-    assert.strictEqual(typeof createMenu().fetchMenu(), 'function');
+    assert.deepStrictEqual(typeof createMenu().fetchMenu(), 'function');
     // ```
     // Agora faça o PASSO 1 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
