@@ -79,12 +79,12 @@ const createMenu = (object) => {
   const bill = () => {
     let total = 0;
     consumption.forEach((item) => {
-      total += object.drinks[item] || object.food[item] || 0;
+      total += object.drink[item] || object.food[item] || 0;
     });
     return parseFloat((total * 1.1).toFixed(2));
   };
   restaurant = {
-    fetchMenu: object,
+    fetchMenu: () => object,
     consumption: [],
     order: orderMenu,
     pay: bill,
