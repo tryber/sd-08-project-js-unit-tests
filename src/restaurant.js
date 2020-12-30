@@ -72,18 +72,18 @@
 
 
 const createMenu = (objeto) => {
-  const restaurant = { 
+  const restaurant = {
     fetchMenu: () => objeto,
     consumption: [],
-    order: (string) => restaurant.consumption.push(string),
+    order: string => restaurant.consumption.push(string),
     pay: () => {
-      const menu = Object.assign(newMenu = {}, restaurant.fetchMenu().food, restaurant.fetchMenu().drinks)
-      const result = restaurant.consumption.reduce((acumulator, item) => acumulator += menu[item], 0)
-      result = result * 1.1
-      return result.toFixed(2)
-    }
-  }
+      const menu = Object.assign(newMenu = {}, restaurant.fetchMenu().food, restaurant.fetchMenu().drinks);
+      let result = restaurant.consumption.reduce((acumulator, item) => acumulator += menu[item], 0);
+      result *= 1.1;
+      return result.toFixed(2);
+    },
+  };
   return restaurant;
-}
+};
 
 module.exports = createMenu;
