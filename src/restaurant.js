@@ -49,14 +49,19 @@
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 2: Adicione ao objeto retornado pela função `createMenu` uma chave `consumption` que, inicialmente, tem um array vazio.
+// PASSO 2: Adicione ao objeto retornado pela função `createMenu` uma chave `consumption` que,
+// inicialmente, tem um array vazio.
 //
 // Agora faça o TESTE 5 no arquivo `tests/restaurant.spec.js`.
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`. Adicione essa função como valor da chave `order`.
-// DICA: para criar isso, você vai precisar definir a função `createMenu()`, definir o objeto que a `createMenu()` deve retornar e, depois, a função que será atribuida a chave `order` deste objeto.
+// PASSO 3: Crie uma função, separada da função `createMenu()`,
+// que, dada uma string recebida por parâmetro, adiciona essa string ao array de `objetoRetornado.consumption`.
+// Adicione essa função como valor da chave `order`.
+// DICA: para criar isso, você vai precisar definir a função `createMenu()`,
+// definir o objeto que a `createMenu()` deve retornar e, depois,
+// a função que será atribuida a chave `order` deste objeto.
 // ```
 // const restaurant = {}
 //
@@ -68,8 +73,48 @@
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
+// PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay`
+// com uma função que itera por todos os itens de `objetoRetornado.consumption`,
+// soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%.
+// DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
 
-const createMenu = () => { };
+const ComputeResult = (consumption, menu) => {
+  let valor = 0;
+  for (let index = 0; index < consumption.length; index += 1) {
+    if (menu.food[consumption[index]]) {
+      valor += menu.food[consumption[index]];
+    } else if (menu.drinks[consumption[index]]) {
+      valor += menu.drinks[consumption[index]];
+    }
+  }
+  return valor * 1.1;
+};
+
+const createMenu = (objetoQualquer) => {
+  const menu = {
+    fetchMenu: () => objetoQualquer,
+    consumption: [],
+    order: (request) => {
+      const order = menu.consumption.push(request);
+      return order;
+    },
+    pay: () => {
+      const pago = menu.consumption;
+      const itens = menu.fetchMenu();
+      return ComputeResult(pago, itens);
+    },
+  };
+  return menu;
+};
+
+// const objetoRetornadoTeste7 = createMenu({
+//   food: { coxinha: 3, sanduiche: 9.90, },
+//   drinks: { agua: 3, cerveja: 6.90, },
+//   });
+//     objetoRetornadoTeste7.order('coxinha');
+//     objetoRetornadoTeste7.order('agua');
+//     objetoRetornadoTeste7.order('coxinha');
+
+//     console.log(typeof objetoRetornadoTeste7.pay());
 
 module.exports = createMenu;
