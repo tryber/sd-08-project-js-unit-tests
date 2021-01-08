@@ -88,7 +88,7 @@ const ComputeResult = (consumption, menu) => {
     }
   }
   return valor * 1.1;
-}
+};
 
 const createMenu = (objetoQualquer) => {
   const menu = {
@@ -102,19 +102,19 @@ const createMenu = (objetoQualquer) => {
       const pago = menu.consumption;
       const itens = menu.fetchMenu();
       return ComputeResult(pago, itens);
-    }
+    },
   };
   return menu;
 };
 
-const objetoRetornadoTeste7 = createMenu({
-    food: {'coxinha': 3, 'sanduiche': 9.90},
-    drinks: {'agua': 3, 'cerveja': 6.90}
-  });
-    objetoRetornadoTeste7.order('coxinha');
-    objetoRetornadoTeste7.order('agua');
-    objetoRetornadoTeste7.order('coxinha');
+// const objetoRetornadoTeste7 = createMenu({
+//   food: { coxinha: 3, sanduiche: 9.90, },
+//   drinks: { agua: 3, cerveja: 6.90, },
+//   });
+//     objetoRetornadoTeste7.order('coxinha');
+//     objetoRetornadoTeste7.order('agua');
+//     objetoRetornadoTeste7.order('coxinha');
 
-    console.log(typeof objetoRetornadoTeste7.pay());
+//     console.log(typeof objetoRetornadoTeste7.pay());
 
 module.exports = createMenu;
