@@ -80,7 +80,7 @@
 
 const ComputeResult = (consumption, menu) => {
   let valor = 0;
-  for ( let index = 0; index < consumption.length; index += 1) {
+  for (let index = 0; index < consumption.length; index += 1) {
     if (menu.food[consumption[index]]) {
       valor += menu.food[consumption[index]];
     } else if (menu.drinks[consumption[index]]) {
