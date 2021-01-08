@@ -32,7 +32,7 @@ const createMenu = require('../src/restaurant');
   - Uma chave `fetchMenu` que tem uma função associada, esta por sua vez retorna o objeto recebido por parâmetro na função `createMenu`. O menu tem sempre duas chaves, `food` e `drink`, no seguinte formato:
 
   const meuRestaurante = createMenu({
-    food: {'coxinha': 3.90, 'sanduiche', 9.90},
+    food: {'coxinha': 3.90, 'sanduiche': 9.90},
     drinks: {'agua': 3.90, 'cerveja': 6.90}
   });
 
@@ -130,15 +130,21 @@ describe('#createMenu', () => {
     assert.deepStrictEqual(objetoRetornadoTeste7.consumption, ['coxinha', 'agua', 'coxinha']);
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
-    // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornadoTeste8.consumption`
+    // TESTE 8: Verifique que, ao chamar `objetoRetornadoTeste8.pay()`,
+    // retorna-se a soma dos preços de tudo que foi pedido,
+    // conforme registrado em `objetoRetornadoTeste8.consumption`
     // ```
-    const objetoRetornadoTeste8 = createMenu(objetoQualquer);
+    const objetoRetornadoTeste8 = createMenu({
+      food: {'sopa': 3.90, 'sashimi': 9.90},
+      drinks: {'agua': 3.90, 'cerveja': 6.90}
+    });
     objetoRetornadoTeste8.order("agua");
     objetoRetornadoTeste8.order("agua");
     objetoRetornadoTeste8.order("sopa");
     objetoRetornadoTeste8.order("sashimi");
     // objetoRetornadoTeste8.pay() // Retorno: somaDosPreçosDosPedidos
     // ```
+    assert.strictEqual(parseFloat(objetoRetornadoTeste8.pay().toPrecision(4)), 23.76)
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
