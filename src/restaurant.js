@@ -69,7 +69,55 @@
 //------------------------------------------------------------------------------------------
 
 // PASSO 4: Adicione ao objeto `restaurant`, que foi retornado pela função `createMenu()` uma chave `pay` com uma função que itera por todos os itens de `objetoRetornado.consumption`, soma o preço de todos checando-os no menu e retorna o valor somado acrescido de 10%. DICA: para isso, você precisará iterar tanto pelo objeto da chave `food` quanto pelo objeto da chave `drink`.
+let menu = {};
 
-const createMenu = () => { };
+const orderFromMenu = (request) => {
+  menu.consumption.push(request);
+};
+
+const somaValores = () => {
+  let valorTotal = 0;
+  menu.consumption.forEach((item) => {
+    if (menu.fetchMenu.food) {
+      valorTotal += menu.fetchMenu.food[item] || 0;
+    }
+    if (menu.fetchMenu.drink) {
+      valorTotal += menu.fetchMenu.drink[item] || 0;
+    }
+  });
+
+  return valorTotal + (valorTotal / 10);
+};
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Para a função somaValores eu precisei de ajuda no plantão, estava construindo a logica abaixo. Durante o plantão a Vivi enviou o começo da logica que utilizei acima. Eu compreendi que era bem mais pratico, pois não precisava me preucupar em armazenar os valores em um array pra depois somar o array, eu poderia somar eles direto armazenando na variavel de retorno. Ela enviou apenas o começo, precisei refatorar e completar para fazer funcionar.
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// const somaValores = () => {
+//   const pedidos = menu.consumption;
+//   const valores = [];
+//   let valorTotal = 0;
+//   pedidos.forEach(pedido => {
+//     if (menu.food) {
+//       const verificaFood = Object.entries(menu.fetchMenu.food).some(item => item[0] === pedido);
+//       if (verificaFood) {
+//         valores.push(Object.entries(menu.fetchMenu.food).find(item => item[0] === pedido));
+//       }
+//     }
+//     if (menu.drink) {
+//       const verificaDrink = Object.entries(menu.fetchMenu.drink).some(item => item[0] === pedido);
+//       if (verificaDrink) {
+//         valores.push(Object.entries(menu.fetchMenu.drink).find(item => item[0] === pedido));
+//       }
+//     }
+//     valores.forEach(valor => {
+//       valorTotal += valor[1];
+//     });
+//   });
+//   return valorTotal
+// };
+
+const createMenu = (obj) => {
+  menu = { fetchMenu: obj, consumption: [], order: orderFromMenu, pay: somaValores };
+  return menu;
+};
 
 module.exports = createMenu;
