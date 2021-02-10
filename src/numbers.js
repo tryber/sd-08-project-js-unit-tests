@@ -1,7 +1,6 @@
 /*
   A função numbers recebe um array (tamanho variável),
   retornando true se todos os parâmetros forem do tipo 'number' e false caso contrário.
-
   Parâmetros:
     - Um array. Exemplos: [1, 2]; [1, 2, 3, 4, 5]; [1, 2, 'a']; [].
   Comportamento:
