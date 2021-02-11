@@ -12,7 +12,7 @@
     estudante.feedback() // Retorna: 'Eita pessoa boa!'
 */
 
-const createStudent = (estudante) => ({
+const createStudent = estudante => ({
   name: estudante,
   feedback: () => 'Eita pessoa boa!',
 });

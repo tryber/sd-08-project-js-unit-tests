@@ -16,7 +16,7 @@
 */
 
 const vqv = (nome, idade) => {
-  let resultado = undefined;
+  let resultado;
   if (nome === undefined || idade === undefined) {
     resultado = undefined;
   } else {
