@@ -47,10 +47,10 @@
 
 // const assert = require('assert');
 
-const createMenu = (menu) => ({
+const createMenu = menu => ({
   fetchMenu: () => menu,
   consumption: () => [],
-  order: (ordem) => createMenu().consumption.push(ordem),
+  order: ordem => createMenu().consumption.push(ordem),
   pay: () => {},
 });
 
