@@ -158,7 +158,7 @@ Para **"entregar"** seu projeto, siga os passos a seguir:
 
 Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
----
+----
 
 ### REVISANDO UM PULL REQUEST
 
